@@ -1,0 +1,18 @@
+site_name: WebSite X5 Developer's Guide
+site_author: Incomedia Srl
+copyright: © 2015 - Incomedia Srl
+use_directory_urls: false
+theme: readthedocs
+strict: true
+pages:
+ - ['index.md', 'Home']
+ - ['optional-objects/introduction.md', 'Optional Objects', 'Introduction']
+ - ['optional-objects/getting-started.md', 'Optional Objects', 'Getting Started']
+ - ['optional-objects/conventions-structure.md', 'Optional Objects', 'Optional Objects structure']
+ - ['optional-objects/manifest-xml.md', 'Optional Objects', 'Manifest XML']
+ - ['optional-objects/user-input-fields.md', 'Optional Objects', 'User input fields']
+ - ['optional-objects/localizations-xml.md', 'Optional Objects', 'Localizations']
+ - ['optional-objects/hooks.md', 'Optional Objects', 'Hacking the default behavior']
+ - ['optional-objects/wsx5-script.md', 'Optional Objects', 'WSX5 Script']
+ - ['optional-objects/tips.md', 'Optional Objects', 'Tips']
+ - ['optional-objects/examples.md', 'Optional Objects', 'Examples']
