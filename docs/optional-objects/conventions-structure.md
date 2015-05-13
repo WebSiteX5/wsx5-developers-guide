@@ -6,7 +6,7 @@ An Optional Object is made of some different files. All of them are stored in a 
 
 This folder needs to be created in the following path:
 
-C:\\Users\\[User Name]\\AppData\\Local\\Incomedia\\WebSiteX5 v11 – Professional\\PluginApps
+**C:\Users\\[User Name]\AppData\Local\Incomedia\WebSiteX5 v11 - [Edition]\PluginApps**
 
 An Optional Object folder may contain the following files:
 

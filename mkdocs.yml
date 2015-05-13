@@ -1,9 +1,15 @@
 site_name: WebSite X5 Developer's Guide
 site_author: Incomedia Srl
+site_url: devguide.websitex5.com
+repo_url: https://github.com/WebSiteX5/wsx5-developers-guide
 copyright: © 2015 - Incomedia Srl
 use_directory_urls: false
 theme: readthedocs
 strict: true
+extra_javascript: [jslibs/css_classes.js]
+extra_css: [css/cssfix.css]
+markdown_extensions: [nl2br]
+site_favicon: favicon.ico
 pages:
  - ['index.md', 'Home']
  - ['optional-objects/introduction.md', 'Optional Objects', 'Introduction']
@@ -15,4 +21,21 @@ pages:
  - ['optional-objects/hooks.md', 'Optional Objects', 'Hacking the default behavior']
  - ['optional-objects/wsx5-script.md', 'Optional Objects', 'WSX5 Script']
  - ['optional-objects/tips.md', 'Optional Objects', 'Tips']
- - ['optional-objects/examples.md', 'Optional Objects', 'Examples']
+ - ['optional-objects/examples.md', 'Optional Objects', 'Example Objects']
+ - ['generic-javascript-api/introduction.md', 'X5 Engine JavaScript API', 'Introduction']
+ - ['generic-javascript-api/boot.md', 'X5 Engine JavaScript API', 'Boot Class']
+ - ['generic-javascript-api/showbox.md', 'X5 Engine JavaScript API', 'Showbox Class']
+ - ['generic-javascript-api/tip.md', 'X5 Engine JavaScript API', 'Tooltip Class']
+ - ['generic-javascript-api/l10n.md', 'X5 Engine JavaScript API', 'Localizations Class']
+ - ['ecommerce-javascript-api/introduction.md', 'Ecommerce JavaScript API', 'Introduction']
+ - ['ecommerce-javascript-api/ecommerce-class.md', 'Ecommerce JavaScript API', 'E-Commerce Class']
+ - ['ecommerce-javascript-api/product-class.md', 'Ecommerce JavaScript API', 'Product Class']
+ - ['ecommerce-javascript-api/payment-class.md', 'Ecommerce JavaScript API', 'Payment Class']
+ - ['ecommerce-javascript-api/shipping-class.md', 'Ecommerce JavaScript API', 'Shipping Class']
+ - ['ecommerce-javascript-api/ui.md', 'Ecommerce JavaScript API', 'User Interface']
+ - ['php-api/introduction.md', 'X5 Engine PHP API', 'Introduction']
+ - ['php-api/global-functions.md', 'X5 Engine PHP API', 'Global Functions']
+ - ['php-api/comment-class.md', 'X5 Engine PHP API', 'Comment Class']
+ - ['php-api/database-class.md', 'X5 Engine PHP API', 'Database Class']
+ - ['php-api/privatearea-class.md', 'X5 Engine PHP API', 'Private Area Class']
+ - ['php-api/topic-class.md', 'X5 Engine PHP API', 'Topic Class']

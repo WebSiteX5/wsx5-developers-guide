@@ -1,13 +1,11 @@
 ## Localizations
 
 An Optional Object may be localized using the localizations.xml file prodived with the object.
-
 The file format is the same used for the languages of WebSite X5.
+It is mandatory to fill in at least the English localization in the file. 
 
-It is obligatory to fill in at least the English localization in the file. 
-
-To access the localizations from the manifest.xml file, add the l10n-id attribute to the xml element you want to localize.
-The l10n-id attribute must contain a localization id that was previously specified in the localization.xml file using the <Key> tag as reported in the following example.
+To access the localizations from the manifest.xml file, add the `l10n-id` attribute to the xml element you want to localize.
+The `l10n-id` attribute must contain a localization id that was previously specified in the localization.xml file using the `<Key>` tag as reported in the following example.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,3 +44,7 @@ The l10n-id attribute must contain a localization id that was previously specifi
  </Languages>
 </WebsiteX5LanguagesLibrary>
 ```
+
+### Localizations and WSX5 Script
+You can access to your localizations and to the global localizations of WebSite X5 using the WSX5 Script.
+See the [examples provided in the WSX5 Script section](wsx5-script.md#l10n).
