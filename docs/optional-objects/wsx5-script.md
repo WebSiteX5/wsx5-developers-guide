@@ -7,7 +7,7 @@ The script needs to be executed inside the `<?wsx5` and `?>` tags (except in the
 The following variables are defined in the code.
 
 ## parameters
-Type: Object
+**Type**: Object
 Each element of this object has the properties specified in [the user input fields list](user-input-fields.md), basing on the field type.
 It is defined as follows:
 
@@ -43,7 +43,7 @@ var parameters = {
 ```
 
 ## resources
-Type: Object
+**Type**: Object
 A JSON object containing a JSON object for each resource id. It is defined as follows:
 ```javascript
 var resources = {
@@ -65,7 +65,7 @@ var resources = {
 ```
 
 ## document
-Type: Object
+**Type**: Object
 A JSON object that allows you to output your custom code to the object's output.
 It's defined as follows:
 
@@ -78,7 +78,7 @@ var document = {
 ```
 
 ## console
-Type: Object
+**Type**: Object
 A JSON object that allows you to output some string to the dev's console.
 It's defined as follows:
 
@@ -90,8 +90,13 @@ var console = {
 };
 ```
 
+### Example: Output a text to the console
+```javascript
+console.log("This message will be output to the developer's console");
+```
+
 ## currentObject
-Type: Object
+**Type**: Object
 A JSON object that contains some useful information about the current object.
 Is defined as follows:
 
@@ -101,13 +106,115 @@ var currentObject = {
 	// The object id
 	"id": "current-object-id",
 
-	// The object width
-	"width": 400
+	// The largest width that the object can reach in a breakpoint. Here for backward compatibility.
+	"width": 400,
+
+	// The object width at each breakpoint
+	"widths": {
+		"Desktop": 400,
+		"Breakpoint1": 350,
+		"Breakpoint2": 250,
+		// Always rely on the "fluid" property of the breakpoints you get from the
+		// "wsx5" object! If the breakpoint is fluid you should not use this value
+		// but rather set the object's content to 100% width. This is always true
+		// for the smallest breakpoint.
+		"Smartphone": 200
+	}
 };
 ```
 
+## menu
+**Type**: Object
+**Since**: 12.0.0
+A JSON object that contains the menu tree data and the info about the current page.
+
+```javascript
+var menu {
+
+	// The current page id.
+	//This is the page where the current object is.
+	"currentPageId": 2,                    	
+
+	// The nodes structure
+	"nodes": [
+		{
+			"type": "page",   // See the other types below
+			"id": 1,
+			"parentid": 0,
+			"label": "Page 1",
+			
+			// True if this was set as "working page" by the user.
+			// If true, this page will be shown in preview only
+			"isWorking": false,            	
+			
+			// True if this page was set as hidden in the menu.
+			"isHidden": false,             	
+			
+			"destination": "page-1.html",
+            "icon": "page1.jpg"            	
+		},
+		{
+			"type": "separator",
+			"id": 2,
+			"parentid": 0
+			"label": "Separator 1",
+			"isHidden": false,
+		},
+		{
+			"type": "level",
+			"id": 3,
+			"parentid": 0,
+			"label": "Level 1",
+			"isHidden": false,
+			"icon": "",
+
+			// An array of elements just like the current one
+			"nodes": [
+				{
+					"type": "page",
+					..
+					..
+				},
+				{
+					"type": "level",
+					// And so on...
+					"nodes": [ .. ]
+				}
+			]
+		}
+	]
+}
+```
+### Example: Drawing the menu tree
+
+```javascript
+/**
+ * Output the current nodes array to the console, then recurse inside the levels
+ * @param  {String} prefix The prefix to add to the current nodes labels
+ * @param  {Array} nodes   The array of nodes to draw to the console
+ * @return {Void}
+ */
+function drawMenu( prefix, nodes ) {
+	for ( var i = 0; i < nodes.length; i++ ) {
+		console.log( prefix + nodes[i].label );
+		if ( nodes[i].type == 'level' ) {
+			drawMenu( prefix + nodes[i].label + "/", nodes[i].nodes );
+		}
+	}
+}
+
+drawMenu( "", menu.nodes );
+
+// Output Example:
+// Page 1
+// Page 2
+// Level 3
+// Level 3/Page 4
+// Level 3/Page 5
+```
+
 ## l10n
-Type: Object
+**Type**: Object
 Allows you to get the localizations defined in the localizations.xml file or in the global localizations container of WSX5.
 It's defined as follows:
 
@@ -117,23 +224,28 @@ var l10n = {
 	// returns the localization in the website language.
 	"get": function(localizationId) { ... },
 
-	// returns the localization in the website language. If localizationId is not found, returns defaultValue.
+	// returns the localization in the website language.
+	// If localizationId is not found, returns defaultValue.
 	"get": function(localizationId, defaultValue) { ... },
 
-	// returns the localization in the specified language, returning defaultValue id localizationId is not found
+	// returns the localization in the specified language,
+	// returning defaultValue id localizationId is not found
 	"get": function(localizationId, defaultValue, languageId) { ... },
 
-	// returns the requested localization by taking it from the localization library of the UI of WebSite X5.
+	// returns the requested localization by taking it from
+	// the localization library of the UI of WebSite X5.
 	// It is always in the installation language of the software.
 	"get_global": function(localizationId) { ... },
 
-	// returns the requested localization by taking it from the localization library of the UI of WebSite X5.
-	// It is always in the installation language of the software. In case the localization is not present it will be used the default value.	
+	// returns the requested localization by taking it from the
+	// localization library of the UI of WebSite X5.
+	// It is always in the installation language of the software.
+	// In case the localization is not present it will be used the default value.	
 	"get_global": function(localizationId, DefaultValue) { ... }
 };
 ```
 
-An example: get the value of the localization defined as "localization-id-1" in the localizations.xml file.
+### Example: get the value of a localization defined in the localizations.xml file.
 
 ```javascript
 var localizedText = l10n.get("localization-id-1");
@@ -141,7 +253,7 @@ var localizedGermanText = l10n.get("localization-id-1", "DE");
 ```
 
 ## wsx5
-Type: Object
+**Type**: Object
 Contains some information about the WSX5 state.
 It is defined as follows:
 
@@ -154,11 +266,46 @@ var wsx5 = {
 	// Site's content language ID
 	"contentLanguageId": "it",
 
-	// The current WSX5 mode
-	"mode": "uipreview", // May be 'uipreview', 'preview', 'online', according to the moment when the content is made
+	// The current WSX5 mode.
+	// May be 'uipreview', 'preview', 'online',
+	// according to the moment when the content is made
+	"mode": "uipreview",
 
 	// Get the url of a specific path (String) in the project. Available since 11.0.8.x
 	"getSiteUrl": function (path) { ... },
+
+	// The available breakpoints array.
+	// Its minimum size is 1, the maximum is up to the user.
+	"breakpoints":
+		[
+			{
+				"name": "breakpoint1",
+
+				// The maximum screen width for this breakpoint.
+				// Max means that this goes from "end" to infinite
+				"start": "max", 
+
+				// The minimum screen width for this breakpoint
+				"end": 400,
+
+				// If true it means that the objects should be at
+				// 100% width when this breakpoint is in use
+				"fluid": false
+			},
+			{
+				"name": "breakpoint2",
+
+				// The maximum screenwidth for this breakpoint
+				"start": 600, 
+
+				// The minimum width. "0" means that this goes
+				// down to the smallest screen available.
+				"end": 0,
+				
+				"fluid": true
+			}
+	    ],
+>>>>>>> Aggiornamento documentazione Oggetti Opzionali
 
 	// Informations about the private area (defined only if the private area is enabled)
 	"accessManagement": {
@@ -222,10 +369,12 @@ var wsx5 = {
 	// Informations about the data managements
 	"dataManagement": {
 		
-		// True if the value specified in commonEmailAddress should be used for the email messages
+		// True if the value specified in commonEmailAddress
+		// should be used for the email messages
 		"useCommonEmailAddress": true,
 
-		// The email address the user defined as sender for every email message sent from the current website
+		// The email address the user defined as sender for 
+		// every email message sent from the current website
 		"commonEmailAddress": "info@websitex5.com",
 
 		// An array of database data

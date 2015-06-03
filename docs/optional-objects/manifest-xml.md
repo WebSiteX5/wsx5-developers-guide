@@ -11,6 +11,9 @@ Here's how a manifest.xml looks like:
 	<Version>1</Version>
 	<Category>Widgets</Category>
 	<Description l10n-id="description">Add a "Hello World!" to your page.</Description>
+	<!-- Here we define some cosmetics -->
+	<Overflow>false</Overflow>
+	<ShowPreview>true</ShowPreview>
 	<!-- Here we define the user input fields -->
 	<Parameters>
 		<Tab>
@@ -172,7 +175,12 @@ In the following example, the Optional Object is rebuilt when the user changes s
 
 ## ShowPreview Tag
 **Mandatory**: no
-If set as `true`, the UI of WebSite X5 will show a preview of the object directly in the window where the input fields are available.
+If set to `true`, the UI of WebSite X5 will show a preview of the object directly in the window where the input fields are available.
+
+## Overflow Tag
+**Mandatory**: no
+**Since**: 12.0.0
+Set to `true` to set the CSS overflow to `visible` in the cell format. This allows the Optional Object's content to exit from its cell.
 
 ## Output Tag
 **Mandatory**: yes

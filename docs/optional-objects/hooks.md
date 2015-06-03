@@ -4,11 +4,28 @@ You can change the default behavior of an optional object by specifying some hoo
 The script functions should be defined in the `Hooks` tag, placed inside the `App` tag.
 This tag contains the WSX5Script code which has to be run in specific moments in the creation of the object. The script can define following functions. 
 
+## GetHeight(objectWidth, breakpointName)
+**Since**: 12.0.0
+If the `CustomHeight` tag has not been set in the XML code of manifest, this function will be called every time it will be necessary to calculate the height of the object.
+It must return an integer value greater than zero representing the object's height at the given width.
+
+If this function is not defined and the `CustomHeight` tag has not been set in the manifest, WebSite X5 will use its own height algorithm, that is, WebSite X5 will be less precise.
+
+**Note**
+this function will be called for each responsive breakpoint defined by the user at Step 1 of WebSite X5 excepted the smallest breakpoint, at which the object should be at 100% width and have a fluid height.
+
+|Parameter     | Type   | Description                                                |
+|--------------|--------|------------------------------------------------------------|
+|objectWidth   |`Number`|The object's width relative to the requested height.        |
+|breakpointName|`String`|The breakpoint name at wich the object's width is referred. |
+
 ## GetHeight()
+**Deprecated since 12.0.0**
+Supported only for backward compatibility.
 If the `CustomHeight` tag has not been set in the XML code of manifest, this function will be called every time it will be necessary to calculate the height of the object.
 It must return an integer value greater than zero representing the height of the object. 
 
-If the CustomHeight tag has not been set in the manifest and this function is not defined, WebSite X5 will use its own height algorithm, that is, WebSite X5 will be less precise.
+If the `CustomHeight` tag has not been set in the manifest and this function is not defined, WebSite X5 will use its own height algorithm, that is, WebSite X5 will be less precise.
 
 ## IsEmpty()
 If defined, this function must return `true` if the object has to be considered empty (so not shown in the page), `false` otherwise.

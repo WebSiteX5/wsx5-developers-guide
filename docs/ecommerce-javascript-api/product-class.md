@@ -9,8 +9,10 @@ You may get them using &#x60;x5engine.cart.manager.store()&#x60;.
 * [product](#product)
   * [new product(productData, settings)](#new_product_new)
   * [.base()](#product#base) ⇒ <code>Object</code>
+  * [.quiet(q)](#product#quiet) ⇒ <code>Boolean</code>
   * [.id()](#product#id) ⇒ <code>String</code>
   * [.quantity(n)](#product#quantity) ⇒ <code>Number</code>
+  * [.availableOrThrow()](#product#availableOrThrow) ⇒ <code>Void</code>
   * [.option(id)](#product#option) ⇒ <code>String</code>
   * [.subOption(id)](#product#subOption) ⇒ <code>String</code>
   * [.discount(includeVat)](#product#discount) ⇒ <code>Number</code>
@@ -53,6 +55,18 @@ Create a new Product object.
 Provide the product settings
 
 **Kind**: instance method of <code>[product](#product)</code>  
+<a name="product#quiet"></a>
+### .quiet(q) ⇒ <code>Boolean</code>
+Enable or disable the quiet status for this product.
+
+**Kind**: instance method of <code>[product](#product)</code>  
+**Returns**: <code>Boolean</code> - The current value  
+**Since**: 12.0.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| q | <code>Boolean</code> | If false, adding a quantity higher than the amount of stored items will throw an exception. |
+
 <a name="product#id"></a>
 ### .id() ⇒ <code>String</code>
 Provide the product id
@@ -69,6 +83,13 @@ Get or set the current quantity
 | --- | --- | --- |
 | n | <code>Number</code> | The quantity |
 
+<a name="product#availableOrThrow"></a>
+### .availableOrThrow() ⇒ <code>Void</code>
+Does nothing if the product is available or throw an error if the product is not available.
+Available only in the Professional Edition.
+
+**Kind**: instance method of <code>[product](#product)</code>  
+**Since**: 12.0.0  
 <a name="product#option"></a>
 ### .option(id) ⇒ <code>String</code>
 Get/Set the current option id

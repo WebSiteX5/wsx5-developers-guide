@@ -103,7 +103,7 @@ Combine a series of paths
 
 | Param | Type | Description |
 | --- | --- | --- |
-| $paths | <code>Array</code> | The array with the element of the path |
+| $paths | <code>Array</code> | The array with the elements of the path |
 
 <a name="imstrtolower"></a>
 ## imstrtolower($str) ⇒ <code>String</code>
