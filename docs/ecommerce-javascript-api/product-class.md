@@ -10,7 +10,7 @@ You may get them using &#x60;x5engine.cart.manager.store()&#x60;.
   * [new product(productData, settings)](#new_product_new)
   * [.base()](#product#base) ⇒ <code>Object</code>
   * [.id()](#product#id) ⇒ <code>String</code>
-  * [.quantity(n)](#product#quantity)
+  * [.quantity(n)](#product#quantity) ⇒ <code>Number</code>
   * [.option(id)](#product#option) ⇒ <code>String</code>
   * [.subOption(id)](#product#subOption) ⇒ <code>String</code>
   * [.discount(includeVat)](#product#discount) ⇒ <code>Number</code>
@@ -59,10 +59,11 @@ Provide the product id
 
 **Kind**: instance method of <code>[product](#product)</code>  
 <a name="product#quantity"></a>
-### .quantity(n)
+### .quantity(n) ⇒ <code>Number</code>
 Get or set the current quantity
 
 **Kind**: instance method of <code>[product](#product)</code>  
+**Returns**: <code>Number</code> - The current quantity  
 
 | Param | Type | Description |
 | --- | --- | --- |
