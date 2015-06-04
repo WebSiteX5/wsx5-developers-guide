@@ -5,30 +5,33 @@ Each Field tag needs to have an unique id defined using the `id` attribute.
 
 Each `Field` tag can have the following properties:
 
-|Property Name| Mandatory | Description |
-|-------------|-----------|-------------|
-| id | yes | The id that identifies the field in the [WSX5 Script](wsx5-script.md) |
-| type | yes | Defines the type of field according to the list you will find below ("text", "number", "dropdown", ...)|
+|Property Name| Mandatory | Description                                                                                            |
+|-------------|-----------|--------------------------------------------------------------------------------------------------------|
+| id          | yes       | The id that identifies the field in the [WSX5 Script](wsx5-script.md)                                  |
+| type        | yes       | Defines the type of field according to the list you will find below ("text", "number", "dropdown", ...)|
 
 Each `Field` tag can have the following subtags:
 
-| Subtag name | Mandatory | Default Value | Description |
-|-------------|-----------|---------------|-------------|
-| Label | no | (empty) |defines the label shown near the field. This tag can have the `position` attribute with as values "top", "left" or "none". |
-| Mandatory | no | `false`|Set to `true` to set the field as mandatory|
-| UpdatesPreview| no | `false` | Set to `true` to automatically update the preview when the value of this field is changed |
-| Hooks | no | (empty) | See below |
-| Description | no | (empty) | It can have the attribute `style` where the value can be "normal" (default) or "info". Can be localized via the attributes `l10n-id` and `global-l10n-id`|
-| Indent | no | 0 | Indicates the indent level of the field according to the left border of the form. Must have a numerical integer value bigger or equal to zero. |
-|Position| no | `auto` | In case it contains "auto" the fields will be positionend automatically. In case it contains an integer value the field will be positioned in the same position of the field indicated by the value.|
+| Subtag name    | Mandatory    | Default Value | Description |
+|----------------|--------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description    | no           | (empty)       | It can have the attribute `style` where the value can be "normal" (default) or "info". Can be localized via the attributes `l10n-id` and `global-l10n-id`.                                          |
+| Enabled        | no           | `true`        | Set to `false` to disable this field. It will be shown but its contents won't be editable.                                                                                                          |
+| Hooks          | no           | (empty)       | [See below](#hooks-subtag).                                                                                                                                                                         |
+| Indent         | no           | 0             | Indicates the indent level of the field according to the left border of the form. Must have a numerical integer value bigger or equal to zero.                                                      |
+| Label          | no           | (empty)       | Defines the label shown near the field. This tag can have the `position` attribute with as values "top", "left" or "none".                                                                          |
+| Mandatory      | no           | `false`       | Set to `true` to set the field as mandatory.                                                                                                                                                        |
+| Position       | no           | "auto"        | In case it contains "auto" the fields will be positionend automatically. In case it contains an integer value the field will be positioned in the same position of the field indicated by the value.|
+| UpdatesPreview | no           | `false`       | Set to `true` to automatically update the preview when the value of this field is changed.                                                                                                          |
+| Visible        | no           | `true`        | Set to `false` to hide this field.                                                                                                                                                                  |
 
 ### Hooks Subtag
-The **Hooks** subtag can contain a set of JavaScript function that must be defined without using the `<?wsx5` and `?>` tags. That is, the field contains pure [WSX5 Script](wsx5-script.md) code.
+The **Hooks** subtag can contain a set of JavaScript functions that must be defined without using the
+`<?wsx5` and `?>` tags. That is, the field contains pure [WSX5 Script](wsx5-script.md) code.
 You can define the following functions:
 
 **OnCreate()**
 It's called before generating the field. The output of this function will be used to generate the field contents.
-Note: at the moment only the dropdown field actually uses this function.
+**Note**: at the moment only the [dropdown](#dropdown) field actually uses this function.
 
 **OnValueChanged()**
 It is called when the user changes the value of this field in the UI of WebSite X5.
@@ -37,44 +40,41 @@ It is called when the user changes the value of this field in the UI of WebSite 
 
 Here you can find a list of the available field types.
 The values represented in the following XML code examples are not to consider as default values for the various fields.
-## Text
-Show a text input.
+
+## BorderWidth
+Allows to choose the width of 4 borders.
 
 **Complete list of subtags**
 ```xml
-<Field type="text" id="field-id">
-  <DefaultValue>DefaultValue</DefaultValue>
-  <IsPassword>false</IsPassword>
-  <ShowPasswordCreation>false</ShowPasswordCreation>
-  <MaxLength>10</MaxLength>
-  <MultiLine>false</MultiLine>
-  <LinesCount>1</LinesCount>
-  <ShowScrollbar>false</ShowScrollbar>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var fieldValue = parameters['field-id'].value; // String
-```
-
-## Number
-Allows to choose a number
-
-**Complete list of subtags**
-```xml
-<Field type="number" id="field-id">
-  <DefaultValue>10</DefaultValue>
+<Field type="borderwidth" id="field-id">
+  <DefaultValue>1</DefaultValue>
   <MinValue>0</MinValue>
   <MaxValue>100</MaxValue>
   <Increment>5</Increment>
-  <ShowDecimals>false</ShowDecimals>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
 **Complete example of WSX5 Script properties access**
 ```js
-var fieldValue = parameters['field-id'].value; // Number
+var value = parameters['field-id'].left; // integer
+var value = parameters['field-id'].right; // integer
+var value = parameters['field-id'].top; // integer
+var value = parameters['field-id'].bottom; // integer
+```
+
+## Checkbox
+Allows to create a check box.
+
+**Complete list of subtags**
+```xml
+<Field type="checkbox" id="">
+  <DefaultChecked>true</DefaultChecked>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].checked // Boolean
 ```
 
 ## Color
@@ -84,7 +84,7 @@ Allows to choose a color from a palette.
 ```xml
 <Field type="color" id="">
   <EnableTransparent>false</EnableTransparent>
-	<DefaultValue>(#AARRGGBB|#RRGGBB)</DefaultValue>
+  <DefaultValue>(#AARRGGBB|#RRGGBB)</DefaultValue>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -108,6 +108,7 @@ Allows to choose four colors.
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
+
 **Complete example of WSX5 Script properties access**
 ```js
 var top = parameters['field-id'].top; // CSS string like "#45ff23"
@@ -132,74 +133,9 @@ var bottomGreen = parameters['field-id'].bottomB; // integer 0-255
 var bottomAlpha = parameters['field-id'].bottomA; // integer 0-255
 ```
 
-## BorderWidth
-Allows to choose the width of 4 borders.
-**Complete list of subtags**
-```xml
-<Field type="borderwidth" id="field-id">
-  <DefaultValue>1</DefaultValue>
-  <MinValue>0</MinValue>
-  <MaxValue>100</MaxValue>
-  <Increment>5</Increment>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].left; // integer
-var value = parameters['field-id'].right; // integer
-var value = parameters['field-id'].top; // integer
-var value = parameters['field-id'].bottom; // integer
-```
-
-## RoundCorners
-Allows to choose the rounding of the corners.
-**Complete list of subtags**
-```xml
-<Field type="roundcorners" id="">
-  <DefaultValue>1</DefaultValue>
-  <MinValue>0</MinValue>
-  <MaxValue>100</MaxValue>
-  <Increment>5</Increment>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].topLeft; // integer
-var value = parameters['field-id'].topRight; // integer
-var value = parameters['field-id'].bottomLeft; // integer
-var value = parameters['field-id'].bottomRight; // integer
-```
-
-## Shadow
-Allows to choose the style of a shadow.
-**Complete list of subtags**
-```xml
-<Field type="shadow" id="">
-  <DefaultEnabled>false</DefaultEnabled>
-  <DefaultColor>(#AARRGGBB|#RRGGBB)</DefaultColor>
-  <DefaultOffsetX>1</DefaultOffsetX>
-  <DefaultOffsetY>1</DefaultOffsetY>
-  <DefaultDimension>10</DefaultDimension>
-  <DefaultDiffusion>10</DefaultDiffusion>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].enabled;
-var value = parameters['field-id'].color (hexadecimal string);
-var value = parameters['field-id'].colorR (integer 0-255);
-var value = parameters['field-id'].colorG (integer 0-255);
-var value = parameters['field-id'].colorB (integer 0-255);
-var value = parameters['field-id'].colorA (integer 0-255);
-var value = parameters['field-id'].diffusion (integer);
-var value = parameters['field-id'].dimension (integer);
-```
-
 ## Dimensions
 Allows to choose width and height using a single UI control.
+
 **Complete list of subtags**
 ```xml
 <Field type="dimensions" id="">
@@ -217,61 +153,20 @@ var value = parameters['field-id'].width; // integer
 var value = parameters['field-id'].height; // integer
 ```
 
-## Margins
-Allows to choose 4 margins.
-**Complete list of subtags**
-```xml
-<Field type="margins" id="">
-  <DefaultValue>1</DefaultValue>
-  <MinValue>0</MinValue>
-  <MaxValue>100</MaxValue>
-  <Increment>5</Increment>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].top; // integer
-var value = parameters['field-id'].bottom; // integer
-var value = parameters['field-id'].left; // integer
-var value = parameters['field-id'].right; // integer
-```
-
-## Checkbox
-Allows to create a check box.
-**Complete list of subtags**
-```xml
-<Field type="checkbox" id="">
-  <DefaultChecked>true</DefaultChecked>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].checked // Boolean
-```
-## Separator
-Allows to add a separator. A separator can change the behavior of a panel (column) inside the UI of the application. 
-It can have a sub tag NewPanel which, if it contains `true` this forces the creation of a new section in a new panel.
-**Complete list of subtags**
-```xml
-<Field type="separator" id="">
-  <Label l10n-id="loc_id">Default label text</Label>
-  <NewPanel>true</NewPanel>
-</Field>
-```
-
 ## Dropdown
-It is a field which is represented like a drop down menu.
-If a class is defined with the `class` attribute then it will be filled automatically by webSite X5 based on the class value. 
-the available class values are the follwing:
-database: shows a dropdown menu to select a database defined in step 4 
+It shows a drop down menu.
+If a class is defined using the `class` attribute then it will be filled automatically by webSite X5 based on the class value. 
+At the moment, only the **database** class is available. It shows a dropdown menu to select a database that was previously defined by the user at step 4 of WebSite X5.
+
 **Complete list of subtags**
 ```xml
-<Field type="dropdown" id="" shownumbers="(true|false)" class="database">
-	<Options>
-		<Option l10n-id="localization_id" value="field_value">Default text</Option>
-	</Options>
+<Field type="dropdown" id="" class="database">
+  <Options>
+    <Option l10n-id="localization_id" value="field_value">Default text</Option>
+  </Options>
+  <ShowNumbers>true</ShowNumbers>
+  <DefaultValue>value_default_option</DefaultValue>
+  <Label l10n-id="loc_id">Default label text</Label>
   <Hooks><![CDATA[
     function OnCreate() {
       // Must return the options array.
@@ -281,66 +176,16 @@ database: shows a dropdown menu to select a database defined in step 4
     }
     ]]>
   </Hooks>
-	<DefaultValue>value_default_option</DefaultValue>
-<Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].value; // String
 ```
-## Font
-It is a field which allows to choose the font, it's size and style.
-**Complete list of subtags**
-```xml
-<Field type="font" id="">
-  <DefaultFontFamily>Tahoma</DefaultFontFamily>
-  <DefaultFontSize>10</DefaultFontSize>
-  <DefaultBold>false</DefaultBold>
-  <DefaultItalic>false</DefaultItalic>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].family; // string
-var value = parameters['field-id'].size; // integer pt
-var value = parameters['field-id'].bold; // Boolean
-var value = parameters['field-id'].italic; // Boolean
-```
-
-## FileList
-Allows to choose a list of files.
-**Complete list of subtags**
-```xml
-<Field type="filelist" id="">
-  <Extensions>jpg,txt</Extensions>
-  <AllowUrls>true</AllowUrls>
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].list; // (array of FileSelect elements)
-var value = parameters['field-id'].list.length; // (number of elements in the array)
-var value = parameters['field-id'].list.path; // (path for the file example list[0].path prints the path of the first file)
-```
-
-## StringList
-Allows to add a list of strings.
-**Complete list of subtags**
-```xml
-<Field type="stringlist" id="">
-  <Label l10n-id="loc_id">Default label text</Label>
-</Field>
-```
-**Complete example of WSX5 Script properties access**
-```js
-var value = parameters['field-id'].list; // Array of strings
-```
 
 ## File
 Allows to choose a file.
+
 **Complete list of subtags**
 ```xml
 <Field type="file" id="">
@@ -348,6 +193,7 @@ Allows to choose a file.
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
+
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].path; // String
@@ -359,15 +205,200 @@ var value = parameters['field-id'].width; // only if `isImage == true`
 var value = parameters['field-id'].height; // only if `isImage == true`
 var value = parameters['field-id'].clones; // only if `isImage == true`. Contains the list of clones of the image. Everyone has the fields shown above.
 ```
+
+## FileList
+Allows to choose a list of files.
+
+**Complete list of subtags**
+```xml
+<Field type="filelist" id="">
+  <Extensions>jpg,txt</Extensions>
+  <AllowUrls>true</AllowUrls>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].list; // (array of FileSelect elements)
+var value = parameters['field-id'].list.length; // (number of elements in the array)
+var value = parameters['field-id'].list.path; // (path for the file example list[0].path prints the path of the first file)
+```
+
+## Font
+It is a field which allows to choose the font, it's size and style.
+
+**Complete list of subtags**
+```xml
+<Field type="font" id="">
+  <DefaultFontFamily>Tahoma</DefaultFontFamily>
+  <DefaultFontSize>10</DefaultFontSize>
+  <DefaultBold>false</DefaultBold>
+  <DefaultItalic>false</DefaultItalic>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].family; // string
+var value = parameters['field-id'].size; // integer pt
+var value = parameters['field-id'].bold; // Boolean
+var value = parameters['field-id'].italic; // Boolean
+```
+
 ## Link
 Allows to choose a link from the link selection window of WebSite X5.
+
 **Complete list of subtags**
 ```xml
 <Field type="link" id="">
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
+
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].getHTML("link text html"); // String
+```
+
+## Margins
+Allows to choose 4 margins.
+
+**Complete list of subtags**
+```xml
+<Field type="margins" id="">
+  <DefaultValue>1</DefaultValue>
+  <MinValue>0</MinValue>
+  <MaxValue>100</MaxValue>
+  <Increment>5</Increment>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].top; // integer
+var value = parameters['field-id'].bottom; // integer
+var value = parameters['field-id'].left; // integer
+var value = parameters['field-id'].right; // integer
+```
+
+## Number
+Allows to choose a number
+
+**Complete list of subtags**
+```xml
+<Field type="number" id="field-id">
+  <DefaultValue>10</DefaultValue>
+  <MinValue>0</MinValue>
+  <MaxValue>100</MaxValue>
+  <Increment>5</Increment>
+  <ShowDecimals>false</ShowDecimals>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var fieldValue = parameters['field-id'].value; // Number
+```
+
+## RoundCorners
+Allows to choose the rounding of the corners.
+
+**Complete list of subtags**
+```xml
+<Field type="roundcorners" id="">
+  <DefaultValue>1</DefaultValue>
+  <MinValue>0</MinValue>
+  <MaxValue>100</MaxValue>
+  <Increment>5</Increment>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].topLeft; // integer
+var value = parameters['field-id'].topRight; // integer
+var value = parameters['field-id'].bottomLeft; // integer
+var value = parameters['field-id'].bottomRight; // integer
+```
+
+## Separator
+Add a separator. It can change the behavior of a panel (column) inside the user interface.
+It can have a `NewPanel` subtag which forces the creation of a new section in a new panel.
+
+**Complete list of subtags**
+```xml
+<Field type="separator" id="">
+  <Label l10n-id="loc_id">Default label text</Label>
+  <NewPanel>true</NewPanel>
+</Field>
+```
+
+## Shadow
+Allows to choose the style of a shadow.
+
+**Complete list of subtags**
+```xml
+<Field type="shadow" id="">
+  <DefaultEnabled>false</DefaultEnabled>
+  <DefaultColor>(#AARRGGBB|#RRGGBB)</DefaultColor>
+  <DefaultOffsetX>1</DefaultOffsetX>
+  <DefaultOffsetY>1</DefaultOffsetY>
+  <DefaultDimension>10</DefaultDimension>
+  <DefaultDiffusion>10</DefaultDiffusion>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].enabled;
+var value = parameters['field-id'].color (hexadecimal string);
+var value = parameters['field-id'].colorR (integer 0-255);
+var value = parameters['field-id'].colorG (integer 0-255);
+var value = parameters['field-id'].colorB (integer 0-255);
+var value = parameters['field-id'].colorA (integer 0-255);
+var value = parameters['field-id'].diffusion (integer);
+var value = parameters['field-id'].dimension (integer);
+```
+
+## StringList
+Allows to add a list of strings.
+
+**Complete list of subtags**
+```xml
+<Field type="stringlist" id="">
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].list; // Array of strings
+```
+
+## Text
+Show a text input.
+
+**Complete list of subtags**
+```xml
+<Field type="text" id="field-id">
+  <DefaultValue>DefaultValue</DefaultValue>
+  <IsPassword>false</IsPassword>
+  <ShowPasswordCreation>false</ShowPasswordCreation>
+  <MaxLength>10</MaxLength>
+  <MultiLine>false</MultiLine>
+  <LinesCount>1</LinesCount>
+  <ShowScrollbar>false</ShowScrollbar>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var fieldValue = parameters['field-id'].value; // String
 ```
