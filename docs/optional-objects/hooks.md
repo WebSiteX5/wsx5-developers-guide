@@ -6,7 +6,7 @@ This tag contains the WSX5Script code which has to be run in specific moments in
 
 ## GetHeight()
 If the `CustomHeight` tag has not been set in the XML code of manifest, this function will be called every time it will be necessary to calculate the height of the object.
-It must return an integer value greater than zero. 
+It must return an integer value greater than zero representing the height of the object. 
 
 If the CustomHeight tag has not been set in the manifest and this function is not defined, WebSite X5 will use its own height algorithm, that is, WebSite X5 will be less precise.
 
@@ -14,23 +14,20 @@ If the CustomHeight tag has not been set in the manifest and this function is no
 If defined, this function must return `true` if the object has to be considered empty (so not shown in the page), `false` otherwise.
 
 ## ShowPreview()
-Availabe from Version 11.0.4.
+**Since:** 11.0.4
 If defined, this function must return `true` if the object is able to show the preview in the software's UI, `false` otherwise.
 
 ## GetHeaderContents(type, currentContent)
-If defined, this function allows the author to specify a custom code to include in the head tag of the website.
-It must return a string, which will be included in the site's header in the position relative to the "type" parameter.
+If defined, this function allows the author to specify a custom code to include in the head tag of the website. It must return a string, which will be included in the site's header in the position relative to the "type" parameter.
 
-**type**
-Type: String
-Indicates the required type of content and can be "js", "css", "other".
-
-**currentContent**
-Type: String
-Contains the current headers for the type of code specified via the "type" parameter. It is useful to verify to not add a duplicated code.
+|Parameter     | Type   | Description                                                           |
+|--------------|--------|-----------------------------------------------------------------------|
+|type          |`String`|Indicates the required type of content. Can be "js", "css", "other".   |
+|currentContent|`String`|Contains the current headers for the type of code specified via the "type" parameter. It is useful to verify to not add a duplicated code.|
 
 This function may be called more than once during the creation of the page code (more precisely, one time for every possible value of the "type" parameter).
-To avoid the duplication of the code, the programmer has to always verify the value of `type` and `currentContent` and act consequently, as in the example below.
+To avoid the duplication of the code, the programmer must always verify the value of `type` and
+`currentContent` and act consequently, as in the example below.
 
 ```javascript
 function GetHeaderContents(type, currentContent) {
@@ -49,13 +46,12 @@ function GetHeaderContents(type, currentContent) {
 ## OnBeforeFileElaboration(fieldID, file)
 This function is called every time the object elaborates a generic file selected by the user except images (for images see the [OnBeforeImageElaboration](#onbeforeimageelaborationfieldid-image) hook).
 
-**fieldID**
-Type: String
-Contains the ID of the form field which has been used by the final user for the file selection.
+|Parameter | Type   | Description                                                                                     |
+|----------|--------|-------------------------------------------------------------------------------------------------|
+| fieldID  |`String`| Contains the ID of the form field which has been used by the final user for the file selection. |
+| file     |`Object`| Contains the JSON object which allows to access to the file data and to perform commands on it. |
 
-**file**
-Type: Object
-Contains the JSON object which allows to access to the file data and to perform commands on it. It is defined as follows (the code is filled with example values):
+The **file** parameter is defined as follows (the code is filled with example values):
 ```javascript
 {
 	// Name of the file that is going to be processed
@@ -92,17 +88,19 @@ function OnBeforeFileElaboration(fieldID, file) {
 ## OnBeforeImageElaboration(fieldID, image)
 This function is called every time the object elaborates an image file selected by the user.
 
-**fieldID**
-Type: String
-Contains the ID of the form field which has been used by the user to select the file.
+|Parameter | Type   | Description                                                                           |
+|----------|--------|---------------------------------------------------------------------------------------|
+|fieldID   |`String`| Contains the ID of the form field which has been used by the user to select the file. |
+|image     |`Object`|Contains the JSON object which allows to access the the image data and to perform some operations of it.|
 
-**image**
-Type: Object
-Contains the JSON object which allows to access the the image data and to perform some operations of it.
-In addition to the attributes present in the file parameter of the `OnBeforeFileElaboration` function, the parameter image is a JSON object defined as follows (the code is filled with example values):
+The **image** parameter is a JSON object defined as follows (the code is filled with example values):
 
 ```javascript
 {
+	// NOTE:
+	// It has the same attributes defined for the "file" parameter of "OnBeforeFileElaboration"
+	// plus the following ones..
+
 	// The original image width
 	"sourceWidth": 100,
 
@@ -122,17 +120,15 @@ In addition to the attributes present in the file parameter of the `OnBeforeFile
 ```
 
 ## OnBeforeResourceElaboration(resourceID, resource)
-Available from Version 11.0.4.
+**Since**: 11.0.4
 This function is called everytime the object elaborates a resource file linked in the manifest.
 
-**resourceID**
-Type: String
-Contains the resource ID
+|Parameter | Type   | Description                                                                                                    |
+|----------|--------|----------------------------------------------------------------------------------------------------------------|
+|resourceID|`String`| Contains the resource ID                                                                                       |
+|resource  |`Object`| Contains a JSON object which allows to access to the data of the resource and to perform some operations on it.|
 
-**resource**
-Type: Object
-Contains a JSON object which allows to access to the data of the resource and to perform some operations on it.
-It is defined as follows (the code is filled with example values):
+The **resource** parameter is defined as follows (the code is filled with example values):
 ```javascript
 {
 	// The original file name
