@@ -149,6 +149,27 @@ The second file is a custom JavaScript file that needs to be processed before be
 </Resources>
 ```
 
+## Dependencies Tag
+**Mandatory**: no
+Using this tag you can specify the dipendency of your Optional Object from a WebSite X5 component.
+This tag must contains one or more of the following subtags:
+
+### AccessManagement
+Set the content of this subtag to `true` if your Optional Object reads data set in the Access Management section at step 4. In this case, the object is rebuilt whenever the user changes the Access Management settings.
+
+### DataManagement
+Set the content of this subtag to `true` if your Optional Object reads data set in the Data Management section at step 4. In this case, the object is rebuilt whenever the user changes the Data Management settings.
+
+### ShoppingCart
+Set the content of this subtag to `true` if your Optional Object reads data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
+
+In the following example, the Optional Object is rebuilt when the user changes something in the Access Management section of WebSite X5.
+```xml
+<Dependencies>
+	<AccessManagement>true</AccessManagement>
+</Dependencies>
+```
+
 ## ShowPreview Tag
 **Mandatory**: no
 If set as `true`, the UI of WebSite X5 will show a preview of the object directly in the window where the input fields are available.
