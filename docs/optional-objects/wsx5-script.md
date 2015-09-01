@@ -157,6 +157,9 @@ var wsx5 = {
 	// The current WSX5 mode
 	"mode": "uipreview", // May be 'uipreview', 'preview', 'online', according to the moment when the content is made
 
+	// Get the url of a specific path (String) in the project. Available since 11.0.8.x
+	"getSiteUrl": function (path) { ... },
+
 	// Informations about the private area (defined only if the private area is enabled)
 	"accessManagement": {
 
