@@ -41,7 +41,7 @@ Show the ShowBox using the provided settings.
 | settings.innerBorder | <code>number</code> |  | The internal padding size in px |
 | settings.loadingImg | <code>string</code> |  | Url of the spinner image shown while the ShowBox is loading its content |
 | settings.media | <code>array</code> |  | The array of settings of each media loaded in the ShowBox |
-| settings.media.width | <code>number</code> |  | Must be one of the following types: image,video,sound,youtube,vimeo,html |
+| settings.media.type | <code>string</code> |  | Must be one of the following types: image,video,sound,youtube,vimeo,html |
 | settings.media.url | <code>string</code> |  | Url of the media to be loaded inside the ShowBox |
 | settings.media.width | <code>number</code> |  | Width in px |
 | settings.media.height | <code>number</code> |  | Height in px |
