@@ -159,14 +159,16 @@ If a class is defined using the `class` attribute then it will be filled automat
 At the moment, only the **database** class is available. It shows a dropdown menu to select a database that was previously defined by the user at step 4 of WebSite X5.
 
 **Complete list of subtags**
+To see how to use this field see the examples below.
 ```xml
 <Field type="dropdown" id="" class="database">
-  <Options>
-    <Option l10n-id="localization_id" value="field_value">Default text</Option>
-  </Options>
   <ShowNumbers>true</ShowNumbers>
   <DefaultValue>value_default_option</DefaultValue>
   <Label l10n-id="loc_id">Default label text</Label>
+  <!-- Use the Options OR the Hooks tag. Do not use them both -->
+  <Options>
+    <Option l10n-id="localization_id" value="field_value">Default text</Option>
+  </Options>
   <Hooks><![CDATA[
     function OnCreate() {
       // Must return the options array.
@@ -181,6 +183,44 @@ At the moment, only the **database** class is available. It shows a dropdown men
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].value; // String
+```
+### Examples
+
+**How to add more options using the `<Options>` tag**
+```xml
+<Field type="dropdown" id="" class="database">
+  <Options>
+    <Options l10n-id="loc_id_1" value="value_1">default text 1</Options>
+    <Options l10n-id="loc_id_2" value="value_2">default text 2</Options>
+    <Options l10n-id="loc_id_3" value="value_3">default text 3</Options>
+    <Options l10n-id="loc_id_4" value="value_4">default text 4</Options>
+  </Options>
+  <Label l10n-id="label-id">Default Label</Label>
+</Field>
+```
+
+**How to add more options using the `<Hooks>` tag**
+Note that if you use this tag, you should not use the `<Options>` tag.
+```xml
+<Field type="dropdown" id="" class="database">
+  <Label l10n-id="label-id">Default Label</Label>
+  <Hooks>
+    <![CDATA[
+    function OnCreate() {
+      return [{ text: "option text", value: "option value" }];
+    }
+    ]]>
+  </Hooks>
+</Field>
+```
+
+**How to create a list of available databases**
+In the following example, the dropdown list is filled with the databases set at Step 4 of WebSite X5.
+
+```xml
+<Field type="dropdown" id="" class="database">
+  <Label l10n-id="db-localization-id">Select the database:</Label>
+</Field>
 ```
 
 ## File
