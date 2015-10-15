@@ -140,6 +140,8 @@ Allows to choose width and height using a single UI control.
 ```xml
 <Field type="dimensions" id="">
   <DefaultValue>100</DefaultValue>
+  <DefaultWidthValue>100</DefaultWidthValue><!-- Available since v12.0.2 -->
+  <DefaultHeightValue>100</DefaultHeightValue><!-- Available since v12.0.2 -->
   <MinValue>0</MinValue>
   <MaxValue>100</MaxValue>
   <Increment>5</Increment>
@@ -147,6 +149,11 @@ Allows to choose width and height using a single UI control.
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
+**Note**
+To provide maximum compatibility with versions older than 12.0.2, if you need to specify a default value for this field you should always provide both the old `<DefaultValue>` and the new
+`<DefaultWidthValue>` / `<DefaultHeightValue>` fields.
+If you only provide the new tags, older WSX5 versions won't thrown any error but the default value will not be provided.
+
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].width; // integer
