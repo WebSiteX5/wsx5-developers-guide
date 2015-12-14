@@ -305,7 +305,6 @@ var wsx5 = {
 				"fluid": true
 			}
 	    ],
->>>>>>> Aggiornamento documentazione Oggetti Opzionali
 
 	// Informations about the private area (defined only if the private area is enabled)
 	"accessManagement": {
