@@ -266,6 +266,12 @@ var wsx5 = {
 	// Site's content language ID
 	"contentLanguageId": "it",
 
+	// WebSite X5 version. Available since 11.0.0.3
+	"version": "12.0.4.21",
+
+	// WebSite X5 edition name. Available since 11.0.0.3
+	"edition": "Professional",
+
 	// The current WSX5 mode.
 	// May be 'uipreview', 'preview', 'online',
 	// according to the moment when the content is made
