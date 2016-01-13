@@ -367,10 +367,10 @@ Allows to choose the rounding of the corners.
 
 **Complete example of WSX5 Script properties access**
 ```js
-var value = parameters['field-id'].topLeft; // integer
-var value = parameters['field-id'].topRight; // integer
-var value = parameters['field-id'].bottomLeft; // integer
-var value = parameters['field-id'].bottomRight; // integer
+var value = parameters['field-id'].topleft; // integer
+var value = parameters['field-id'].topright; // integer
+var value = parameters['field-id'].bottomleft; // integer
+var value = parameters['field-id'].bottomright; // integer
 ```
 
 ## Separator
