@@ -1,4 +1,5 @@
 <a name="product"></a>
+
 ## product
 x5engine.cart.product
 
@@ -28,6 +29,7 @@ You may get them using &#x60;x5engine.cart.manager.store()&#x60;.
   * [.disableCoupon()](#product#disableCoupon) ⇒ <code>Boolean</code>
 
 <a name="new_product_new"></a>
+
 ### new product(productData, settings)
 Create a new Product object.
 
@@ -35,20 +37,36 @@ Create a new Product object.
 | Param | Type | Description |
 | --- | --- | --- |
 | productData | <code>Object</code> | The generic product data |
+| productData.id | <code>String</code> | Software internal product id |
+| productData.id_user | <code>String</code> | Product id set by the user |
+| productData.category | <code>String</code> | The Category ID |
+| productData.description | <code>String</code> | The product description |
+| productData.price | <code>Number</code> | The product price as a pure number |
+| productData.images | <code>Array</code> | The images URLs array |
+| productData.link | <code>String</code> | The link URL to place over the product image |
+| productData.vat | <code>Number</code> | The VAT amount |
+| productData.vattype | <code>String</code> | The VAT type. Default "none". |
+| productData.weight | <code>Number</code> | The product's weight as a pure number |
+| productData.availabilityType | <code>String</code> | The produt's availability type: "fixed" or "dynamic" |
+| productData.staticAvailValue | <code>String</code> | The produt's static availability value. Default "unknown". |
+| productData.precision | <code>Number</code> | The price's precision |
+| productData.minQuantity | <code>Number</code> | The minimum quantity that should be ordered to make a valid order |
+| productData.options | <code>Object</code> | The product's variations (options). This object contains the options ids as keys and the options data as values |
+| productData.options.id.name | <code>String</code> | The variation name |
+| productData.options.id.suboptions | <code>Array</code> | The array of strings with a list of the available sub options |
+| productData.options.id.weightvar | <code>Number</code> | The weight variation for this option |
+| productData.options.id.pricevar | <code>Number</code> | The price variation for this option |
+| productData.discount | <code>Object</code> | The discount object |
+| productData.discount.coupon | <code>String</code> | The discount coupon |
+| productData.discount.type | <code>String</code> | The discount type: "relative" (percentual) or "absolute" |
+| productData.discount.amount | <code>String</code> | The discount amount in percentual (0-1) if type is "relative" or as a pure number if type is "absolute" |
+| productData.discount.coupon_start_date | <code>String</code> | The coupon's first day of validity |
+| productData.discount.coupon_end_date | <code>String</code> | The coupon's last day of validity |
+| productData.quantityDiscounts | <code>Object</code> | The product's quantity discounts. Each key is a quantity, each value the discount for the given minimum quantity |
 | settings | <code>Object</code> | The instance settings like option, suboption, quantity etc |
-| settings.id | <code>String</code> | Software internal product id |
-| settings.id_user | <code>String</code> | Product id set by the user |
-| settings.category | <code>String</code> |  |
-| settings.description | <code>String</code> |  |
-| settings.price | <code>Number</code> |  |
-| settings.images | <code>Array</code> |  |
-| settings.link | <code>String</code> |  |
-| settings.vat | <code>Number</code> |  |
-| settings.vattype | <code>String</code> |  |
-| settings.weight | <code>Number</code> |  |
-| settings.avail | <code>String</code> |  |
-| settings.precision | <code>Number</code> |  |
-| settings.minQuantity | <code>Number</code> |  |
+| settings.quantity | <code>Object</code> | The number of products |
+| settings.option | <code>Object</code> | The selected option id. Can be null. |
+| settings.suboption | <code>Object</code> | The selected suboption id. Can be null. |
 
 <a name="product#base"></a>
 ### .base() ⇒ <code>Object</code>
