@@ -10,6 +10,9 @@ Here's how a manifest.xml looks like:
 	<Author>Me</Author>
 	<Version>1</Version>
 	<Category>Widgets</Category>
+	<Groups>Data Visualization, Animation</Groups>
+    <InitialSize>350,250</InitialSize>
+    <RecommendedMinSize>100,100</RecommendedMinSize>
 	<Description l10n-id="description">Add a "Hello World!" to your page.</Description>
 	<!-- Here we define some cosmetics -->
 	<Overflow>false</Overflow>
@@ -69,6 +72,42 @@ It contains the ID of the category where the app will be available.
 
 ```xml
 <Category>Category of the Application</Category>
+```
+
+## Groups Tag
+**Mandatory**: no
+**Since**: 13.0.0
+It contains the names of the Groups that the app belongs (comma separated). Groups are available since WebSite X5 v13.
+
+```xml
+<Groups>Animation, Button</Groups>
+```
+
+## InitialSize Tag
+**Mandatory**: no
+**Since**: 13.0.1
+It contains the sizes ([width],[height]) that the object will assume when it will be created as template object.
+
+```xml
+<InitialSize>200,150</InitialSize>
+```
+
+## MinRecommendedSize Tag
+**Mandatory**: no
+**Since**: 13.0.1
+It contains the sizes ([width],[height]) under which the object is not displayed properly.
+
+```xml
+<MinRecommendedSize>100,50</MinRecommendedSize>
+```
+
+## MinimumSize Tag
+**Mandatory**: no
+**Since**: 13.0.1
+It contains the limit sizes ([width],[height]) of the object.
+
+```xml
+<MinimumSize>50,50</MinimumSize>
 ```
 
 ## Description Tag
@@ -190,8 +229,8 @@ Inside this tag you can write [WSX5 Script](wsx5-script.md) code. It must be exe
 
 ## PreviewOutput Tag
 **Mandatory**: no
-If available, it contains the output HTML code to show in the preview. Works like the Output tag.
+If available, it contains the output HTML code to show in the small preview present in the editor of the page or in the editor of the template when the object is selected. Works like the Output tag.
 
 ## UIPreviewOutput Tag
 **Mandatory**: no
-If available, it contains the output HTML code to show in the small preview visible in the UI. Works like the Output tag.
+If available, it contains the output HTML code to show in the preview present during the editing of the object. Works like the Output tag.

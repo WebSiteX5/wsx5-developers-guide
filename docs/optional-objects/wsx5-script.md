@@ -106,6 +106,9 @@ var currentObject = {
 	// The object id
 	"id": "current-object-id",
 
+	// Tells if the object belong to a page (instead of the template). Available since 13.0.1.15
+	"isPageObject": true,
+
 	// The largest width that the object can reach in a breakpoint. Here for backward compatibility.
 	"width": 400,
 
@@ -273,7 +276,10 @@ var wsx5 = {
 	"edition": "Professional",
 
 	// The current WSX5 mode.
-	// May be 'uipreview', 'preview', 'online',
+	// Possible values:
+	// 'uipreview' : during the preview in the UI of WSX5,
+	// 'preview'   : during the preview in the embedded browser of WSX5,
+	// 'online'    : when the website is published,
 	// according to the moment when the content is made
 	"mode": "uipreview",
 
