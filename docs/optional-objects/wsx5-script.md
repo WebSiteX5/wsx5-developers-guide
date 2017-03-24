@@ -374,7 +374,10 @@ var wsx5 = {
 		"dbTable": "orders_",
 
 		// The order send mode
-		"sendMode": "email" // may be "email" or "db"
+		"sendMode": "email", // may be "email" or "db"
+		
+		// True if option for automatic registration of users is enabled 
+		"registerCustomers" : true
 	},
 
 	// Informations about the data managements
