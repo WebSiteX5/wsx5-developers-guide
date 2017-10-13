@@ -90,7 +90,7 @@ Allows to choose a color from a palette.
 ```
 **Complete example of WSX5 Script properties access**
 ```js
-var fieldValue = parameters['field-id'].value; // CSS string like "#45ff23"
+var fieldValue = parameters['field-id'].value; // CSS string like "rgba(153, 127, 83, 0.87)"
 var redValue = parameters['field-id'].valueR; // Number 0-255
 var greenValue = parameters['field-id'].valueG; // Number 0-255
 var blueValue = parameters['field-id'].valueB; // Number 0-255
