@@ -154,7 +154,6 @@ var menu {
 			"isHidden": false,             	
 			
 			"destination": "page-1.html",
-            "icon": "page1.jpg"            	
 		},
 		{
 			"type": "separator",
@@ -169,7 +168,6 @@ var menu {
 			"parentid": 0,
 			"label": "Level 1",
 			"isHidden": false,
-			"icon": "",
 
 			// An array of elements just like the current one
 			"nodes": [
