@@ -28,11 +28,13 @@ It must return an integer value greater than zero representing the height of the
 If the `CustomHeight` tag has not been set in the manifest and this function is not defined, WebSite X5 will use its own height algorithm, that is, WebSite X5 will be less precise.
 
 ## IsEmpty()
-If defined, this function must return `true` if the object has to be considered empty (so not shown in the page), `false` otherwise.
+If defined, this function must return `true` if the object has to be considered empty (so not shown in the page), `false` otherwise. 
+If the object is considered empty, and the hook `ShowPreview()` is not defined, the preview in the software UI will not be shown.
 
 ## ShowPreview()
 **Since:** 11.0.4
 If defined, this function must return `true` if the object is able to show the preview in the software's UI, `false` otherwise.
+If this function is not defined, the preview will be shown accordingly to `isEmpty()` result.
 
 ## GetHeaderContents(type, currentContent)
 If defined, this function allows the author to specify a custom code to include in the head tag of the website. It must return a string, which will be included in the site's header in the position relative to the "type" parameter.
