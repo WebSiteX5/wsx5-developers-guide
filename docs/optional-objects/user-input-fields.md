@@ -294,6 +294,29 @@ var value = parameters['field-id'].bold; // Boolean
 var value = parameters['field-id'].italic; // Boolean
 ```
 
+
+## ImageSelect
+Available since v13.1.5.16
+It is a field which allows to choose from a list of images shown in a dropdown
+
+**Complete list of subtags**
+```xml
+<Field type="imageselect" id="">
+    <LibraryFolder>folder/subfolder</LibraryFolder> <!-- The relative path of the folder (inside Resources folder) that contains the list of images -->
+    <LibraryImageWidth>22</LibraryImageWidth>
+    <LibraryImageHeight>22</LibraryImageHeight>
+    <AllowCustomImage>false</AllowCustomImage> <!-- If true the user can select a custom image from file select dialog -->
+    <AcceptedExtensions>*.png</AcceptedExtensions> <!-- The allowed extensions of the sfile select dialog -->
+    <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].selectedIndex; // The selected index. -1 if custom image is selected 
+var value = parameters['field-id'].file; // FileSelect element
+```
+
 ## Link
 Allows to choose a link from the link selection window of WebSite X5.
 
