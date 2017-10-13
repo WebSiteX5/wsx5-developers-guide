@@ -2,7 +2,7 @@ site_name: WebSite X5 Developer's Guide
 site_author: Incomedia Srl
 site_url: http://devguide.websitex5.com
 repo_url: https://github.com/WebSiteX5/wsx5-developers-guide
-copyright: © 2015 - Incomedia Srl
+copyright: © 2017 - Incomedia Srl
 use_directory_urls: false
 theme: readthedocs
 strict: true
