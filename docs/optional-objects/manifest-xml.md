@@ -177,7 +177,7 @@ Each `Resource` tag can have the following properties:
 |src |yes| |The source path of the file relative to the "Resources" folder of the application. You cannot provide a path outside that folder, that is, provide a path that contains the "../" string.|
 |action|no|copy| May contain "copy" or "process". If "copy", the file will be copied as is by WebSite X5. If "process", the content of the file will be elaborated according the same rules used for the content of the [Output tag](manifest-xml.md#output-tag)|
 |autolink|no|`false`| If the linked file is a js or css file and this field is set to "true", the file will be automatically linked in the header of the website page.|
-|shared|no|`false`|If set to "true" the resource will be copied only once in a shared folder for all objects of this type. This will allow to avoid duplicated copies of a static file.|
+|shared|no|`false`|If set to "true" the resource will be copied only once in a shared folder for all objects of this type. This will allow to avoid duplicated copies of a static file. If `action="process"`, this flag will be ignored. |
 |offlineonly|no|`false`|If `true`, the resource will be copied or processed only while in offline mode (UI preview and site preview).|
 
 In the following example, two files are linked in the manifest.
