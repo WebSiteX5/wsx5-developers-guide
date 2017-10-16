@@ -375,7 +375,31 @@ var wsx5 = {
 		"sendMode": "email", // may be "email" or "db"
 		
 		// True if option for automatic registration of users is enabled 
-		"registerCustomers" : true
+		"registerCustomers" : true,
+		// True if user choose to alternate row's background color
+		'ZebraTable':true,
+		// Color type
+        'CellTextColor':{
+            'a':255,
+            'r':37,
+            'g':58,
+            'b':88
+		 },
+		// Color type
+        'CellBackgroundColor': {  },
+		// Color type
+		'HeadTextColor': {  },
+		// Color type
+		'HeadBackgroundColor': {  },
+		// Color type
+		'TableBorderColor': {  },
+		// Radius type
+        'TableBorderRadius': {
+            'top':2,
+            'right':2,
+            'bottom':2,
+            'left':2
+        }
 	},
 
 	// Informations about the data managements
@@ -408,6 +432,156 @@ var wsx5 = {
 
 		// The public folder path based on the site's root
 		"publicFolder": "",
-	}
+	},
+	'defaultStyles':{
+         'activeLink':{
+            'textStyle':{  },
+				// Color type
+               'textColor':{ },
+               'textAlignment':'left',
+               'familyName':'Tahoma',
+               'size':9,
+               'style':'regular' // can be 'regular', 'bold', 'italic', 'underline'
+            },
+            'decoration':'underline' // can be 'none' or 'underline'
+        },
+         'body':{
+            'textStyle':{
+				// Color type
+               'backgroundColor':{ },
+			   // Color type
+               'textColor':{ },
+               'textAlignment':'left',
+               'familyName':'Tahoma',
+               'size':10,
+               'style':'regular'
+            }
+        },
+         'button':{
+            'backColor':{ },
+            'border':{
+				// Color type
+               'bottomColor':{ },
+			   // Color type
+               'leftColor':{ },
+			   // Color type
+               'rightColor':{ },
+			   // Color type
+               'topColor':{ },
+               'bottomLeftRadius':0,
+               'bottomRightRadius':0,
+               'topLeftRadius':0,
+               'topRightRadius':0,
+               'bottomWidth':1,
+               'leftWidth':1,
+               'rightWidth':1,
+               'topWidth':1
+            },
+			// Color type
+            'foreColor':{  },
+			// Padding type
+            'padding':{
+               'top':8,
+               'right':4,
+               'bottom':8,
+               'left':4
+            }
+        },
+         'field':{
+			 // Color type
+            'backColor':{ },
+            'border':{
+				// Color type
+               'bottomColor':{ },
+			   // Color type
+               'leftColor':{ },
+			   // Color type
+               'rightColor':{ },
+			   // Color type
+               'topColor':{ },
+               'bottomLeftRadius':0,
+               'bottomRightRadius':0,
+               'topLeftRadius':0,
+               'topRightRadius':0,
+               'bottomWidth':1,
+               'leftWidth':1,
+               'rightWidth':1,
+               'topWidth':1
+            },
+			// Color type
+            'foreColor':{ },
+            'innerShadow':false,
+			// Padding type
+            'padding':{ }
+        },
+         'hoverLink':{
+            'textStyle':{
+				// Color type
+               'backgroundColor':{ },
+			   // Color type
+               'textColor':{ },
+               'textAlignment':'left',
+               'familyName':'Tahoma',
+               'size':9,
+               'style':'regular'
+            },
+            'decoration':'none'
+        },
+         'path':{
+            'horizontalMargin':6,
+			// Color type
+            'lineBottomColor':{ },
+			// Color type
+            'lineLeftColor':{ },
+			// Color type
+            'lineRightColor':{ },
+			// Color type
+            'lineTopColor':{ },
+            'textStyle':{
+				// Color type
+               'backgroundColor':{ },
+			   // Color type
+               'textColor':{ },
+               'textAlignment':'left',
+               'familyName':'Tahoma',
+               'size':7,
+               'style':'regular'
+            }
+        },
+         'title':{
+            'horizontalMargin':6,
+			// Color type
+            'lineBottomColor':{ },
+			// Color type
+            'lineLeftColor':{ },
+			// Color type
+            'lineRightColor':{ },
+			// Color type
+            'lineTopColor':{ },
+            'textStyle':{
+				// Color type
+               'backgroundColor':{ },
+			   // Color type
+               'textColor':{ },
+               'textAlignment':'left',
+               'familyName':'Tahoma',
+               'size':12,
+               'style':'bold'
+            }
+        },
+         'visitedLink':{
+            'textStyle':{
+				// Color type
+               'backgroundColor':{ },
+			   // Color type
+               'textColor':{ },
+               'textAlignment':'left',
+               'familyName':'Tahoma',
+               'size':9,
+               'style':'regular'
+            },
+            'decoration':'underline'
+        }
+    }
 };
 ```
