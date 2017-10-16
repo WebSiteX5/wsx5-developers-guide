@@ -11,34 +11,38 @@ extra_css: [css/cssfix.css]
 markdown_extensions: [nl2br]
 site_favicon: favicon.ico
 pages:
- - ['index.md', 'Home']
- - ['optional-objects/introduction.md', 'Optional Objects', 'Introduction']
- - ['optional-objects/getting-started.md', 'Optional Objects', 'Getting Started']
- - ['optional-objects/conventions-structure.md', 'Optional Objects', 'Optional Objects structure']
- - ['optional-objects/manifest-xml.md', 'Optional Objects', 'Manifest XML']
- - ['optional-objects/user-input-fields.md', 'Optional Objects', 'User input fields']
- - ['optional-objects/localizations-xml.md', 'Optional Objects', 'Localizations']
- - ['optional-objects/hooks.md', 'Optional Objects', 'Hacking the default behavior']
- - ['optional-objects/wsx5-script.md', 'Optional Objects', 'WSX5 Script']
- - ['optional-objects/tips.md', 'Optional Objects', 'Tips']
- - ['optional-objects/examples.md', 'Optional Objects', 'Example Objects']
- - ['generic-javascript-api/introduction.md', 'X5 Engine JavaScript API', 'Introduction']
- - ['generic-javascript-api/boot.md', 'X5 Engine JavaScript API', 'Boot Class']
- - ['generic-javascript-api/showbox.md', 'X5 Engine JavaScript API', 'Showbox Class']
- - ['generic-javascript-api/tip.md', 'X5 Engine JavaScript API', 'Tooltip Class']
- - ['generic-javascript-api/l10n.md', 'X5 Engine JavaScript API', 'Localizations Class']
- - ['generic-javascript-api/responsive.md', 'X5 Engine JavaScript API', 'Responsive Class']
- - ['generic-javascript-api/responsive-events.md', 'X5 Engine JavaScript API', 'Responsive Events']
- - ['generic-javascript-api/cookielaw-script.md', 'X5 Engine JavaScript API', 'Cookie Law Script']
- - ['ecommerce-javascript-api/introduction.md', 'Ecommerce JavaScript API', 'Introduction']
- - ['ecommerce-javascript-api/ecommerce-class.md', 'Ecommerce JavaScript API', 'E-Commerce Class']
- - ['ecommerce-javascript-api/product-class.md', 'Ecommerce JavaScript API', 'Product Class']
- - ['ecommerce-javascript-api/payment-class.md', 'Ecommerce JavaScript API', 'Payment Class']
- - ['ecommerce-javascript-api/shipping-class.md', 'Ecommerce JavaScript API', 'Shipping Class']
- - ['ecommerce-javascript-api/ui.md', 'Ecommerce JavaScript API', 'User Interface']
- - ['php-api/introduction.md', 'X5 Engine PHP API', 'Introduction']
- - ['php-api/global-functions.md', 'X5 Engine PHP API', 'Global Functions']
- - ['php-api/comment-class.md', 'X5 Engine PHP API', 'Comment Class']
- - ['php-api/database-class.md', 'X5 Engine PHP API', 'Database Class']
- - ['php-api/privatearea-class.md', 'X5 Engine PHP API', 'Private Area Class']
- - ['php-api/topic-class.md', 'X5 Engine PHP API', 'Topic Class']
+  - 'Home': 'index.md'
+  - Optional Objects:
+    - 'Introduction': 'optional-objects/introduction.md'
+    - 'Getting Started': 'optional-objects/getting-started.md'
+    - 'Optional Objects structure': 'optional-objects/conventions-structure.md'
+    - 'Manifest XML': 'optional-objects/manifest-xml.md'
+    - 'User input fields': 'optional-objects/user-input-fields.md'
+    - 'Localizations': 'optional-objects/localizations-xml.md'
+    - 'Hacking the default behavior': 'optional-objects/hooks.md'
+    - 'WSX5 Script': 'optional-objects/wsx5-script.md'
+    - 'Tips': 'optional-objects/tips.md'
+    - 'Example Objects': 'optional-objects/examples.md'
+  - X5 Engine JavaScript API:
+    - 'Introduction': 'generic-javascript-api/introduction.md'
+    - 'Boot Class': 'generic-javascript-api/boot.md'
+    - 'Showbox Class': 'generic-javascript-api/showbox.md'
+    - 'Tooltip Class': 'generic-javascript-api/tip.md'
+    - 'Localizations Class': 'generic-javascript-api/l10n.md'
+    - 'Responsive Class': 'generic-javascript-api/responsive.md'
+    - 'Responsive Events': 'generic-javascript-api/responsive-events.md'
+    - 'Cookie Law Script': 'generic-javascript-api/cookielaw-script.md'
+  - Ecommerce JavaScript API:
+    - 'Introduction': 'ecommerce-javascript-api/introduction.md'
+    - 'E-Commerce Class': 'ecommerce-javascript-api/ecommerce-class.md'
+    - 'Product Class': 'ecommerce-javascript-api/product-class.md'
+    - 'Payment Class': 'ecommerce-javascript-api/payment-class.md'
+    - 'Shipping Class': 'ecommerce-javascript-api/shipping-class.md'
+    - 'User Interface': 'ecommerce-javascript-api/ui.md'
+  - X5 Engine PHP API:
+    - 'Introduction': 'php-api/introduction.md'
+    - 'Global Functions': 'php-api/global-functions.md'
+    - 'Comment Class': 'php-api/comment-class.md'
+    - 'Database Class': 'php-api/database-class.md'
+    - 'Private Area Class': 'php-api/privatearea-class.md'
+    - 'Topic Class': 'php-api/topic-class.md'
