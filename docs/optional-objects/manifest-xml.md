@@ -29,8 +29,19 @@ Here's how a manifest.xml looks like:
 	</Parameters>
 	<!-- Here we define the output -->
 	<Output><[CDATA["Hello World!" by <?wsx5 document.write(parameters['name'].value); ?>]]></Output>
+	<PreviewOutput src="output/preview.html"></PreviewOutput>
 </App>
 ```
+
+## Loading of external content in the manifest
+**Since**: 16.0.0
+
+A tag may have an `src` property to indicate an external file that provides the content to be used instead of the tag text.
+The path indicated in the `src` property is related to the object root folder.
+
+If the tag has an "encrypted" property set to `true`, the file indicated by the `src` property is encrypted. The property value is `false` by default.
+
+# Supported Tags
 
 Below here you can find a list of the supported tags.
 
@@ -227,10 +238,16 @@ This tag contains the code which has to be used to create the HTML code to inser
 This tag may contain any kind of code. It will be then copied inside the code of the page.
 Inside this tag you can write [WSX5 Script](wsx5-script.md) code. It must be executed within the `<?wsx5` and `?>` tag. This code follows the guidelines described in the [WSX5 Script](wsx5-script.md) section.
 
+This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
+
 ## PreviewOutput Tag
 **Mandatory**: no
 If available, it contains the output HTML code to show in the small preview present in the editor of the page or in the editor of the template when the object is selected. Works like the Output tag.
 
+This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
+
 ## UIPreviewOutput Tag
 **Mandatory**: no
 If available, it contains the output HTML code to show in the preview present during the editing of the object. Works like the Output tag.
+
+This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
