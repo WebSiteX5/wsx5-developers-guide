@@ -76,6 +76,15 @@ var document = {
 	"write": function(string) { ... }
 };
 ```
+**Since**: 16.0.0
+
+A faster way to write to the output is to use the following sintax:
+
+```php
+<?="my own string"?> // This outputs "my own string"
+
+<?=myOwnVariable?> // This outputs the contents of myOwnVariable
+```
 
 ## console
 **Type**: Object
