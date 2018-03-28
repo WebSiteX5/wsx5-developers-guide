@@ -539,6 +539,32 @@ var wsx5 = {
         ]
 	},
 
+	// Informations about the RSS Feed
+	"rssFeed": {
+		"description": "",
+		"title": "",
+		// The list of posts in the feed
+		"items": [
+			{
+				"date": new date(),
+				"htmlContent": "",
+				"content": "",
+				"title": "",
+				// The images loaded in the post text
+				"images": [
+					{
+						"path": "",
+						"alignment": "",
+						"alt": "",
+						"height": 0,
+						"width": 0,
+						"title": ""
+					}
+				]
+			}
+        ]
+	},
+
 	// Informations about the data managements
 	"dataManagement": {
 		
