@@ -412,25 +412,25 @@ var wsx5 = {
 		// True if the generic coupon code can be used by the user
 		"couponActive": false,
 		// The generic coupon code
-		"coupon": '',
+		"coupon": "",
 		"products": [
 			{
-				"id": '',
-				"name": '',
-				"description": '',
+				"id": "",
+				"name": "",
+				"description": "",
 				"price": 0,
 				"vat": 0,
 				"weight": 0,
-				"coupon": '',
-				"category": '',
+				"coupon": "",
+				"category": "",
 				// Fixed discount
 				"fixedDiscount": {
-					"startDate": '',
+					"startDate": "",
 					"startDateActive": false,
-					"endDate": '',
+					"endDate": "",
 					"endDateActive": false,
 					"absolute": 0,
-					"coupon": '',
+					"coupon": "",
 					"couponEnabled": false,
 					"relative": 0,
 					"enabled": false,
@@ -460,12 +460,12 @@ var wsx5 = {
 		// Payments array
 		"payments": [
 			{
-				"id": '',
-				"description": '',
-				"emailMessage": '',
+				"id": "",
+				"description": "",
+				"emailMessage": "",
 				"enableVat": false,
-				"name": '',
-				"image": '',
+				"name": "",
+				"image": "",
 				"percentualPrice": 0,
 				"price": 0,
 				"vat": 0,
@@ -477,7 +477,7 @@ var wsx5 = {
 		// Shippings array
 		"shippings": [
 			{
-				"id": '',
+				"id": "",
 				// Quantity Discounts
 				"quantityDiscounts": [
 					{
@@ -492,17 +492,51 @@ var wsx5 = {
 						"value": 0,
 					}
 				],
-				"description": '',
-				"emailMessage": '',
+				"description": "",
+				"emailMessage": "",
 				"enableVat": false,
-				"image": '',
-				"name": '',
+				"image": "",
+				"name": "",
 				"price": 0,
 				"vat": 0,
 				// fixed, totalAmountRelated or totalWeightRelated
 				"priceType": "fixed"
 			}
 		]
+	},
+
+	// Informations about the blog
+	"blog": {
+		"allowComments": false,
+		"description": "",
+		"id": "",
+		"title": "",
+		// The list of posts in the blog
+		"items": [
+			{
+				"author": "",
+				"description": "",
+				"category": "",
+				"cover": "",
+				"date": new date(),
+				"htmlContent": "",
+				"content": "",
+				"title": "",
+				// The images loaded in the post text
+				"images": [
+					{
+						"path": "",
+						"alignment": "",
+						"alt": "",
+						"height": 0,
+						"width": 0,
+						"title": ""
+					}
+				],
+				// HTML code of the media attached to this post
+				"media": ""
+			}
+        ]
 	},
 
 	// Informations about the data managements
