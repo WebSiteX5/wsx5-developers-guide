@@ -202,6 +202,23 @@ The second file is a custom JavaScript file that needs to be processed before be
 </Resources>
 ```
 
+## Includes Tag
+**Mandatory**: no
+**Since**: 16.0.0
+You can include multiple libraries to the WSX5Script code by using this include tag.
+The code you specify using this tag will be executed as WSX5Script before any other code is executed.
+
+```xml
+<!-- This example includes an external library and some custom inline code -->
+<Includes>
+	<Include src="includes/library1.js" />
+	<Include>
+		// You can type some JS code in here too
+		var thisIsInline = true;
+	</Include>
+</Includes>
+```
+
 ## Dependencies Tag
 **Mandatory**: no
 Using this tag you can specify the dipendency of your Optional Object from a WebSite X5 component.
