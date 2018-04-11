@@ -401,10 +401,17 @@ Each keyword is replaced using the following rules:
 + [USE_SHIPPING_DATA]            = Is replaced by "true" or "false" boolean value if the user has compiled or not the shipping form
 
 The available keywords on the INVOICE and SHIPPING sections are:
-	[NAME], [LASTNAME], [ADDRESS1], [ADDRESS2], [CITY], [STATEREGION],
-	[COUNTRY], [COUNTRYCODE] [ZIPPOSTALCODE], [EMAIL], [PHONE], [ADVERTS], [NOTE]
-Moreover, any custom field is added using a custom ID so you can just use its ID in the keyword to replace it
-in the HTML code.
+
+[COMPANY], [NAME], [LASTNAME], [ADDRESS1], [ADDRESS2], [ZIPPOSTALCODE], [CITY], [STATEREGION], [COUNTRY], [COUNTRYCODE], [EMAIL], [PHONE], [MOBILE], [FAX], [VAT], [CUSTOMERID], [ADVERTS], [NOTE]
+
+Moreover, any custom field is added using a custom ID so you can just use its ID or its uppercased name in the keyword to replace it in the HTML code.
+
+**Example**  
+```js
+[NAME] // Will be replaced with the customer's name
+[000000000] // This field ID will be replaced with the customer's custom field value
+[CUSTOM FIELD NAME] // This uppercased field name will be replaced with the customer's custom field value
+```
 
 ##### HTML Escaping
 Each keyword can be replaced with the HTML escaped version of its value by placing HESCAPE_ before it.
