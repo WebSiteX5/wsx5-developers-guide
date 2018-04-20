@@ -202,6 +202,35 @@ The second file is a custom JavaScript file that needs to be processed before be
 </Resources>
 ```
 
+## Admin Tag
+**Mandatory**: no
+**Since**: 16.0.0
+
+Using this tag you can specify a resource that is used as content of an admin section.
+
+In the `Admin` tag, you should specify one or more `Page` tag.
+The Page tag should specify a `resource-id` attribute that contains the id of the [Resource](#resources-tag) loaded in the admin section.
+
+The content of the specified resource will be [included](http://php.net/manual/en/function.include.php) in a PHP file of the admin section. A link to it will be automatically added to the "admin" section of the online site.
+
+Optionally, you can specify the icon resource id using the `icon-resource-id` attribute. The icon is used in the side menu of the admin section of the site.
+
+The `Page` tag should contain a `Title` tag that should contain the title of the specified section. It can be localized using the l10-id attribute.
+
+```xml
+<!-- Define the resources using the Resources tag -->
+<Resources>
+	<Resource id="admin" src="admin.php" />
+	<Resource id="admin-icon" src="icon.png" />
+</Resources>
+<!-- Then use the resources ids to define the admin sections -->
+<Admin>
+	<Page resource-id="admin" icon-resource-id="admin-icon">
+		<Title l10n-id="title">Test title</Title>
+	</Page>
+</Admin>
+```
+
 ## Includes Tag
 **Mandatory**: no
 **Since**: 16.0.0
