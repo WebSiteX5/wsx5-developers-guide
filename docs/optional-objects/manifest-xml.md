@@ -36,8 +36,9 @@ Here's how a manifest.xml looks like:
 ## Loading of external content in the manifest
 **Since**: 16.0.0
 
-A tag may have an `src` property to indicate an external file that provides the content to be used instead of the tag text.
+A tag may have an `src` property. If set, it shall contain a path to an external file that provides the content to be used for the tag.
 The path indicated in the `src` property is related to the object root folder.
+If the `src` property is not set, the inner text of the tag is used as content.
 
 If the tag has an "encrypted" property set to `true`, the file indicated by the `src` property is encrypted. The property value is `false` by default.
 
