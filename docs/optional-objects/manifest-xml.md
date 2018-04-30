@@ -206,10 +206,17 @@ The second file is a custom JavaScript file that needs to be processed before be
 **Mandatory**: no
 **Since**: 16.0.0
 
-Using this tag you can specify a resource that is used as content of an admin section.
+Using this tag you can specify a resource that is used as content of an admin section or as content of a dashboard box.
+In the `Admin` tag, you should specify one `Pages` tag and/or a `Dashboard` tag.
 
-In the `Admin` tag, you should specify one or more `Page` tag.
-The Page tag should specify a `resource-id` attribute that contains the id of the [Resource](#resources-tag) loaded in the admin section.
+### Pages tag
+
+This tag allow you to add a new section to the admin area of the site.
+
+It shall contain one or more `Page` tag.
+The `Page` tag should specify a `resource-id` attribute that contains the id of the [Resource](#resources-tag) loaded in the admin section.
+
+Only one entry in the menu will be made if the specified resource is shared and set as `action="copy"`. The link is valid for all the optional objects of the same kind. If the resource is not shared, there will be an entry for each optional object.
 
 The content of the specified resource will be [included](http://php.net/manual/en/function.include.php) in a PHP file of the admin section. A link to it will be automatically added to the "admin" section of the online site.
 
@@ -217,17 +224,40 @@ Optionally, you can specify the icon resource id using the `icon-resource-id` at
 
 The `Page` tag should contain a `Title` tag that should contain the title of the specified section. It can be localized using the l10-id attribute.
 
+### Dashboard tag
+
+This tag allow you to add a new box to the admin dashboard.
+
+It shall contain one or more `Box` tag.
+The `Box` tag should specify a `resource-id` attribute that contains the id of the [Resource](#resources-tag) loaded in the admin section.
+
+Only one box will be shown if the specified resource is shared and set as `action="copy"`. The box is valid for all the optional objects of the same kind. If the resource is not shared, there will be a box for each optional object.
+
+The content of the specified resource will be [included](http://php.net/manual/en/function.include.php) in a PHP file of the admin section. A link to it will be automatically added to the "admin" section of the online site.
+
+Optionally, you can specify the icon resource id using the `icon-resource-id` attribute. The icon is used in the side menu of the admin section of the site.
+
+The `Box` tag should contain a `Title` tag that should contain the title of the specified section. It can be localized using the l10-id attribute.
+
 ```xml
 <!-- Define the resources using the Resources tag -->
 <Resources>
 	<Resource id="admin" src="admin.php" />
+	<Resource id="admin-dash" src="admin.php" />
 	<Resource id="admin-icon" src="icon.png" />
 </Resources>
-<!-- Then use the resources ids to define the admin sections -->
+<!-- Then use the resources ids to define the admin sections and boxes -->
 <Admin>
-	<Page resource-id="admin" icon-resource-id="admin-icon">
-		<Title l10n-id="title">Test title</Title>
-	</Page>
+	<Pages>
+		<Page resource-id="admin" icon-resource-id="admin-icon">
+			<Title l10n-id="title">This is the menu entry title</Title>
+		</Page>
+	</Pages>
+	<Dashboard>
+		<Box resource-id="admin-dash" icon-resource-id="admin-icon">
+			<Title l10n-id="title">This is the dashboard box title</Title>
+		</Box>
+	</Dashboard>
 </Admin>
 ```
 
