@@ -76,6 +76,15 @@ var document = {
 	"write": function(string) { ... }
 };
 ```
+**Since**: 16.0.0
+
+A faster way to write to the output is to use the following sintax:
+
+```php
+<?="my own string"?> // This outputs "my own string"
+
+<?=myOwnVariable?> // This outputs the contents of myOwnVariable
+```
 
 ## console
 **Type**: Object
@@ -198,7 +207,7 @@ var menu {
 function drawMenu( prefix, nodes ) {
 	for ( var i = 0; i < nodes.length; i++ ) {
 		console.log( prefix + nodes[i].label );
-		if ( nodes[i].type == 'level' ) {
+		if ( nodes[i].type == "level" ) {
 			drawMenu( prefix + nodes[i].label + "/", nodes[i].nodes );
 		}
 	}
@@ -275,9 +284,9 @@ var wsx5 = {
 
 	// The current WSX5 mode.
 	// Possible values:
-	// 'uipreview' : during the preview in the UI of WSX5,
-	// 'preview'   : during the preview in the embedded browser of WSX5,
-	// 'online'    : when the website is published,
+	// "uipreview" : during the preview in the UI of WSX5,
+	// "preview"   : during the preview in the embedded browser of WSX5,
+	// "online"    : when the website is published,
 	// according to the moment when the content is made
 	"mode": "uipreview",
 
@@ -377,29 +386,183 @@ var wsx5 = {
 		// True if option for automatic registration of users is enabled 
 		"registerCustomers" : true,
 		// True if user choose to alternate row's background color
-		'ZebraTable':true,
+		"ZebraTable":true,
 		// Color type
-        'CellTextColor':{
-            'a':255,
-            'r':37,
-            'g':58,
-            'b':88
+        "CellTextColor":{
+            "a":255,
+            "r":37,
+            "g":58,
+            "b":88
 		 },
 		// Color type
-        'CellBackgroundColor': {  },
+        "CellBackgroundColor": {  },
 		// Color type
-		'HeadTextColor': {  },
+		"HeadTextColor": {  },
 		// Color type
-		'HeadBackgroundColor': {  },
+		"HeadBackgroundColor": {  },
 		// Color type
-		'TableBorderColor': {  },
+		"TableBorderColor": {  },
 		// Radius type
-        'TableBorderRadius': {
-            'top':2,
-            'right':2,
-            'bottom':2,
-            'left':2
-        }
+        "TableBorderRadius": {
+            "top":2,
+            "right":2,
+            "bottom":2,
+            "left":2
+        },
+		// True if the generic coupon code can be used by the user
+		"couponActive": false,
+		// The generic coupon code
+		"coupon": "",
+		"products": [
+			{
+				"id": "",
+				"name": "",
+				"description": "",
+				"price": 0,
+				"vat": 0,
+				"weight": 0,
+				"coupon": "",
+				"category": "",
+				// Fixed discount
+				"fixedDiscount": {
+					"startDate": "",
+					"startDateActive": false,
+					"endDate": "",
+					"endDateActive": false,
+					"absolute": 0,
+					"coupon": "",
+					"couponEnabled": false,
+					"relative": 0,
+					"enabled": false,
+					// none, relative or absolute
+					"type": "none"
+				},
+				// Quantity discount
+				"quantityDiscount": {
+					"enabled": false,
+					"pairs": [
+						{
+							"minimum": 0,
+							"value": 0,
+						}
+					]
+				},
+				// Images
+				"images": [
+					{
+						"width": " + image.Width + ",
+						"height": " + image.Height + ",
+						"path": '" + Helper.JSONEscape(fg.Destination) + "'
+					}
+				],
+            }
+		],
+		// Payments array
+		"payments": [
+			{
+				"id": "",
+				"description": "",
+				"emailMessage": "",
+				"enableVat": false,
+				"name": "",
+				"image": "",
+				"percentualPrice": 0,
+				"price": 0,
+				"vat": 0,
+				// fixed or percentual
+				"priceType": "fixed"
+				},
+			}
+		],
+		// Shippings array
+		"shippings": [
+			{
+				"id": "",
+				// Quantity Discounts
+				"quantityDiscounts": [
+					{
+						"minimum": 0,
+						"value": 0,
+					}
+				],
+				// Weight Discounts
+				"weightDiscounts": [
+					{
+						"minimum": 0,
+						"value": 0,
+					}
+				],
+				"description": "",
+				"emailMessage": "",
+				"enableVat": false,
+				"image": "",
+				"name": "",
+				"price": 0,
+				"vat": 0,
+				// fixed, totalAmountRelated or totalWeightRelated
+				"priceType": "fixed"
+			}
+		]
+	},
+
+	// Informations about the blog
+	"blog": {
+		"allowComments": false,
+		"description": "",
+		"id": "",
+		"title": "",
+		// The list of posts in the blog
+		"items": [
+			{
+				"author": "",
+				"description": "",
+				"category": "",
+				"cover": "",
+				"date": new date(),
+				"htmlContent": "",
+				"content": "",
+				"title": "",
+				// The images loaded in the post text
+				"images": [
+					{
+						"path": "",
+						"alignment": "",
+						"alt": "",
+						"height": 0,
+						"width": 0,
+						"title": ""
+					}
+				],
+				// HTML code of the media attached to this post
+				"media": ""
+			}
+        ]
+	},
+
+	// Informations about the RSS Feed
+	"rssFeed": {
+		"description": "",
+		"title": "",
+		// The list of posts in the feed
+		"items": [
+			{
+				"date": new date(),
+				"htmlContent": "",
+				"content": "",
+				"title": "",
+				// The images loaded in the post text
+				"images": [
+					{
+						"path": "",
+						"alignment": "",
+						"alt": "",
+						"height": 0,
+						"width": 0,
+						"title": ""
+					}
+				]
+			}
+        ]
 	},
 
 	// Informations about the data managements
@@ -433,154 +596,154 @@ var wsx5 = {
 		// The public folder path based on the site's root
 		"publicFolder": "",
 	},
-	'defaultStyles':{
-         'activeLink':{
-            'textStyle':{  },
+	"defaultStyles":{
+         "activeLink":{
+            "textStyle":{  },
 				// Color type
-               'textColor':{ },
-               'textAlignment':'left',
-               'familyName':'Tahoma',
-               'size':9,
-               'style':'regular' // can be 'regular', 'bold', 'italic', 'underline'
+               "textColor":{ },
+               "textAlignment":"left",
+               "familyName":"Tahoma",
+               "size":9,
+               "style":"regular" // can be "regular", "bold", "italic", "underline"
             },
-            'decoration':'underline' // can be 'none' or 'underline'
+            "decoration":"underline" // can be "none" or "underline"
         },
-         'body':{
-            'textStyle':{
+         "body":{
+            "textStyle":{
 				// Color type
-               'backgroundColor':{ },
+               "backgroundColor":{ },
 			   // Color type
-               'textColor':{ },
-               'textAlignment':'left',
-               'familyName':'Tahoma',
-               'size':10,
-               'style':'regular'
+               "textColor":{ },
+               "textAlignment":"left",
+               "familyName":"Tahoma",
+               "size":10,
+               "style":"regular"
             }
         },
-         'button':{
-            'backColor':{ },
-            'border':{
+         "button":{
+            "backColor":{ },
+            "border":{
 				// Color type
-               'bottomColor':{ },
+               "bottomColor":{ },
 			   // Color type
-               'leftColor':{ },
+               "leftColor":{ },
 			   // Color type
-               'rightColor':{ },
+               "rightColor":{ },
 			   // Color type
-               'topColor':{ },
-               'bottomLeftRadius':0,
-               'bottomRightRadius':0,
-               'topLeftRadius':0,
-               'topRightRadius':0,
-               'bottomWidth':1,
-               'leftWidth':1,
-               'rightWidth':1,
-               'topWidth':1
+               "topColor":{ },
+               "bottomLeftRadius":0,
+               "bottomRightRadius":0,
+               "topLeftRadius":0,
+               "topRightRadius":0,
+               "bottomWidth":1,
+               "leftWidth":1,
+               "rightWidth":1,
+               "topWidth":1
             },
 			// Color type
-            'foreColor':{  },
+            "foreColor":{  },
 			// Padding type
-            'padding':{
-               'top':8,
-               'right':4,
-               'bottom':8,
-               'left':4
+            "padding":{
+               "top":8,
+               "right":4,
+               "bottom":8,
+               "left":4
             }
         },
-         'field':{
+         "field":{
 			 // Color type
-            'backColor':{ },
-            'border':{
+            "backColor":{ },
+            "border":{
 				// Color type
-               'bottomColor':{ },
+               "bottomColor":{ },
 			   // Color type
-               'leftColor':{ },
+               "leftColor":{ },
 			   // Color type
-               'rightColor':{ },
+               "rightColor":{ },
 			   // Color type
-               'topColor':{ },
-               'bottomLeftRadius':0,
-               'bottomRightRadius':0,
-               'topLeftRadius':0,
-               'topRightRadius':0,
-               'bottomWidth':1,
-               'leftWidth':1,
-               'rightWidth':1,
-               'topWidth':1
+               "topColor":{ },
+               "bottomLeftRadius":0,
+               "bottomRightRadius":0,
+               "topLeftRadius":0,
+               "topRightRadius":0,
+               "bottomWidth":1,
+               "leftWidth":1,
+               "rightWidth":1,
+               "topWidth":1
             },
 			// Color type
-            'foreColor':{ },
-            'innerShadow':false,
+            "foreColor":{ },
+            "innerShadow":false,
 			// Padding type
-            'padding':{ }
+            "padding":{ }
         },
-         'hoverLink':{
-            'textStyle':{
+         "hoverLink":{
+            "textStyle":{
 				// Color type
-               'backgroundColor':{ },
+               "backgroundColor":{ },
 			   // Color type
-               'textColor':{ },
-               'textAlignment':'left',
-               'familyName':'Tahoma',
-               'size':9,
-               'style':'regular'
+               "textColor":{ },
+               "textAlignment":"left",
+               "familyName":"Tahoma",
+               "size":9,
+               "style":"regular"
             },
-            'decoration':'none'
+            "decoration":"none"
         },
-         'path':{
-            'horizontalMargin':6,
+         "path":{
+            "horizontalMargin":6,
 			// Color type
-            'lineBottomColor':{ },
+            "lineBottomColor":{ },
 			// Color type
-            'lineLeftColor':{ },
+            "lineLeftColor":{ },
 			// Color type
-            'lineRightColor':{ },
+            "lineRightColor":{ },
 			// Color type
-            'lineTopColor':{ },
-            'textStyle':{
+            "lineTopColor":{ },
+            "textStyle":{
 				// Color type
-               'backgroundColor':{ },
+               "backgroundColor":{ },
 			   // Color type
-               'textColor':{ },
-               'textAlignment':'left',
-               'familyName':'Tahoma',
-               'size':7,
-               'style':'regular'
+               "textColor":{ },
+               "textAlignment":"left",
+               "familyName":"Tahoma",
+               "size":7,
+               "style":"regular"
             }
         },
-         'title':{
-            'horizontalMargin':6,
+         "title":{
+            "horizontalMargin":6,
 			// Color type
-            'lineBottomColor':{ },
+            "lineBottomColor":{ },
 			// Color type
-            'lineLeftColor':{ },
+            "lineLeftColor":{ },
 			// Color type
-            'lineRightColor':{ },
+            "lineRightColor":{ },
 			// Color type
-            'lineTopColor':{ },
-            'textStyle':{
+            "lineTopColor":{ },
+            "textStyle":{
 				// Color type
-               'backgroundColor':{ },
+               "backgroundColor":{ },
 			   // Color type
-               'textColor':{ },
-               'textAlignment':'left',
-               'familyName':'Tahoma',
-               'size':12,
-               'style':'bold'
+               "textColor":{ },
+               "textAlignment":"left",
+               "familyName":"Tahoma",
+               "size":12,
+               "style":"bold"
             }
         },
-         'visitedLink':{
-            'textStyle':{
+         "visitedLink":{
+            "textStyle":{
 				// Color type
-               'backgroundColor':{ },
+               "backgroundColor":{ },
 			   // Color type
-               'textColor':{ },
-               'textAlignment':'left',
-               'familyName':'Tahoma',
-               'size':9,
-               'style':'regular'
+               "textColor":{ },
+               "textAlignment":"left",
+               "familyName":"Tahoma",
+               "size":9,
+               "style":"regular"
             },
-            'decoration':'underline'
+            "decoration":"underline"
         }
     }
 };

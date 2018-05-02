@@ -29,8 +29,20 @@ Here's how a manifest.xml looks like:
 	</Parameters>
 	<!-- Here we define the output -->
 	<Output><[CDATA["Hello World!" by <?wsx5 document.write(parameters['name'].value); ?>]]></Output>
+	<PreviewOutput src="output/preview.html"></PreviewOutput>
 </App>
 ```
+
+## Loading of external content in the manifest
+**Since**: 16.0.0
+
+A tag may have an `src` property. If set, it shall contain a path to an external file that provides the content to be used for the tag.
+The path indicated in the `src` property is related to the object root folder.
+If the `src` property is not set, the inner text of the tag is used as content.
+
+If the tag has an "encrypted" property set to `true`, the file indicated by the `src` property is encrypted. The property value is `false` by default.
+
+# Supported Tags
 
 Below here you can find a list of the supported tags.
 
@@ -191,6 +203,82 @@ The second file is a custom JavaScript file that needs to be processed before be
 </Resources>
 ```
 
+## Admin Tag
+**Mandatory**: no
+**Since**: 16.0.0
+
+Using this tag you can specify a resource that is used as content of an admin section or as content of a dashboard box.
+In the `Admin` tag, you should specify one `Pages` tag and/or a `Dashboard` tag.
+
+### Pages tag
+
+This tag allow you to add a new section to the admin area of the site.
+
+It shall contain one or more `Page` tag.
+The `Page` tag should specify a `resource-id` attribute that contains the id of the [Resource](#resources-tag) loaded in the admin section.
+
+Only one entry in the menu will be made if the specified resource is shared and set as `action="copy"`. The link is valid for all the optional objects of the same kind. If the resource is not shared, there will be an entry for each optional object.
+
+The content of the specified resource will be [included](http://php.net/manual/en/function.include.php) in a PHP file of the admin section. A link to it will be automatically added to the "admin" section of the online site.
+
+Optionally, you can specify the icon resource id using the `icon-resource-id` attribute. The icon is used in the side menu of the admin section of the site.
+
+The `Page` tag should contain a `Title` tag that should contain the title of the specified section. It can be localized using the l10-id attribute.
+
+### Dashboard tag
+
+This tag allow you to add a new box to the admin dashboard.
+
+It shall contain one or more `Box` tag.
+The `Box` tag should specify a `resource-id` attribute that contains the id of the [Resource](#resources-tag) loaded in the admin section.
+
+Only one box will be shown if the specified resource is shared and set as `action="copy"`. The box is valid for all the optional objects of the same kind. If the resource is not shared, there will be a box for each optional object.
+
+The content of the specified resource will be [included](http://php.net/manual/en/function.include.php) in a PHP file of the admin section. A link to it will be automatically added to the "admin" section of the online site.
+
+Optionally, you can specify the icon resource id using the `icon-resource-id` attribute. The icon is used in the side menu of the admin section of the site.
+
+The `Box` tag should contain a `Title` tag that should contain the title of the specified section. It can be localized using the l10-id attribute.
+
+```xml
+<!-- Define the resources using the Resources tag -->
+<Resources>
+	<Resource id="admin" src="admin.php" />
+	<Resource id="admin-dash" src="admin.php" />
+	<Resource id="admin-icon" src="icon.png" />
+</Resources>
+<!-- Then use the resources ids to define the admin sections and boxes -->
+<Admin>
+	<Pages>
+		<Page resource-id="admin" icon-resource-id="admin-icon">
+			<Title l10n-id="title">This is the menu entry title</Title>
+		</Page>
+	</Pages>
+	<Dashboard>
+		<Box resource-id="admin-dash" icon-resource-id="admin-icon">
+			<Title l10n-id="title">This is the dashboard box title</Title>
+		</Box>
+	</Dashboard>
+</Admin>
+```
+
+## Includes Tag
+**Mandatory**: no
+**Since**: 16.0.0
+You can include multiple libraries to the WSX5Script code by using this include tag.
+The code you specify using this tag will be executed as WSX5Script before any other code is executed.
+
+```xml
+<!-- This example includes an external library and some custom inline code -->
+<Includes>
+	<Include src="includes/library1.js" />
+	<Include>
+		// You can type some JS code in here too
+		var thisIsInline = true;
+	</Include>
+</Includes>
+```
+
 ## Dependencies Tag
 **Mandatory**: no
 Using this tag you can specify the dipendency of your Optional Object from a WebSite X5 component.
@@ -227,10 +315,16 @@ This tag contains the code which has to be used to create the HTML code to inser
 This tag may contain any kind of code. It will be then copied inside the code of the page.
 Inside this tag you can write [WSX5 Script](wsx5-script.md) code. It must be executed within the `<?wsx5` and `?>` tag. This code follows the guidelines described in the [WSX5 Script](wsx5-script.md) section.
 
+This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
+
 ## PreviewOutput Tag
 **Mandatory**: no
 If available, it contains the output HTML code to show in the small preview present in the editor of the page or in the editor of the template when the object is selected. Works like the Output tag.
 
+This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
+
 ## UIPreviewOutput Tag
 **Mandatory**: no
 If available, it contains the output HTML code to show in the preview present during the editing of the object. Works like the Output tag.
+
+This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)

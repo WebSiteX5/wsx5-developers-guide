@@ -2,7 +2,11 @@
 You can change the default behavior of an optional object by specifying some hook function that will be called during the object's output building phase.
 
 The script functions should be defined in the `Hooks` tag, placed inside the `App` tag.
-This tag contains the WSX5Script code which has to be run in specific moments in the creation of the object. The script can define following functions. 
+This tag contains the WSX5Script code which has to be run in specific moments in the creation of the object.
+
+This tag supports the loading of contents from external files. See [this page](manifest-xml.md#loading-of-external-content-in-the-manifest) to get more information
+
+The script can define following functions. 
 
 ## GetHeight(objectWidth, breakpointName)
 **Since**: 12.0.0
