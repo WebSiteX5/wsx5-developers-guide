@@ -34,7 +34,7 @@ Here's how a manifest.xml looks like:
 ```
 
 ## Loading of external content in the manifest
-**Since**: 16.0.0
+**Since**: 15.2.0
 
 A tag may have an `src` property. If set, it shall contain a path to an external file that provides the content to be used for the tag.
 The path indicated in the `src` property is related to the object root folder.
@@ -205,7 +205,7 @@ The second file is a custom JavaScript file that needs to be processed before be
 
 ## Admin Tag
 **Mandatory**: no
-**Since**: 16.0.0
+**Since**: 15.2.0
 
 Using this tag you can specify a resource that is used as content of an admin section or as content of a dashboard box.
 In the `Admin` tag, you should specify one `Pages` tag and/or a `Dashboard` tag.
@@ -264,7 +264,7 @@ The `Box` tag should contain a `Title` tag that should contain the title of the 
 
 ## Includes Tag
 **Mandatory**: no
-**Since**: 16.0.0
+**Since**: 15.2.0
 You can include multiple libraries to the WSX5Script code by using this include tag.
 The code you specify using this tag will be executed as WSX5Script before any other code is executed.
 

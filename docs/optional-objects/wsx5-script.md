@@ -76,7 +76,7 @@ var document = {
 	"write": function(string) { ... }
 };
 ```
-**Since**: 16.0.0
+**Since**: 15.2.0
 
 A faster way to write to the output is to use the following sintax:
 
