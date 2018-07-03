@@ -73,7 +73,12 @@ It's defined as follows:
 var document = {
 
 	// Write a string to the objects output
-	"write": function(string) { ... }
+	"write": function(string) { ... },
+
+	// Include an external file. The file will be parsed
+	// and the output will be added to the document.
+	// The filePath must be given starting from the app root.
+	"include": function (filePath) { ... }
 };
 ```
 **Since**: 15.2.0
