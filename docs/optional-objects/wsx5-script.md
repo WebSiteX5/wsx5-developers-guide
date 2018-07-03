@@ -413,6 +413,9 @@ var wsx5 = {
 		"couponActive": false,
 		// The generic coupon code
 		"coupon": "",
+		// The following data is available only if the ShoppingCart
+		// dependency has been set. See the dependencies section
+		// for more informations.
 		"products": [
 			{
 				"id": "",
@@ -506,6 +509,9 @@ var wsx5 = {
 	},
 
 	// Informations about the blog
+	// The following data is available only if the Blog
+	// dependency has been set. See the dependencies section
+	// for more informations.
 	"blog": {
 		"allowComments": false,
 		"description": "",
@@ -540,6 +546,9 @@ var wsx5 = {
 	},
 
 	// Informations about the RSS Feed
+	// The following data is available only if the RSSFeed
+	// dependency has been set. See the dependencies section
+	// for more informations.
 	"rssFeed": {
 		"description": "",
 		"title": "",

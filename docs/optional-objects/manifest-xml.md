@@ -281,8 +281,9 @@ The code you specify using this tag will be executed as WSX5Script before any ot
 
 ## Dependencies Tag
 **Mandatory**: no
-Using this tag you can specify the dipendency of your Optional Object from a WebSite X5 component.
-This tag must contains one or more of the following subtags:
+Using this tag you can specify the dependency of your Optional Object from a WebSite X5 component.
+Extra data will be available inside the WSX5Script depending on the specified dependencies.
+This tag must contain one or more of the following subtags:
 
 ### AccessManagement
 Set the content of this subtag to `true` if your Optional Object reads data set in the Access Management section at step 4. In this case, the object is rebuilt whenever the user changes the Access Management settings.
@@ -292,6 +293,12 @@ Set the content of this subtag to `true` if your Optional Object reads data set 
 
 ### ShoppingCart
 Set the content of this subtag to `true` if your Optional Object reads data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
+
+### Blog
+Set the content of this subtag to `true` if your Optional Object reads data set in the Blog section at step 4. In this case, the object is rebuilt whenever the user changes the Blog settings.
+
+### RSSFeed
+Set the content of this subtag to `true` if your Optional Object reads data set in the RSS Feed section at step 4. In this case, the object is rebuilt whenever the user changes the RSS Feed settings.
 
 In the following example, the Optional Object is rebuilt when the user changes something in the Access Management section of WebSite X5.
 ```xml
