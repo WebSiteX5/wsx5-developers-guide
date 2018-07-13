@@ -285,6 +285,10 @@ Using this tag you can specify the dependency of your Optional Object from a Web
 Extra data will be available inside the WSX5Script depending on the specified dependencies.
 This tag must contain one or more of the following subtags:
 
+### BasicElements
+Set the content of this subtag to `true` if your Optional Object reads the basic website data.
+If no dependency is set, then this is automatically included. If you specify one or more dependency, this is included only if specified as dependency.
+
 ### AccessManagement
 Set the content of this subtag to `true` if your Optional Object reads data set in the Access Management section at step 4. In this case, the object is rebuilt whenever the user changes the Access Management settings.
 
@@ -292,13 +296,25 @@ Set the content of this subtag to `true` if your Optional Object reads data set 
 Set the content of this subtag to `true` if your Optional Object reads data set in the Data Management section at step 4. In this case, the object is rebuilt whenever the user changes the Data Management settings.
 
 ### ShoppingCart
-Set the content of this subtag to `true` if your Optional Object reads data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
+Set the content of this subtag to `true` if your Optional Object reads the basic data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
+
+### ShoppingCartProducts
+Set the content of this subtag to `true` if your Optional Object reads the products data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
+
+### ShoppingCartPayments
+Set the content of this subtag to `true` if your Optional Object reads the payments data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
+
+### ShoppingCartShippings
+Set the content of this subtag to `true` if your Optional Object reads the shippings data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
 
 ### Blog
 Set the content of this subtag to `true` if your Optional Object reads data set in the Blog section at step 4. In this case, the object is rebuilt whenever the user changes the Blog settings.
 
 ### RSSFeed
 Set the content of this subtag to `true` if your Optional Object reads data set in the RSS Feed section at step 4. In this case, the object is rebuilt whenever the user changes the RSS Feed settings.
+
+### SiteElements
+Set the content of this subtag to `true` if your Optional Object reads the site structur data set in the Map Creation section at step 2. In this case, the object is rebuilt whenever the user changes the site structure.
 
 In the following example, the Optional Object is rebuilt when the user changes something in the Access Management section of WebSite X5.
 ```xml
