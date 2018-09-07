@@ -313,6 +313,9 @@ Set the content of this subtag to `true` if your Optional Object reads data set 
 ### RSSFeed
 Set the content of this subtag to `true` if your Optional Object reads data set in the RSS Feed section at step 4. In this case, the object is rebuilt whenever the user changes the RSS Feed settings.
 
+### ModelStyle
+Set the content of this subtag to `true` if your Optional Object reads model style data set in the Text, Field and Button Style section at step 2. In this case, the object is rebuilt whenever the user changes the model style settings.
+
 ### SiteElements
 Set the content of this subtag to `true` if your Optional Object reads the site structur data set in the Map Creation section at step 2. In this case, the object is rebuilt whenever the user changes the site structure.
 

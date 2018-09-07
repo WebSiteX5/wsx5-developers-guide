@@ -236,7 +236,8 @@ Allows to choose a file.
 **Complete list of subtags**
 ```xml
 <Field type="file" id="">
-  <Extensions>jpg,txt</Extensions>
+  <Extensions>jpg,txt</Extensions> <!-- If the Extensions allow image (png, jpg, etc.) it will be possible to use the images from PixaBay -->
+  <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- set false to don't use PixaBay images -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
