@@ -139,6 +139,8 @@ Allows to choose width and height using a single UI control.
 **Complete list of subtags**
 ```xml
 <Field type="dimensions" id="">
+  <ShowWidthUnit>true</ShowWidthUnit><!-- Available since v17.0.0 -->
+  <DefaultWidthUnit>Percentage</DefaultWidthUnit><!-- Available since v17.0.0 only if ShowWidthUnit is true -->
   <DefaultValue>100</DefaultValue>
   <DefaultWidthValue>100</DefaultWidthValue><!-- Available since v12.0.2 -->
   <DefaultHeightValue>100</DefaultHeightValue><!-- Available since v12.0.2 -->
