@@ -239,7 +239,7 @@ Allows to choose a file.
 ```xml
 <Field type="file" id="">
   <Extensions>jpg,txt</Extensions>
-  <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- If the Extensions allows image formats (png, jpg, etc.), you can also use images from PixaBay. If you do not want to, set this parameter to false. -->
+  <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- If set to true it allow using of PixaBay Images, false is the default: for fields that don't use images input don't use this tag -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
