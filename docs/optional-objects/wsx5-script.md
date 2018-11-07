@@ -143,7 +143,7 @@ var currentObject = {
 ## menu
 **Type**: Object
 **Since**: 12.0.0
-A JSON object that contains the menu tree data and the info about the current page.
+A JSON object that contains the menu tree data and the info about the current page. The following data is available only if the SiteElements dependency has been set. See the dependencies section for more informations.
 
 ```javascript
 var menu {
@@ -298,6 +298,15 @@ var wsx5 = {
 	// Get the url of a specific path (String) in the project. Available since 11.0.8.x
 	"getSiteUrl": function (path) { ... },
 
+	// The Res path folder. Available since v.17
+	"pathResFolder": "../../res/",
+
+	// The image max width in px used if in full width mode. Available since v.17
+	"fullWidthMaxWidth": 2460,
+
+	// True if the website is responsive, false if only desktop. Available since v.17
+	"responsiveEnabled": true,
+
 	// The available breakpoints array.
 	// Its minimum size is 1, the maximum is up to the user.
 	"breakpoints":
@@ -370,13 +379,16 @@ var wsx5 = {
 			{
 				"id": "uid-1",
 				"name": "John Doe",
-				"username": "jdoe",
+				"email": "jdoe@websitex5.com",
 				"groupId": "gid-1"
 			}
 		]
 	},
 
-	// Informations about the shopping cart (defined only if the shopping cart is enabled)
+	// Informations about the shopping cart (defined only if the shopping cart is enabled).
+	// The following data is available only if the ShoppingCart
+	// dependency has been set. See the dependencies section
+	// for more informations.
 	"shoppingCart": {
 
 		// The db used to store the orders
@@ -414,12 +426,26 @@ var wsx5 = {
             "bottom":2,
             "left":2
         },
-		// True if the generic coupon code can be used by the user
-		"couponActive": false,
-		// The generic coupon code
-		"coupon": "",
-		// The following data is available only if the ShoppingCart
-		// dependency has been set. See the dependencies section
+		// Cart coupon codes
+		"coupon": [
+			{
+				"id": "COUPON_01",
+				"type": "absolute", // Fixed (absolute) or percentage (relative)
+				"discount": 10,
+				"startDate": ""
+				"endDate": ""
+			},
+			{
+				"id": "COUPON_02",
+				"type": "relative", // Fixed (absolute) or percentage (relative)
+				"discount": 10,
+				"startDate": "2018-11-06T17:28:28"
+				"endDate": "2018-11-24T17:28:28"
+				"applyOnShippingAndPayment": true
+			}
+		],
+		// The following data is available only if ShoppingCart and ShoppingCartProducts
+		// dependencies have been set. See the dependencies section
 		// for more informations.
 		"products": [
 			{
@@ -465,7 +491,9 @@ var wsx5 = {
 				],
             }
 		],
-		// Payments array
+		// The following data is available only if ShoppingCart and ShoppingCartPayments
+		// dependencies have been set. See the dependencies section
+		// for more informations.
 		"payments": [
 			{
 				"id": "",
@@ -482,7 +510,9 @@ var wsx5 = {
 				},
 			}
 		],
-		// Shippings array
+		// The following data is available only if ShoppingCart and ShoppingCartShippings
+		// dependencies have been set. See the dependencies section
+		// for more informations.
 		"shippings": [
 			{
 				"id": "",
@@ -530,7 +560,6 @@ var wsx5 = {
 				"category": "",
 				"cover": "",
 				"date": new date(),
-				"htmlContent": "",
 				"content": "",
 				"title": "",
 				// The images loaded in the post text
@@ -557,11 +586,11 @@ var wsx5 = {
 	"rssFeed": {
 		"description": "",
 		"title": "",
+		"image": "", // Available since v.17
 		// The list of posts in the feed
 		"items": [
 			{
 				"date": new date(),
-				"htmlContent": "",
 				"content": "",
 				"title": "",
 				// The images loaded in the post text
@@ -580,6 +609,9 @@ var wsx5 = {
 	},
 
 	// Informations about the data managements
+	// The following data is available only if the DataManagement
+	// dependency has been set. See the dependencies section
+	// for more informations.
 	"dataManagement": {
 		
 		// True if the value specified in commonEmailAddress
@@ -610,9 +642,16 @@ var wsx5 = {
 		// The public folder path based on the site's root
 		"publicFolder": "",
 	},
+	
+	// Informations about the default styles
+	// The following data is available only if the ModelStyle
+	// dependency has been set. See the dependencies section
+	// for more informations.
 	"defaultStyles":{
          "activeLink":{
             "textStyle":{  },
+				// Color type
+				"backgroundColor":{ },
 				// Color type
                "textColor":{ },
                "textAlignment":"left",
@@ -655,7 +694,7 @@ var wsx5 = {
                "topWidth":1
             },
 			// Color type
-            "foreColor":{  },
+            "foreColor":{ },
 			// Padding type
             "padding":{
                "top":8,
