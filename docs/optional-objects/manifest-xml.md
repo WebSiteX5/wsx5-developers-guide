@@ -70,14 +70,6 @@ It contains a integer to identify the version of the application.
 <Version>1</Version>
 ```
 
-## MinimumWebSiteX5Version Tag
-**Mandatory**: no
-It contains the minimum required version of WebSiteX5 to run the optional object.
-
-```xml
-<MinimumWebSiteX5Version>11.0.0.1</MinimumWebSiteX5Version>
-```
-
 ## Category Tag
 **Mandatory**: yes
 It contains the ID of the category where the app will be available.
