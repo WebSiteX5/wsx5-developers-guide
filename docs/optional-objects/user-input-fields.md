@@ -251,6 +251,7 @@ var value = parameters['field-id'].isImage; // Boolean
 var value = parameters['field-id'].isUrl; // Boolean
 var value = parameters['field-id'].width; // only if `isImage == true`
 var value = parameters['field-id'].height; // only if `isImage == true`
+var value = parameters['field-id'].fullWidth; //Boolean
 var value = parameters['field-id'].clones; // only if `isImage == true`. Contains the list of clones of the image. Everyone has the fields shown above.
 ```
 
@@ -270,7 +271,7 @@ Allows to choose a list of files.
 ```js
 var value = parameters['field-id'].list; // (array of FileSelect elements)
 var value = parameters['field-id'].list.length; // (number of elements in the array)
-var value = parameters['field-id'].list.path; // (path for the file example list[0].path prints the path of the first file)
+var value = parameters['field-id'].list[index]; // (File at specified index, it contains same data of <Field type="file">. list[0] is the first file, list[list.length-1] is the last one)
 ```
 
 ## Font
@@ -308,6 +309,7 @@ It is a field which allows to choose from a list of images shown in a dropdown
     <LibraryImageHeight>22</LibraryImageHeight>
     <AllowCustomImage>false</AllowCustomImage> <!-- If true the user can select a custom image from file select dialog -->
     <AcceptedExtensions>*.png</AcceptedExtensions> <!-- The allowed extensions of the sfile select dialog -->
+    <DefaultIndex>0</DefaultIndex> <!-- The default selected image -->
     <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -315,7 +317,7 @@ It is a field which allows to choose from a list of images shown in a dropdown
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].selectedIndex; // The selected index. -1 if custom image is selected 
-var value = parameters['field-id'].file; // FileSelect element
+var value = parameters['field-id'].file; // Selected file element, it contains same data of <Field type="file">.
 ```
 
 ## Link
