@@ -5,7 +5,7 @@ repo_url: https://github.com/WebSiteX5/wsx5-developers-guide
 copyright: © 2017 - Incomedia Srl
 use_directory_urls: false
 theme: readthedocs
-strict: true
+strict: false
 extra_javascript: [jslibs/css_classes.js]
 extra_css: [css/cssfix.css]
 markdown_extensions: [nl2br]
