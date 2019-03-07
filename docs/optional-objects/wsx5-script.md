@@ -579,7 +579,7 @@ var wsx5 = {
 				"grantedUsers": [], // Array of users ids that may access to this page (only if isLocked == true)
 				"position": 0, // Position inside the parent node (start with 0)
 				"onclick": "onclick='function to execute to go to this page'",
-				"paths": "like data-paths of the ObjectMenu, used for current page management",
+				"paths": [ 'page relative url' ], // paths used for current page management, see x5engine.utils.isCurrentPage(paths, anchor)",
 				"icon": "the icon absolute url, empty string if no icon was setted by user"
 			},
 			{
@@ -602,7 +602,7 @@ var wsx5 = {
 				"hideSubMenu": false, // True if user check the "hide submenu" option
 				"position": 2,
 				"onclick": "onclick='function to execute to go to this level link'",
-				"paths": "like data-paths of the ObjectMenu",
+				"paths": [], // paths used for current page management, see x5engine.utils.isCurrentPage(paths, anchor)",
 				"icon": "icon url",
 				"anchor": "like data-anchor of the ObjectMenu",
 				"hash": "like data-hash of the ObjectMenu",
