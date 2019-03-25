@@ -17,8 +17,8 @@ Each `Field` tag can have the following subtags:
 | Description    | no           | (empty)       | It can have the attribute `style` where the value can be "normal" (default) or "info". Can be localized via the attributes `l10n-id` and `global-l10n-id`.                                          |
 | Enabled        | no           | `true`        | Set to `false` to disable this field. It will be shown but its contents won't be editable.                                                                                                          |
 | Hooks          | no           | (empty)       | [See below](#hooks-subtag).                                                                                                                                                                         |
-| Indent         | no           | 0             | Indicates the indent level of the field according to the left border of the form. Must have a numerical integer value bigger or equal to zero.                                                      |
-| Label          | no           | (empty)       | Defines the label shown near the field. This tag can have the `position` attribute with values "top", "left" or "none" and the `width` attribute (since v11.0.8) that must contain a number. Since v18 the new reference attribute for the width is `widthV2`. Table: 1.WSX5 <v18 will continue to use `width`;  2.WSX5 >=v18 and optional object with only `width` attribute, (`width` value * 1.33) will be used;  3.WSX5 >=v18 and optional object with only `widthV2` attribute or both of them, `widthV2` value will be used.      |
+| Indent         | no           | 0             | Indicates the indent level of the field according to the left border of the form. Must have a numerical integer value bigger or equal to zero. Since v2019.1 we recommend setting it 2 in 2.                                                      |
+| Label          | no           | (empty)       | [See below](#Label-subtag).       |
 | Mandatory      | no           | `false`       | Set to `true` to set the field as mandatory.                                                                                                                                                        |
 | Position       | no           | "auto"        | In case it contains "auto" the fields will be positionend automatically. In case it contains an integer value the field will be positioned in the same position of the field indicated by the value.|
 | UpdatesPreview | no           | `false`       | Set to `true` to automatically update the preview when the value of this field is changed.                                                                                                          |
@@ -35,6 +35,11 @@ It's called before generating the field. The output of this function will be use
 
 **OnValueChanged()**
 It is called when the user changes the value of this field in the UI of WebSite X5.
+
+### Label Subtag
+The **Label** subtag defines the label shown near the field. This tag can have:<br />- The `position` attribute with values "top", "left" or "none".<br />- The `width` attribute (since v11.0.8 to last v17) that must contain a number. The attribute is deprecated, however you can continue to use to configure the UI for versions <= v17.<br />- The `widthV2` attribute (since v2019.1) that is the new reference for the width (the `independentWidthAuto` must be false).<br />- The `independentWidthAuto` attribute (since v2019.1), if set to true the width will be calculated by the imInputControl control. The default is false.<br /><br />**Note**:<br />Since v2019.1 the label width will be calculated automatically from WSX5, section by section (from separator to separator): the width for each section will be the largest of the section's labels. (only those with positioning on the left). Labels with attributes `widthV2` and `independentWidthAuto` are not considered.
+
+
 
 # Available field types
 
