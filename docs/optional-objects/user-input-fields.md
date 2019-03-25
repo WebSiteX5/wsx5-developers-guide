@@ -18,7 +18,7 @@ Each `Field` tag can have the following subtags:
 | Enabled        | no           | `true`        | Set to `false` to disable this field. It will be shown but its contents won't be editable.                                                                                                          |
 | Hooks          | no           | (empty)       | [See below](#hooks-subtag).                                                                                                                                                                         |
 | Indent         | no           | 0             | Indicates the indent level of the field according to the left border of the form. Must have a numerical integer value bigger or equal to zero. Since v2019.1 we recommend setting it 2 in 2.                                                      |
-| Label          | no           | (empty)       | [See below](#Label-subtag).       |
+| Label          | no           | (empty)       | [See below](#label-subtag).       |
 | Mandatory      | no           | `false`       | Set to `true` to set the field as mandatory.                                                                                                                                                        |
 | Position       | no           | "auto"        | In case it contains "auto" the fields will be positionend automatically. In case it contains an integer value the field will be positioned in the same position of the field indicated by the value.|
 | UpdatesPreview | no           | `false`       | Set to `true` to automatically update the preview when the value of this field is changed.                                                                                                          |
