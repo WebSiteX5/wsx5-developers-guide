@@ -140,94 +140,6 @@ var currentObject = {
 };
 ```
 
-## menu
-**Type**: Object
-**Since**: 12.0.0
-A JSON object that contains the menu tree data and the info about the current page. The following data is available only if the SiteElements dependency has been set. See the dependencies section for more informations.
-
-```javascript
-var menu {
-
-	// The current page id.
-	//This is the page where the current object is.
-	"currentPageId": 2,                    	
-
-	// The nodes structure
-	"nodes": [
-		{
-			"type": "page",   // See the other types below
-			"id": 1,
-			"parentid": 0,
-			"label": "Page 1",
-			
-			// True if this was set as "working page" by the user.
-			// If true, this page will be shown in preview only
-			"isWorking": false,            	
-			
-			// True if this page was set as hidden in the menu.
-			"isHidden": false,             	
-			
-			"destination": "page-1.html",
-		},
-		{
-			"type": "separator",
-			"id": 2,
-			"parentid": 0
-			"label": "Separator 1",
-			"isHidden": false,
-		},
-		{
-			"type": "level",
-			"id": 3,
-			"parentid": 0,
-			"label": "Level 1",
-			"isHidden": false,
-
-			// An array of elements just like the current one
-			"nodes": [
-				{
-					"type": "page",
-					..
-					..
-				},
-				{
-					"type": "level",
-					// And so on...
-					"nodes": [ .. ]
-				}
-			]
-		}
-	]
-}
-```
-### Example: Drawing the menu tree
-
-```javascript
-/**
- * Output the current nodes array to the console, then recurse inside the levels
- * @param  {String} prefix The prefix to add to the current nodes labels
- * @param  {Array} nodes   The array of nodes to draw to the console
- * @return {Void}
- */
-function drawMenu( prefix, nodes ) {
-	for ( var i = 0; i < nodes.length; i++ ) {
-		console.log( prefix + nodes[i].label );
-		if ( nodes[i].type == "level" ) {
-			drawMenu( prefix + nodes[i].label + "/", nodes[i].nodes );
-		}
-	}
-}
-
-drawMenu( "", menu.nodes );
-
-// Output Example:
-// Page 1
-// Page 2
-// Level 3
-// Level 3/Page 4
-// Level 3/Page 5
-```
-
 ## l10n
 **Type**: Object
 Allows you to get the localizations defined in the localizations.xml file or in the global localizations container of WSX5.
@@ -642,7 +554,92 @@ var wsx5 = {
 		// The public folder path based on the site's root
 		"publicFolder": "",
 	},
-	
+
+	// Since v18.0.0.0
+	// Informations about the menu
+	// The following data is available only if the SiteElements
+	// dependency has been set. See the dependencies section
+	// for more informations.
+	"menu": {
+		"nodes": [ // The menu tree structure
+			{
+				"type": "page",  // See the other types below
+				"id": page-id,
+				"parentId": parent-id,
+				"label": "the page name"
+				"destination": "the page absolute url",				
+				"isWorking": false, // True if this was set as "working page" by the user
+				"isHidden": false, // True if this page was set as hidden in the menu
+				"isLocked": false, // True if this page is available only for logged users
+				"isSpecial": false, // True if this page is special (Search, Blog, etc...)
+				"isNotInMenuTree": false, // True if this page doesn't exist in menu tree
+				"isHomePage": false, // True if this page is the Home
+				"pageType": "grid",
+				"grantedGroups": [], // Array of users groups ids that may access to this page (only if isLocked == true)
+				"grantedUsers": [], // Array of users ids that may access to this page (only if isLocked == true)
+				"position": 0, // Position inside the parent node (start with 0)
+				"onclick": "onclick='function to execute to go to this page'",
+				"paths": [ 'page relative url' ], // paths used for current page management, see x5engine.utils.isCurrentPage(paths, anchor)",
+				"icon": "the icon absolute url, empty string if no icon was setted by user"
+			},
+			{
+				"type": "separator",
+				"id": separator-id,
+				"parentId": parent-id,
+				"label": "the separator name",
+				"isHidden": false,
+				"isNotInMenuTree": false,
+				"position": 1
+			},
+			{
+				"type": "level",
+				"id": level-id,
+				"parentId": parent-id,
+				"label": "the level name",
+				"isHidden": false,
+				"isSpecial": false,
+				"isNotInMenuTree": false,
+				"hideSubMenu": false, // True if user check the "hide submenu" option
+				"position": 2,
+				"onclick": "onclick='function to execute to go to this level link'",
+				"paths": [], // paths used for current page management, see x5engine.utils.isCurrentPage(paths, anchor)",
+				"icon": "icon url",
+				"anchor": "like data-anchor of the ObjectMenu",
+				"hash": "like data-hash of the ObjectMenu",
+				"nodes": [ // An array of elements just like the current one
+					{
+						"type": "page",
+						"id": subpage-id,
+						"parentId": level-id, // parentId is the level one
+						"position" : 0, // position start again with 0
+						..
+						..
+					},
+					{
+						"type": "level",
+						"id": sublevel-id,
+						"position": 1,
+						"nodes" : [ .. ], // Ando so on
+						..
+						..
+					}
+				]
+			}
+		],
+		"pathMap": { // Object internally used to obtain the positions path of an element from its id
+			"page-id": [0],
+			"separator-id": [1],
+			"level-id": [2],
+			"subpage-id": [2, 0],
+			"sublevel-id": [2, 1],
+			..
+			..
+		},
+		"getNode": function(id){ .. }, // return the node with the id used as argument
+		"getNodeFromPath": function(path) { .. }, // return the node positioned at path used as argument
+		"getPath": function(id) { .. } // return the position path of the node with id used as argument
+	}
+
 	// Informations about the default styles
 	// The following data is available only if the ModelStyle
 	// dependency has been set. See the dependencies section

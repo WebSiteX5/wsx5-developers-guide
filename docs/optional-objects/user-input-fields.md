@@ -439,6 +439,30 @@ var value = parameters['field-id'].diffusion (integer);
 var value = parameters['field-id'].dimension (integer);
 ```
 
+
+## SiteNodes
+Available since v18.0.0.0
+Allows to choose one o more site nodes from the site map.
+
+**Complete list of subtags**
+```xml
+<Field type="sitenodes" id="">
+  <EnableMultiSelection>false</EnableMultiSelection> <!-- If true the user can check more then one node [default: false] -->
+  <DisablePages>false</DisablePages> <!-- If true the user is not able to select page nodes [default: false] -->
+  <DisableLevels>false</DisableLevels> <!-- If true the user is not able to select level nodes [default: false] -->
+</Field>
+```
+>Some configurations are not allowed:
+>* DisablePages = true **AND** DisableLevels = true
+>* EnableMultiSelection = true **AND** DisablePages = true
+>* EnableMultiSelection = true **AND** DisableLevels = true
+
+**Complete example of WSX5 Script properties access**
+```js
+var idsArray = parameters['field-id'].nodes; // Array of selected nodes ids.
+var node = wsx5.menu.getNode(idsArray[0]); // Use wsx5.menu to get sitenode infos
+```
+
 ## StringList
 Allows to add a list of strings.
 
