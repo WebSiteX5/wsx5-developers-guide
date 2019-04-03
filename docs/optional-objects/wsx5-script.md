@@ -555,7 +555,7 @@ var wsx5 = {
 		"publicFolder": "",
 	},
 
-	// Since v18.0.0.0
+	// Since v2019.1.0.0
 	// Informations about the menu
 	// The following data is available only if the SiteElements
 	// dependency has been set. See the dependencies section
