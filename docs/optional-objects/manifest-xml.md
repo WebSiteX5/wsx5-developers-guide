@@ -17,6 +17,8 @@ Here's how a manifest.xml looks like:
 	<!-- Here we define some cosmetics -->
 	<Overflow>false</Overflow>
 	<ShowPreview>true</ShowPreview>
+	<WidthPreview>0</WidthPreview>
+	<HeightPreview>0</HeightPreview>
 	<!-- Here we define the user input fields -->
 	<Parameters>
 		<Tab>
@@ -321,6 +323,22 @@ In the following example, the Optional Object is rebuilt when the user changes s
 ## ShowPreview Tag
 **Mandatory**: no
 If set to `true`, the UI of WebSite X5 will show a preview of the object directly in the window where the input fields are available.
+
+## WidthPreview Tag
+**Mandatory**: no
+**Since**: 2019.1
+**Default**: 0
+Indicates the width of the preview.
+Show Preview Tag must be set to true and it must be set with a numeric value.
+If the tag is not set, will be used the default (and the default width will be set).
+
+## HeightPreview Tag
+**Mandatory**: no
+**Since**: 2019.1
+**Default**: 0
+Indicates the height of the preview.
+Show Preview Tag must be set to true and it must be set with a numeric value.
+If the tag is not set, will be used the default (and the default height will be set).
 
 ## Overflow Tag
 **Mandatory**: no
