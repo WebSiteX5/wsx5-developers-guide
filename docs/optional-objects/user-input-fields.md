@@ -460,11 +460,11 @@ Allows to choose one o more site nodes from the site map.
 ```
 
 **Not allowed configurations**
-* `DisablePages` && `DisableLevels`
-* `EnableMultiSelection` && `DisablePages`
-* `EnableMultiSelection` && `DisableLevels`
-* `DisableLevels` && `DefaultValue` is a Level
-* `DisablePages` && `DefaultValue` is a Page
+ - `DisablePages` && `DisableLevels`
+ - `EnableMultiSelection` && `DisablePages`
+ - `EnableMultiSelection` && `DisableLevels`
+ - `DisableLevels` && `DefaultValue` is a Level
+ - `DisablePages` && `DefaultValue` is a Page
 
 **Complete example of WSX5 Script properties access**
 ```js
