@@ -34,7 +34,7 @@ It's called before generating the field. The output of this function will be use
 **Note**: at the moment only the [dropdown](#dropdown) field actually uses this function.
 
 **OnValueChanged()**
-It is called when the user changes the value of this field in the UI of WebSite X5.
+It is called when the user changes the value of this field in the UI of WebSite X5. The output of this function will be used to [dynamically update fields values](dynamic-update-fields.md).
 
 ### Label Subtag
 The **Label** subtag defines the label shown near the field. This tag can have:<br />- The `position` attribute with values "top", "left" or "none".<br />- The `width` attribute (since v11.0.8 to last v17) that must contain a number. The attribute is deprecated, however you can continue to use to configure the UI for versions <= v17.<br />- The `widthV2` attribute (since v2019.1) that is the new reference for the width (the `independentWidthAuto` must be false).<br />- The `independentWidthAuto` attribute (since v2019.1), if set to true the width will be calculated by the imInputControl control. The default is false.<br /><br />**Note**:<br />Since v2019.1 the label width will be calculated automatically from WSX5, section by section (from separator to separator): the width for each section will be the largest of the section's labels. (only those with positioning on the left). Labels with attributes `widthV2` and `independentWidthAuto` are not considered.
