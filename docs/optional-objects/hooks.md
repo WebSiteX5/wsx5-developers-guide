@@ -170,3 +170,12 @@ The **resource** parameter is defined as follows (the code is filled with exampl
 	"preventCreation": function () { ... }
 }
 ```
+
+## OnMigration(previousVersion)
+**Since**: 2019.1.0.0
+
+This function is called everytime the optional object version is updated. The output of this function will be used to [dynamically update fields values](dynamic-update-fields.md).
+
+|Parameter      | Type   | Description                                                                                                    |
+|---------------|--------|----------------------------------------------------------------------------------------------------------------|
+|previousVersion|`Number`| Contains the previous version number of the optional object                                                    |
