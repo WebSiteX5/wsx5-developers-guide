@@ -23,6 +23,7 @@ pages:
     - 'WSX5 Script': 'optional-objects/wsx5-script.md'
     - 'Tips': 'optional-objects/tips.md'
     - 'Example Objects': 'optional-objects/examples.md'
+    - 'Dynamically Update Fields Values': 'optional-objects/dynamic-update-fields.md'
   - X5 Engine JavaScript API:
     - 'Introduction': 'generic-javascript-api/introduction.md'
     - 'Boot Class': 'generic-javascript-api/boot.md'
