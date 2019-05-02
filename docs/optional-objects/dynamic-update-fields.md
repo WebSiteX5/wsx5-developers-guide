@@ -9,7 +9,8 @@ The output may be an `Object` structured as follows:
 |updatesPreview|`Boolean`|Overrides the default behavior of preview update for the changed field. **Note**: OnValueChanged only                                                |
 |fields        |`Object` |Contains all the fields to be updated. Each field may be specified using its name as property. The structure of the value is based on the field type.|
 
-**Example**
+Example:
+
 ```js
 function OnValueChanged() {
     return {
@@ -26,6 +27,7 @@ function OnValueChanged() {
 ## Field Values Structures Examples
 
 ### BorderWidth
+
 ```js
 {
     "left": 1, //integer
@@ -36,6 +38,7 @@ function OnValueChanged() {
 ```
 
 ### Checkbox
+
 ```js
 {
     "checked": true //boolean
@@ -43,6 +46,7 @@ function OnValueChanged() {
 ```
 
 ### Color
+
 ```js
 {
     "valueR": 128, //integer
@@ -53,6 +57,7 @@ function OnValueChanged() {
 ```
 
 ### Colors
+
 ```js
 {
     "topR": 128, //integer
@@ -75,6 +80,7 @@ function OnValueChanged() {
 ```
 
 ### Dimension
+
 ```js
 {
     "width": 100, //integer
@@ -84,6 +90,7 @@ function OnValueChanged() {
 ```
 
 ### Dropdown
+
 ```js
 {
     "value": "Option 1" //string
@@ -91,12 +98,15 @@ function OnValueChanged() {
 ```
 
 ### File
+
 File fields cannot be updated.
 
 ### FileList
+
 FileList fields cannot be updated.
 
 ### Font
+
 ```js
 {
     "family": "Helvetica", //string
@@ -107,12 +117,15 @@ FileList fields cannot be updated.
 ```
 
 ### ImageSelect
+
 ImageSelect fields cannot be updated.
 
 ### Link
+
 Link fields cannot be updated.
 
 ### Margins
+
 ```js
 {
     "top": 5, //integer
@@ -123,6 +136,7 @@ Link fields cannot be updated.
 ```
 
 ### Number
+
 ```js
 {
     "value": 12.5 //decimal
@@ -130,6 +144,7 @@ Link fields cannot be updated.
 ```
 
 ### RoundCorners
+
 ```js
 {
     "topleft": 5, //integer
@@ -140,9 +155,11 @@ Link fields cannot be updated.
 ```
 
 ### Separator
+
 Separator has no values.
 
 ### Shadow
+
 ```js
 {
     "enabled": true, //boolean
@@ -158,9 +175,11 @@ Separator has no values.
 ```
 
 ### SiteNodes
+
 SiteNodes fields cannot be updated.
 
 ### StringList
+
 ```js
 {
     "list": [ //string array
@@ -171,6 +190,7 @@ SiteNodes fields cannot be updated.
 ```
 
 ### Text
+
 ```js
 {
     "value": "Hello world!" //string

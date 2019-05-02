@@ -3,39 +3,41 @@
 Describes the Object structure and features and contains the links to the resource files, the Object’s code, and the user interface descriptors.
 
 Here's how a manifest.xml looks like:
+
 ```xml
 <App uuid="4x34js230s2304u3234s30492">
-	<!-- Here there is the object's metadata -->
-	<Name>Hello World</Name>
-	<Author>Me</Author>
-	<Version>1</Version>
-	<Category>Widgets</Category>
-	<Groups>Data Visualization, Animation</Groups>
+    <!-- Here there is the object's metadata -->
+    <Name>Hello World</Name>
+    <Author>Me</Author>
+    <Version>1</Version>
+    <Category>Widgets</Category>
+    <Groups>Data Visualization, Animation</Groups>
     <InitialSize>350,250</InitialSize>
     <RecommendedMinSize>100,100</RecommendedMinSize>
-	<Description l10n-id="description">Add a "Hello World!" to your page.</Description>
-	<!-- Here we define some cosmetics -->
-	<Overflow>false</Overflow>
-	<ShowPreview>true</ShowPreview>
-	<WidthPreview>0</WidthPreview>
-	<HeightPreview>0</HeightPreview>
-	<!-- Here we define the user input fields -->
-	<Parameters>
-		<Tab>
-			<Label>I'm a tab</Label>
-			<Field type="text" id="name">
-				<Label>Type your name here</Label>
-				<DefaultValue>World</DefaultValue>
-			</Field>
-		</Tab>
-	</Parameters>
-	<!-- Here we define the output -->
-	<Output><[CDATA["Hello World!" by <?wsx5 document.write(parameters['name'].value); ?>]]></Output>
-	<PreviewOutput src="output/preview.html"></PreviewOutput>
+    <Description l10n-id="description">Add a "Hello World!" to your page.</Description>
+    <!-- Here we define some cosmetics -->
+    <Overflow>false</Overflow>
+    <ShowPreview>true</ShowPreview>
+    <WidthPreview>0</WidthPreview>
+    <HeightPreview>0</HeightPreview>
+    <!-- Here we define the user input fields -->
+    <Parameters>
+        <Tab>
+            <Label>I'm a tab</Label>
+            <Field type="text" id="name">
+                <Label>Type your name here</Label>
+                <DefaultValue>World</DefaultValue>
+            </Field>
+        </Tab>
+    </Parameters>
+    <!-- Here we define the output -->
+    <Output><[CDATA["Hello World!" by <?wsx5 document.write(parameters['name'].value); ?>]]></Output>
+    <PreviewOutput src="output/preview.html"></PreviewOutput>
 </App>
 ```
 
 ## Loading of external content in the manifest
+
 **Since**: 15.2.0
 
 A tag may have an `src` property. If set, it shall contain a path to an external file that provides the content to be used for the tag.
@@ -44,19 +46,21 @@ If the `src` property is not set, the inner text of the tag is used as content.
 
 If the tag has an "encrypted" property set to `true`, the file indicated by the `src` property is encrypted. The property value is `false` by default.
 
-# Supported Tags
+## Supported Tags
 
 Below here you can find a list of the supported tags.
 
 ## App Tag
+
 **Mandatory**: yes
-It is the opening tag. It has the attribute uuid which identifies the app uniquely. 
+It is the opening tag. It has the attribute uuid which identifies the app uniquely.
 
 ```xml
 <App uuid="application-id">
 ```
 
 ## Name Tag
+
 **Mandatory**: yes
 It contains the name of the application.
 
@@ -65,6 +69,7 @@ It contains the name of the application.
 ```
 
 ## Version Tag
+
 **Mandatory**: yes
 It contains a integer to identify the version of the application.
 
@@ -73,6 +78,7 @@ It contains a integer to identify the version of the application.
 ```
 
 ## Category Tag
+
 **Mandatory**: yes
 It contains the ID of the category where the app will be available.
 
@@ -81,6 +87,7 @@ It contains the ID of the category where the app will be available.
 ```
 
 ## Groups Tag
+
 **Mandatory**: no
 **Since**: 13.0.0
 It contains the names of the Groups that the app belongs (comma separated). Groups are available since WebSite X5 v13.
@@ -90,6 +97,7 @@ It contains the names of the Groups that the app belongs (comma separated). Grou
 ```
 
 ## InitialSize Tag
+
 **Mandatory**: no
 **Since**: 13.0.1
 It contains the sizes ([width],[height]) that the object will assume when it will be created as template object.
@@ -99,6 +107,7 @@ It contains the sizes ([width],[height]) that the object will assume when it wil
 ```
 
 ## MinRecommendedSize Tag
+
 **Mandatory**: no
 **Since**: 13.0.1
 It contains the sizes ([width],[height]) under which the object is not displayed properly.
@@ -108,6 +117,7 @@ It contains the sizes ([width],[height]) under which the object is not displayed
 ```
 
 ## MinimumSize Tag
+
 **Mandatory**: no
 **Since**: 13.0.1
 It contains the limit sizes ([width],[height]) of the object.
@@ -117,14 +127,16 @@ It contains the limit sizes ([width],[height]) of the object.
 ```
 
 ## Description Tag
+
 **Mandatory**: yes
-It contains the description of the application. It can be localized with the `l10n-id` and `global-l10n-id` attributes. 
+It contains the description of the application. It can be localized with the `l10n-id` and `global-l10n-id` attributes.
 
 ```xml
 <Description l10n-id="description">Description of the Application</Description>
 ```
 
 ## PageExtension Tag
+
 **Mandatory**: no
 If defined it contains the extension of the page required to allow the code of the Object to work correctly. The extension has to be added without characters like "*.".
 For example, to require a php extension it is only necessary to write:
@@ -134,6 +146,7 @@ For example, to require a php extension it is only necessary to write:
 ```
 
 ## CustomHeight Tag
+
 **Mandatory**: no
 If provided and has an integer numerical value higher than zero, it indicates the height of the object. If provided, the automatic height calculation will be deactivated.
 
@@ -142,6 +155,7 @@ If provided and has an integer numerical value higher than zero, it indicates th
 ```
 
 ## Parameters Tag
+
 **Mandatory**: no
 It contains a list of `Tab` tags which represents every Tab shown in the Object’s UI.
 
@@ -155,23 +169,24 @@ Each `Tab` tag may have an id attribute and may contain the following subtags.
 
 ```xml
 <Parameters>
-	<Tab id="my-tab">
-		<Label l10n-id="my-tab-l10n-id">My Tab</Label>
-		<ShowPreview>true</ShowPreview>
-		<Fields>
-			<!-- Put here the Field tags -->
-		</Fields>
-	</Tab>
-	<Tab id="another-tab">
-		<Label l10n-id="anotehr-tab-l10n-id">Another Tab</Label>
-		<Fields>
-			<!-- These fields will be shown when this tab is visible -->
-		</Fields>
-	</Tab>
+    <Tab id="my-tab">
+        <Label l10n-id="my-tab-l10n-id">My Tab</Label>
+        <ShowPreview>true</ShowPreview>
+        <Fields>
+            <!-- Put here the Field tags -->
+        </Fields>
+    </Tab>
+    <Tab id="another-tab">
+        <Label l10n-id="anotehr-tab-l10n-id">Another Tab</Label>
+        <Fields>
+            <!-- These fields will be shown when this tab is visible -->
+        </Fields>
+    </Tab>
 </Parameters>
 ```
 
 ## Resources Tag
+
 **Mandatory**: no
 If defined, it contains a list of `Resource` tags. Each of them defines the operations to perform on the files available in the **Resources** folder of the application.
 
@@ -198,6 +213,7 @@ The second file is a custom JavaScript file that needs to be processed before be
 ```
 
 ## Admin Tag
+
 **Mandatory**: no
 **Since**: 15.2.0
 
@@ -237,26 +253,27 @@ The `Box` tag should contain a `Title` tag that should contain the title of the 
 ```xml
 <!-- Define the resources using the Resources tag -->
 <Resources>
-	<Resource id="admin" src="admin.php" />
-	<Resource id="admin-dash" src="admin.php" />
-	<Resource id="admin-icon" src="icon.png" />
+    <Resource id="admin" src="admin.php" />
+    <Resource id="admin-dash" src="admin.php" />
+    <Resource id="admin-icon" src="icon.png" />
 </Resources>
 <!-- Then use the resources ids to define the admin sections and boxes -->
 <Admin>
-	<Pages>
-		<Page resource-id="admin" icon-resource-id="admin-icon">
-			<Title l10n-id="title">This is the menu entry title</Title>
-		</Page>
-	</Pages>
-	<Dashboard>
-		<Box resource-id="admin-dash" icon-resource-id="admin-icon">
-			<Title l10n-id="title">This is the dashboard box title</Title>
-		</Box>
-	</Dashboard>
+    <Pages>
+        <Page resource-id="admin" icon-resource-id="admin-icon">
+            <Title l10n-id="title">This is the menu entry title</Title>
+        </Page>
+    </Pages>
+    <Dashboard>
+        <Box resource-id="admin-dash" icon-resource-id="admin-icon">
+            <Title l10n-id="title">This is the dashboard box title</Title>
+        </Box>
+    </Dashboard>
 </Admin>
 ```
 
 ## Includes Tag
+
 **Mandatory**: no
 **Since**: 15.2.0
 You can include multiple libraries to the WSX5Script code by using this include tag.
@@ -265,66 +282,81 @@ The code you specify using this tag will be executed as WSX5Script before any ot
 ```xml
 <!-- This example includes an external library and some custom inline code -->
 <Includes>
-	<Include src="includes/library1.js" />
-	<Include>
-		// You can type some JS code in here too
-		var thisIsInline = true;
-	</Include>
+    <Include src="includes/library1.js" />
+    <Include>
+        // You can type some JS code in here too
+        var thisIsInline = true;
+    </Include>
 </Includes>
 ```
 
 ## Dependencies Tag
+
 **Mandatory**: no
 Using this tag you can specify the dependency of your Optional Object from a WebSite X5 component.
 Extra data will be available inside the WSX5Script depending on the specified dependencies.
 This tag must contain one or more of the following subtags:
 
 ### BasicElements
+
 Set the content of this subtag to `true` if your Optional Object reads the basic website data.
 If no dependency is set, then this is automatically included. If you specify one or more dependency, this is included only if specified as dependency.
 
 ### AccessManagement
+
 Set the content of this subtag to `true` if your Optional Object reads data set in the Access Management section at step 4. In this case, the object is rebuilt whenever the user changes the Access Management settings.
 
 ### DataManagement
+
 Set the content of this subtag to `true` if your Optional Object reads data set in the Data Management section at step 4. In this case, the object is rebuilt whenever the user changes the Data Management settings.
 
 ### ShoppingCart
+
 Set the content of this subtag to `true` if your Optional Object reads the basic data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
 
 ### ShoppingCartProducts
+
 Set the content of this subtag to `true` if your Optional Object reads the products data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
 
 ### ShoppingCartPayments
+
 Set the content of this subtag to `true` if your Optional Object reads the payments data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
 
 ### ShoppingCartShippings
+
 Set the content of this subtag to `true` if your Optional Object reads the shippings data set in the Shopping Cart section at step 4. In this case, the object is rebuilt whenever the user changes the Shopping Cart settings.
 
 ### Blog
+
 Set the content of this subtag to `true` if your Optional Object reads data set in the Blog section at step 4. In this case, the object is rebuilt whenever the user changes the Blog settings.
 
 ### RSSFeed
+
 Set the content of this subtag to `true` if your Optional Object reads data set in the RSS Feed section at step 4. In this case, the object is rebuilt whenever the user changes the RSS Feed settings.
 
 ### ModelStyle
+
 Set the content of this subtag to `true` if your Optional Object reads model style data set in the Text, Field and Button Style section at step 2. In this case, the object is rebuilt whenever the user changes the model style settings.
 
 ### SiteElements
+
 Set the content of this subtag to `true` if your Optional Object reads the site structur data set in the Map Creation section at step 2. In this case, the object is rebuilt whenever the user changes the site structure.
 
 In the following example, the Optional Object is rebuilt when the user changes something in the Access Management section of WebSite X5.
+
 ```xml
 <Dependencies>
-	<AccessManagement>true</AccessManagement>
+    <AccessManagement>true</AccessManagement>
 </Dependencies>
 ```
 
 ## ShowPreview Tag
+
 **Mandatory**: no
 If set to `true`, the UI of WebSite X5 will show a preview of the object directly in the window where the input fields are available.
 
 ## WidthPreview Tag
+
 **Mandatory**: no
 **Since**: 2019.1
 **Default**: 0
@@ -333,6 +365,7 @@ Show Preview Tag must be set to true and it must be set with a numeric value.
 If the tag is not set, will be used the default (and the default width will be set).
 
 ## HeightPreview Tag
+
 **Mandatory**: no
 **Since**: 2019.1
 **Default**: 0
@@ -341,11 +374,13 @@ Show Preview Tag must be set to true and it must be set with a numeric value.
 If the tag is not set, will be used the default (and the default height will be set).
 
 ## Overflow Tag
+
 **Mandatory**: no
 **Since**: 12.0.0
 Set to `true` to set the CSS overflow to `visible` in the cell format. This allows the Optional Object's content to exit from its cell.
 
 ## Output Tag
+
 **Mandatory**: yes
 This tag contains the code which has to be used to create the HTML code to insert inside the site page.
 This tag may contain any kind of code. It will be then copied inside the code of the page.
@@ -354,12 +389,14 @@ Inside this tag you can write [WSX5 Script](wsx5-script.md) code. It must be exe
 This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
 
 ## PreviewOutput Tag
+
 **Mandatory**: no
 If available, it contains the output HTML code to show in the small preview present in the editor of the page or in the editor of the template when the object is selected. Works like the Output tag.
 
 This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
 
 ## UIPreviewOutput Tag
+
 **Mandatory**: no
 If available, it contains the output HTML code to show in the preview present during the editing of the object. Works like the Output tag.
 
