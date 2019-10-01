@@ -30,8 +30,17 @@ var parameters = {
 		// Disables the field in the UI
 		"disable": function () { ... },
 		
-		// True if the field is currenlty enabled
+		// True if the field is currently enabled
 		"enabled": true,
+
+		// Sets the field as mandatory
+		"setMandatory": function() { ... },
+
+		// Sets the field as NOT mandatory
+		"setNotMandatory": function () { ... },
+
+		// True if the field is currently mandatory
+		"mandatory": false,
 
 		// Here you can find even more fields, basing on the field type
 		...
