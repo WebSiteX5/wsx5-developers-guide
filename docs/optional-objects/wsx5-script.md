@@ -129,7 +129,7 @@ var currentObject = {
 	// The object id
 	"id": "current-object-id",
 
-	// Tells if the object belong to a page (instead of the template). Available since 13.0.1.15
+	// Tells if the object belong to a page (instead of the template). Available since v13.0.1.15
 	"isPageObject": true,
 
 	// The largest width that the object can reach in a breakpoint. Here for backward compatibility.
@@ -145,7 +145,10 @@ var currentObject = {
 		// but rather set the object's content to 100% width. This is always true
 		// for the smallest breakpoint.
 		"Smartphone": 200
-	}
+	},
+
+	// If true, the object will be large as the viewport. Available since v17
+	"fullWidth": true
 };
 ```
 
@@ -222,7 +225,7 @@ var wsx5 = {
 	// The Res path folder. Available since v.17
 	"pathResFolder": "../../res/",
 
-	// The image max width in px used if in full width mode. Available since v.17
+	// Maximum width (in px) defined in w5 for full width mode. Available since v.17
 	"fullWidthMaxWidth": 2460,
 
 	// True if the website is responsive, false if only desktop. Available since v.17
