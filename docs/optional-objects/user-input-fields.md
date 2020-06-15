@@ -446,8 +446,10 @@ var value = parameters['field-id'].colorR (integer 0-255);
 var value = parameters['field-id'].colorG (integer 0-255);
 var value = parameters['field-id'].colorB (integer 0-255);
 var value = parameters['field-id'].colorA (integer 0-255);
-var value = parameters['field-id'].diffusion (integer);
-var value = parameters['field-id'].dimension (integer);
+var value = parameters['field-id'].offsetX(integer);
+var value = parameters['field-id'].offsetY(integer);
+var value = parameters['field-id'].blur (integer); // Dimension value
+var value = parameters['field-id'].spread  (integer); // Diffusion value
 ```
 
 
