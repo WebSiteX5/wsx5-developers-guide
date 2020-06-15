@@ -337,7 +337,13 @@ Allows to choose a link from the link selection window of WebSite X5.
 
 **Complete example of WSX5 Script properties access**
 ```js
+// "getHTML" method return text given wrapped by tag "a", if link was specified, otherwise only text given.
 var value = parameters['field-id'].getHTML("link text html"); // String
+
+//Example of use
+if (parameters['field-id'].getHTML("#link#") != "#link#") { // link was specified
+    document.write(parameters['field-id'].getHTML("link text html")); //<a href="[link value]">link text html</a>
+} else {...} // link wan't specified
 ```
 
 ## Margins
