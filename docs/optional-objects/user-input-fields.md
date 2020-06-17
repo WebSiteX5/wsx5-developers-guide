@@ -440,7 +440,7 @@ Allows to choose the style of a shadow.
 
 **Complete example of WSX5 Script properties access**
 ```js
-var value = parameters['field-id'].enabled;
+var value = parameters['field-id'].active; // true if the 'enable' checkbox is checked
 var value = parameters['field-id'].color (hexadecimal string);
 var value = parameters['field-id'].colorR (integer 0-255);
 var value = parameters['field-id'].colorG (integer 0-255);
