@@ -340,10 +340,10 @@ Allows to choose a link from the link selection window of WebSite X5.
 // "getHTML" method return text given wrapped by tag "a", if link was specified, otherwise only text given.
 var value = parameters['field-id'].getHTML("link text html"); // String
 
-//Example of use
+// Example of use
 if (parameters['field-id'].getHTML("#link#") != "#link#") { // link was specified
-    document.write(parameters['field-id'].getHTML("link text html")); //<a href="[link value]">link text html</a>
-} else {...} // link wan't specified
+    document.write(parameters['field-id'].getHTML("link text html")); // <a href="[link value]">link text html</a>
+} else {...} // link wasn't specified
 ```
 
 ## Margins
@@ -446,10 +446,10 @@ var value = parameters['field-id'].colorR (integer 0-255);
 var value = parameters['field-id'].colorG (integer 0-255);
 var value = parameters['field-id'].colorB (integer 0-255);
 var value = parameters['field-id'].colorA (integer 0-255);
-var value = parameters['field-id'].offsetX(integer);
-var value = parameters['field-id'].offsetY(integer);
+var value = parameters['field-id'].offsetX (integer);
+var value = parameters['field-id'].offsetY (integer);
 var value = parameters['field-id'].blur (integer); // Dimension value
-var value = parameters['field-id'].spread  (integer); // Diffusion value
+var value = parameters['field-id'].spread (integer); // Diffusion value
 ```
 
 
