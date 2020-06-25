@@ -285,6 +285,7 @@ It is a field which allows to choose the font, it's size and style.
 **Complete list of subtags**
 ```xml
 <Field type="font" id="">
+  <DefaultFont>true</DefaultFont>
   <DefaultFontFamily>Tahoma</DefaultFontFamily>
   <DefaultFontSize>10</DefaultFontSize>
   <DefaultBold>false</DefaultBold>
@@ -295,6 +296,7 @@ It is a field which allows to choose the font, it's size and style.
 
 **Complete example of WSX5 Script properties access**
 ```js
+var value = parameters['field-id'].defaultFamily; // Boolean
 var value = parameters['field-id'].family; // string
 var value = parameters['field-id'].size; // integer pt
 var value = parameters['field-id'].bold; // Boolean
