@@ -109,6 +109,7 @@ FileList fields cannot be updated.
 
 ```js
 {
+    "defaultFamily": true, //boolean
     "family": "Helvetica", //string
     "size": 10.5, //float
     "bold": true, //boolean
