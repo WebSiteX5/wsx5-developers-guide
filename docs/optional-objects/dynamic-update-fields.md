@@ -163,7 +163,7 @@ Separator has no values.
 
 ```js
 {
-    "enabled": true, //boolean
+    "active": true, //boolean
     "blur": 10, //integer
     "spread": 5, //integer
     "offsetX": 0, //integer
