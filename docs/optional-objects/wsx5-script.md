@@ -551,12 +551,20 @@ var wsx5 = {
 			{
 				"id": "dbid-1",
 				"description": "The db 1 description",
-				"name": "Database 1"
+				"name": "Database 1",
+				"host": "host-1.example.com",
+				"user": "user-1",
+				"password": "p@SsW0rd-1",
+				"prefix": "prefix_1_"
 			},
 			{
 				"id": "dbid-2",
 				"description": "The db 2 description",
-				"name": "Database 2"
+				"name": "Database 2",
+				"host": "host-2.example.com",
+				"user": "user-2",
+				"password": "p@SsW0rd-2",
+				"prefix": "prefix_2_"
 			}
 		],
 
