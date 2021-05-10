@@ -518,3 +518,118 @@ Show a text input.
 ```js
 var fieldValue = parameters['field-id'].value; // String
 ```
+
+## Rich Text
+Show a text editor.
+
+**Complete list of subtags**
+```xml
+<Field type="richtext" id="field-id">
+  <Label l10n-id="loc_id">Default label text</Label>
+  <DefaultContent>DefaultContent</DefaultContent>
+  <Height>393</Height>
+  <Headings>false</Headings>
+  <Font>false</Font>
+  <TextStyles>false</TextStyles>
+  <TextAlignment>false</TextAlignment>
+  <Lists>false</Lists>
+  <Indentation>false</Indentation>
+  <Image>false</Image>
+  <ImageAlignment>false</ImageAlignment>
+  <Tables>none</Tables>
+  <RowsAndParagraphsStyles>false</RowsAndParagraphsStyles>
+  <Separator>false</Separator>
+  <AllLinks>false</AllLinks>
+  <BasicLinks>false</BasicLinks>
+  <DisableFileLinks>false</DisableFileLinks>
+  <Tooltip>false</Tooltip>
+  <HTML>false</HTML>
+  <AutoWidth>false</AutoWidth>
+  <Clipboard>none</Clipboard>
+  <DarkBackground>false</DarkBackground>
+  <UndoRedo>false</UndoRedo>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var fieldValue = parameters['field-id'].HTML; // HTML string to be used into page
+var fieldValue = parameters['field-id'].CSS; // CSS string to be used into style tag in header (GetHeaderContent Hook)
+var fieldValue = parameters['field-id'].RawHTML; // String (Just copy as is to update the field later)
+var fieldValue = parameters['field-id'].RawCSS; // String (Just copy as is to update the field later)
+var fieldValue = parameters['field-id'].Links; // Array of String (Just copy as is to update the field later)
+var fieldValue = parameters['field-id'].Headings; // Array of Object (Just copy as is to update the field later)
+var fieldValue = parameters['field-id'].DarkBackground; // Boolean
+var fieldValue = parameters['field-id'].AllowHTML; // Boolean
+```
+
+**Usage Example**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<App>
+    <Name><![CDATA[Rich Text]]></Name>
+    <Author><![CDATA[Incomedia]]></Author>
+    <Version>1</Version>
+    <Category>Miscellaneous</Category>
+    <Groups>Utility</Groups>
+    <Description l10n-id="description">Rich Text Example</Description>
+    <Parameters>
+        <Tab>
+            <Label>Graphics</Label>
+            <Fields>
+                <Field type="richtext" id="rt">
+                    <Clipboard>FullFeatured</Clipboard>
+                    <UndoRedo>true</UndoRedo>
+                    <BasicLinks>true</BasicLinks>
+                    <AllLinks>true</AllLinks>
+                    <DisableFileLinks>true</DisableFileLinks>
+                    <Tooltip>true</Tooltip>
+                    <Separator>true</Separator>
+                    <Image>false</Image>
+                    <HTML>true</HTML>
+                    <AutoWidth>true</AutoWidth>
+                    <DarkBackground>true</DarkBackground>
+                    <Headings>true</Headings>
+                    <Font>false</Font>
+                    <TextStyles>true</TextStyles>
+                    <TextAlignment>true</TextAlignment>
+                    <Lists>true</Lists>
+                    <Indentation>true</Indentation>
+                    <RowsAndParagraphsStyles>true</RowsAndParagraphsStyles>
+                    <ImageAlignment>true</ImageAlignment>
+                </Field>
+            </Fields>
+        </Tab>
+    </Parameters>
+    <Output>
+        <![CDATA[
+            <div class="rich-text"><?wsx5 document.write(parameters.rt.HTML); ?></div>
+        ]]>
+    </Output>
+    <Hooks>
+       <![CDATA[
+            function GetHeaderContents(type, currentContent) {
+                if (type == 'css') {
+                    var css = parameters.rt.CSS;
+                    var finalCSS = "";
+                    css.split("\n").forEach(function (line) {
+                        line = line.trim();
+                        if (line != '') {
+                            if (line.indexOf('@') != 0 && line != '}') {
+                                finalCSS += '#' + currentObject.id + ' .rich-text ' + line + '\n';
+                            }
+                            else {
+                                finalCSS += line + '\n';
+                            }
+                        }
+                    });
+                    return '<style type="text/css">' + finalCSS + '</style>';
+                }
+                else {
+                    return '';
+                }
+            }
+       ]]>
+    </Hooks>
+</App>
+```

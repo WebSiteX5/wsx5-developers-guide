@@ -197,3 +197,21 @@ SiteNodes fields cannot be updated.
     "value": "Hello world!" //string
 }
 ```
+
+### Rich Text
+
+This field can be dynamically updated with these constraints only:
+- Image parameter node be *false*
+- DisableFileLinks node must be *true*
+- Font node must be *false*
+
+```js
+{
+    "RawHTML": "<b>Hello world!</b>", // string
+    "RawCSS": "a { color: green; }", // string
+    "Links": [ "<link data>", "<link data>" ], // string array
+    "Headings": [ { "Id": 0, "Class": "", "Type": "H1" }, { "Id": 1, "Class": "", "Type": "H3" } ], // object array
+    "DarkBackground": true, // boolean
+    "AllowHTML": false // boolean
+}
+```
