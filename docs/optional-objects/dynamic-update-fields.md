@@ -1,12 +1,12 @@
 # Dynamically Update Fields Values
 
-The [OnValueChanged](user-input-fields.md) and [OnMigration](hooks.md) hooks can return an output that will be used to dynamically update fields values.
+The [OnValueChanged](user-input-fields.md), [OnSelectionChanged](user-input-fields.md) and [OnMigration](hooks.md) hooks can return an output that will be used to dynamically update fields values.
 
 The output may be an `Object` structured as follows:
 
 |Property      |Type     |Description                                                                                                                                          |
 |--------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|updatesPreview|`Boolean`|Overrides the default behavior of preview update for the changed field. **Note**: OnValueChanged only                                                |
+|updatesPreview|`Boolean`|Overrides the default behavior of preview update for the changed field. **Note**: OnValueChanged and OnSelectionChanged only                         |
 |fields        |`Object` |Contains all the fields to be updated. Each field may be specified using its name as property. The structure of the value is based on the field type.|
 
 Example:
@@ -186,7 +186,8 @@ SiteNodes fields cannot be updated.
     "list": [ //string array
         "hello",
         "world"
-    ]
+    ],
+    "predefined": 1 //integer
 }
 ```
 
