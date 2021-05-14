@@ -36,7 +36,7 @@ It's called before generating the field. The output of this function will be use
 **OnValueChanged()**
 It is called when the user changes the value of this field in the UI of WebSite X5. The output of this function will be used to [dynamically update fields values](dynamic-update-fields.md).
 
-**OnSelectionChanged()**
+**OnSelectionChanged(indexes, values)**
 It is called when the user changes the selection of this stringlist field in the UI of WebSite X5. The output of this function will be used to [dynamically update fields values](dynamic-update-fields.md).
 
 ### Label Subtag
