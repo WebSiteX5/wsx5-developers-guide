@@ -187,6 +187,10 @@ SiteNodes fields cannot be updated.
         "hello",
         "world"
     ],
+    "keys": [ //string array
+        "lisfh5gi",
+        "73w9b5e8"
+    ],
     "predefined": 1 //integer
 }
 ```
