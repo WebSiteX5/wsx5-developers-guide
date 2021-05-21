@@ -293,6 +293,8 @@ It is a field which allows to choose the font, it's size and style.
   <DefaultFontSize>10</DefaultFontSize>
   <DefaultBold>false</DefaultBold>
   <DefaultItalic>false</DefaultItalic>
+  <ShowBold>true</ShowBold>
+  <ShowItalic>true</ShowItalic>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
