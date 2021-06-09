@@ -75,7 +75,7 @@ var resources = {
 
 ## document
 **Type**: Object
-A JSON object that allows you to output your custom code to the object's output.
+A JSON object that allows you to output your custom code to the object's output and handle raw links.
 It's defined as follows:
 
 ```javascript
@@ -87,7 +87,15 @@ var document = {
 	// Include an external file. The file will be parsed
 	// and the output will be added to the document.
 	// The filePath must be given starting from the app root.
-	"include": function (filePath) { ... }
+	"include": function (filePath) { ... },
+
+	// Gets the JS for the given raw link.
+	// Since: 2021.3.2.0
+	"rawLinkToJS": function (rawLink) { ... },
+
+	// Decorates the given HTML with the given raw link.
+	// Since: 2021.3.2.0
+	"rawLinkToHTML": function (rawLink, html) { ... }
 };
 ```
 **Since**: 15.2.0
