@@ -344,11 +344,16 @@ Allows to choose a link from the link selection window of WebSite X5.
 ```xml
 <Field type="link" id="">
   <Label l10n-id="loc_id">Default label text</Label>
+  <DisableFileLinks>false</DisableFileLinks>
+  <DisableTooltip>false</DisableTooltip>
 </Field>
 ```
 
 **Complete example of WSX5 Script properties access**
 ```js
+// "raw" property conteins raw link data. It is available if DisableFileLinks and DisableTooltip are set to true
+var rawLink = parameters['field-id'].raw;
+
 // "getHTML" method return text given wrapped by tag "a", if link was specified, otherwise only text given.
 var value = parameters['field-id'].getHTML("link text html"); // String
 
@@ -509,6 +514,7 @@ Allows to add a list of strings.
   <Predefined>false</Predefined>
   <PredefinedItem>-1</PredefinedItem>
   <MultipleSelection>true</MultipleSelection>
+  <EditAfterAdd>true</EditAfterAdd>
 </Field>
 ```
 
