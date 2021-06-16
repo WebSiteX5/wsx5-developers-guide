@@ -514,6 +514,7 @@ Allows to add a list of strings.
   <Predefined>false</Predefined>
   <PredefinedItem>-1</PredefinedItem>
   <MultipleSelection>true</MultipleSelection>
+  <LabelEdit>true</LabelEdit>
   <EditAfterAdd>true</EditAfterAdd>
 </Field>
 ```
@@ -524,6 +525,9 @@ var value = parameters['field-id'].list; // Array of strings
 var value = parameters['field-id'].keys; // Array of strings
 var value = parameters['field-id'].predefined; // Integer
 ```
+
+### Note about LabelEdit Field
+Using a StringList with LabelEdit set to true can lead to deadlocks if the Selection Change event is registered and a Rich Text is present.
 
 ## Text
 Show a text input.
