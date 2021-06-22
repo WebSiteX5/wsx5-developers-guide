@@ -580,6 +580,7 @@ Show a text editor.
   <Clipboard>none</Clipboard>
   <DarkBackground>false</DarkBackground>
   <UndoRedo>false</UndoRedo>
+  <WidthAdapted>false</WidthAdapted>
 </Field>
 ```
 
