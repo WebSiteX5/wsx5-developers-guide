@@ -562,6 +562,7 @@ Show a text editor.
   <Height>393</Height>
   <Headings>false</Headings>
   <Font>false</Font>
+  <BasicTextStyles>false</BasicTextStyles>
   <TextStyles>false</TextStyles>
   <TextAlignment>false</TextAlignment>
   <Lists>false</Lists>
@@ -581,6 +582,7 @@ Show a text editor.
   <DarkBackground>false</DarkBackground>
   <UndoRedo>false</UndoRedo>
   <WidthAdapted>false</WidthAdapted>
+  <SingleToolbar>false</SingleToolbar>
 </Field>
 ```
 
