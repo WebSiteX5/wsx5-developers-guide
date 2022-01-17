@@ -2,7 +2,7 @@ site_name: WebSite X5 Developer's Guide
 site_author: Incomedia Srl
 site_url: http://devguide.websitex5.com
 repo_url: https://github.com/WebSiteX5/wsx5-developers-guide
-copyright: © 2021 - Incomedia Srl
+copyright: © 2022 - Incomedia Srl
 use_directory_urls: false
 theme: readthedocs
 strict: false
@@ -21,9 +21,10 @@ pages:
     - 'Localizations': 'optional-objects/localizations-xml.md'
     - 'Hacking the default behavior': 'optional-objects/hooks.md'
     - 'WSX5 Script': 'optional-objects/wsx5-script.md'
+    - 'Storage': 'optional-objects/storage.md'
     - 'Tips': 'optional-objects/tips.md'
     - 'Example Objects': 'optional-objects/examples.md'
-    - 'Dynamically Update Fields Values': 'optional-objects/dynamic-update-fields.md'
+    - 'Dynamically Update Fields Values and Storage': 'optional-objects/dynamic-update-fields.md'
   - X5 Engine JavaScript API:
     - 'Introduction': 'generic-javascript-api/introduction.md'
     - 'Boot Class': 'generic-javascript-api/boot.md'

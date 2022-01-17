@@ -1,6 +1,6 @@
-# Dynamically Update Fields Values
+# Dynamically Update Fields Values and Storage
 
-The [OnValueChanged](user-input-fields.md), [OnSelectionChanged](user-input-fields.md) and [OnMigration](hooks.md) hooks can return an output that will be used to dynamically update fields values.
+The [OnValueChanged](user-input-fields.md#hooks-subtag), [OnSelectionChanged](user-input-fields.md#hooks-subtag) and [OnMigration](hooks.md#onmigrationpreviousversion) hooks can return an output that will be used to dynamically update fields values.
 
 The output may be an `Object` structured as follows:
 
@@ -8,6 +8,11 @@ The output may be an `Object` structured as follows:
 |--------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 |updatesPreview|`Boolean`|Overrides the default behavior of preview update for the changed field. **Note**: OnValueChanged and OnSelectionChanged only                         |
 |fields        |`Object` |Contains all the fields to be updated. Each field may be specified using its name as property. The structure of the value is based on the field type.|
+|stringStorage |`Object` |Contains all the strings to be saved into storage. Object keys will be used as storage keys. Object values represent the strings themselves.         |
+|fieldToStorage|`Object` |Contains all the fields to be saved into storage. Object keys will be used as storage keys. Object values represent field ids.                       |
+|storageToField|`Object` |Contains all the fields to be recovered from storage. Object keys represent field ids. Object values represent storage keys.                         |
+
+`Object` properties will be processed in the order defined by this table. (i.e. if fieldToStorage and storageToField have the same key-field pair, only storage will change, field value recovered from storage)
 
 Example:
 
@@ -19,6 +24,15 @@ function OnValueChanged() {
             "name": {
                 "value": "John"
             }
+        },
+        "stringStorage": {
+            "key": "value"
+        },
+        "fieldToStorage": {
+            "key": "field-id"
+        },
+        "storageToField": {
+            "field-id": "storage-key"
         }
     };
 }
@@ -99,11 +113,11 @@ function OnValueChanged() {
 
 ### File
 
-File fields cannot be updated.
+File fields cannot be updated using *value* key.
 
 ### FileList
 
-FileList fields cannot be updated.
+FileList fields cannot be updated using *value* key.
 
 ### Font
 
@@ -119,11 +133,11 @@ FileList fields cannot be updated.
 
 ### ImageSelect
 
-ImageSelect fields cannot be updated.
+ImageSelect fields cannot be updated using *value* key.
 
 ### Link
 
-Link fields cannot be updated.
+Link fields cannot be updated using *value* key.
 
 ### Margins
 
@@ -177,7 +191,7 @@ Separator has no values.
 
 ### SiteNodes
 
-SiteNodes fields cannot be updated.
+SiteNodes fields cannot be updated using *value* key.
 
 ### StringList
 

@@ -1,16 +1,20 @@
 # WSX5Script
 The WSX5Script code is an ECMAScript code which is run by WebSite X5 when the HTML/CSS code is built.
+
 The script output will be inserted where the script is.
+
 The syntax to use is the same as JavaScript.
+
 The script needs to be executed inside the `<?wsx5` and `?>` tags (except in the `Hooks` tag).
 
 The following variables are defined in the code.
 
 ## parameters
 **Type**: Object
-Each element of this object has the properties specified in [the user input fields list](user-input-fields.md), basing on the field type.
-It is defined as follows:
 
+Each element of this object has the properties specified in [the user input fields list](user-input-fields.md), basing on the field type.
+
+It is defined as follows:
 ```javascript
 var parameters = {
 	"my-field-id": {
@@ -53,7 +57,10 @@ var parameters = {
 
 ## resources
 **Type**: Object
-A JSON object containing a JSON object for each resource id. It is defined as follows:
+
+A JSON object containing a JSON object for each resource id.
+
+It is defined as follows:
 ```javascript
 var resources = {
 	"my-resource-id": {
@@ -73,11 +80,34 @@ var resources = {
 };
 ```
 
+## storage
+**Type**: Object
+
+**Since**: 2021.5.5
+
+Allows you to read the data from [Storage](storage.md).
+
+It is defined as follows:
+```javascript
+var storage = {
+	// Returns the string value corresponding to requested key
+	// If the key cannot be found, it returns null
+	"getString": function (key) { ... },
+
+	// Returns the field value corresponding to requested key
+	// If the key cannot be found, it returns null
+	"getField": function (key) { ... }
+};
+```
+
+Field value structure is defined in [Available Field Types](user-input-fields.md#available-field-types)
+
 ## document
 **Type**: Object
-A JSON object that allows you to output your custom code to the object's output and handle raw links.
-It's defined as follows:
 
+A JSON object that allows you to output your custom code to the object's output and handle raw links.
+
+It's defined as follows:
 ```javascript
 var document = {
 
@@ -98,6 +128,7 @@ var document = {
 	"rawLinkToHTML": function (rawLink, html) { ... }
 };
 ```
+
 **Since**: 15.2.0
 
 A faster way to write to the output is to use the following sintax:
@@ -110,9 +141,10 @@ A faster way to write to the output is to use the following sintax:
 
 ## console
 **Type**: Object
-A JSON object that allows you to output some string to the dev's console.
-It's defined as follows:
 
+A JSON object that allows you to output some string to the dev's console.
+
+It's defined as follows:
 ```javascript
 var console = {
 
@@ -128,9 +160,10 @@ console.log("This message will be output to the developer's console");
 
 ## currentObject
 **Type**: Object
-A JSON object that contains some useful information about the current object.
-Is defined as follows:
 
+A JSON object that contains some useful information about the current object.
+
+Is defined as follows:
 ```javascript
 var currentObject = {
 	
@@ -162,9 +195,10 @@ var currentObject = {
 
 ## l10n
 **Type**: Object
-Allows you to get the localizations defined in the localizations.xml file or in the global localizations container of WSX5.
-It's defined as follows:
 
+Allows you to get the localizations defined in the localizations.xml file or in the global localizations container of WSX5.
+
+It's defined as follows:
 ```javascript
 var l10n = {
 
@@ -201,9 +235,10 @@ var localizedGermanText = l10n.get("localization-id-1", "DE");
 
 ## wsx5
 **Type**: Object
-Contains some information about the WSX5 state.
-It is defined as follows:
 
+Contains some information about the WSX5 state.
+
+It is defined as follows:
 ```javascript
 var wsx5 = {
 	
