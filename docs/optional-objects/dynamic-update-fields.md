@@ -12,7 +12,7 @@ The output may be an `Object` structured as follows:
 |fieldToStorage|`Object` |Contains all the fields to be saved into storage. Object keys will be used as storage keys. Object values represent field ids.                       |
 |storageToField|`Object` |Contains all the fields to be recovered from storage. Object keys represent field ids. Object values represent storage keys.                         |
 
-`Object` properties will be processed in the order defined by this table. (i.e. if fieldToStorage and storageToField have the same key-field pair, only storage will change, field value recovered from storage)
+`Object` properties will be processed in the order defined by this table. (i.e. if fieldToStorage and storageToField have the same key-field pair, only storage will change, field value will be recovered from storage as is)
 
 Example:
 
