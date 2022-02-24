@@ -72,6 +72,33 @@ function GetHeaderContents(type, currentContent) {
 }
 ```
 
+## GetContents(placement, currentContent)
+
+If defined, this function allows the author to specify a custom code to include in different placements in the website. It must return a string, which will be included in the site in the position relative to the "placement" parameter.
+
+|Parameter     | Type   | Description                                                                                                                                       |
+|--------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+|placement     |`String`|Indicates the required placement. Can be "beforehtml", "afterheadopen", "beforeheadclose", "bodyattributes", "afterbodyopen" and "beforebodyclose".|
+|currentContent|`String`|Contains the current content for the given "placement". It is useful to verify to not add a duplicated code.         |
+
+This function may be called more than once during the creation of the page code (more precisely, one time for every possible value of the "placement" parameter).
+To avoid the duplication of the code, the programmer must always verify the value of `placement` and
+`currentContent` and act consequently, as in the example below.
+
+```javascript
+function GetContents(placement, currentContent) {
+    // Include my own js library in the site's header, making sure it was not yet included
+    if (placement == 'afterheadopen' && currentContent.indexOf('mylibrary.js') == -1) {
+        return '<script src="http://mysite.com/mylibrary.js"></script>';
+    }
+    // Include my own css style
+    if (placement == 'beforeheadclose' && currentContent.indexOf('.myclass { border: 1px solid black; }')) {
+        return '<style type="text/css">.myclass { border: 1px solid black; }</style>';
+    }
+    return "";
+}
+```
+
 ## OnBeforeFileElaboration(fieldID, file)
 
 This function is called every time the object elaborates a generic file selected by the user except images (for images see the [OnBeforeImageElaboration](#onbeforeimageelaborationfieldid-image) hook).
