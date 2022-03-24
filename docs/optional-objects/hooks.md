@@ -74,6 +74,7 @@ function GetHeaderContents(type, currentContent) {
 
 ## GetContents(placement, currentContent)
 
+**Since:** 2022.1.3.0
 If defined, this function allows the author to specify a custom code to include in different placements in the website. It must return a string, which will be included in the site in the position relative to the "placement" parameter.
 
 |Parameter     | Type   | Description                                                                                                                                       |
