@@ -4,13 +4,13 @@ The [OnValueChanged](user-input-fields.md#hooks-subtag), [OnSelectionChanged](us
 
 The output may be an `Object` structured as follows:
 
-|Property      |Type     |Description                                                                                                                                          |
-|--------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|updatesPreview|`Boolean`|Overrides the default behavior of preview update for the changed field. **Note**: OnValueChanged and OnSelectionChanged only                         |
-|fields        |`Object` |Contains all the fields to be updated. Each field may be specified using its name as property. The structure of the value is based on the field type.|
-|stringStorage |`Object` |Contains all the strings to be saved into storage. Object keys will be used as storage keys. Object values represent the strings themselves.         |
-|fieldToStorage|`Object` |Contains all the fields to be saved into storage. Object keys will be used as storage keys. Object values represent field ids.                       |
-|storageToField|`Object` |Contains all the fields to be recovered from storage. Object keys represent field ids. Object values represent storage keys.                         |
+|Property      |Type     |Description                                                                                                                                                                                                 |
+|--------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|updatesPreview|`Boolean`|Overrides the default behavior of preview update for the changed field. **Note**: OnValueChanged and OnSelectionChanged only                                                                                |
+|fields        |`Object` |Contains all the fields to be updated. Each field may be specified using its name as property. The structure of the value is based on the field type.                                                       |
+|stringStorage |`Object` |Contains all the strings to be saved into storage. Object keys will be used as storage keys. Object values represent the strings themselves. An existing key can be removed by setting its value to `null`. |
+|fieldToStorage|`Object` |Contains all the fields to be saved into storage. Object keys will be used as storage keys. Object values represent field ids. An existing key can be removed by setting its value to `null`.               |
+|storageToField|`Object` |Contains all the fields to be recovered from storage. Object keys represent field ids. Object values represent storage keys.                                                                                |
 
 `Object` properties will be processed in the order defined by this table. (i.e. if fieldToStorage and storageToField have the same key-field pair, only storage will change, field value will be recovered from storage as is)
 
