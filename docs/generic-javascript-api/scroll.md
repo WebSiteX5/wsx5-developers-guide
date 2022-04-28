@@ -92,6 +92,21 @@ Provides a set of helper methods that may be used in conjunction with the <code>
 
 **Returns**: <code>object</code> - An object containig different scroll helper methods
 
+**Example**
+```js
+// We are going to observe scroll from the 'scroll-observer' element
+var element = document.getElementById('scroll-observer');
+var helper = x5engine.utils.scrollHelper(element);
+// Updates will be triggered when the element
+// will be into viewport with a tolerance of 50px
+var resizeCallback = helper.inViewport(50);
+var updateCallback = helper.objectPercentiageScrolled((perc) => {
+    // Element opacity will increase while the element gets scrolled into view
+    element.style.opacity = perc / 100;
+});
+x5engine.utils.scroll.observe(resizeCallback, updateCallback);
+```
+
 <a name="module_x5engine.utils.scrollHelper.always"></a>
 ### .always() ⇒ <code>function</code>
 
