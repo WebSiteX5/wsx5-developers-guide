@@ -10,7 +10,7 @@ extra_javascript: [jslibs/css_classes.js]
 extra_css: [css/cssfix.css]
 markdown_extensions: [nl2br]
 site_favicon: favicon.ico
-pages:
+nav:
   - 'Home': 'index.md'
   - Optional Objects:
     - 'Introduction': 'optional-objects/introduction.md'
@@ -34,6 +34,7 @@ pages:
     - 'Responsive Class': 'generic-javascript-api/responsive.md'
     - 'Responsive Events': 'generic-javascript-api/responsive-events.md'
     - 'Cookie Law Script': 'generic-javascript-api/cookielaw-script.md'
+    - 'Scroll Utilities': 'generic-javascript-api/scroll.md'
   - Ecommerce JavaScript API:
     - 'Introduction': 'ecommerce-javascript-api/introduction.md'
     - 'E-Commerce Class': 'ecommerce-javascript-api/ecommerce-class.md'
