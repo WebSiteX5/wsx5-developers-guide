@@ -250,7 +250,10 @@ Allows to choose a file.
 ```xml
 <Field type="file" id="">
   <Extensions>jpg,txt</Extensions>
-  <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- If set to true it allow using of PixaBay Images, false is the default: for fields that don't use images input don't use this tag -->
+  <!-- If set to true it allow using of PixaBay Images, false is the default: for fields that don't use images input don't use this tag -->
+  <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- Deprecated: 2022.2.0.0 -->
+  <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
+  <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -276,6 +279,9 @@ Allows to choose a list of files.
 <Field type="filelist" id="">
   <Extensions>jpg,txt</Extensions>
   <AllowUrls>true</AllowUrls>
+  <!-- If set to true it allow using of PixaBay Images, false is the default: for fields that don't use images input don't use this tag -->
+  <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
+  <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
