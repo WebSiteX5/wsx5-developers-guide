@@ -3,12 +3,13 @@
 The X5 Engine API provides you a set of scroll-related utilities.
 
 * [x5engine.utils.scroll](#module_x5engine.utils.scroll)
-    * [.observe(resizeCallback, updateCallback)](#module_x5engine.utils.scroll.observe)
+    * [.observe(resizeCallback, updateCallback, *id*)](#module_x5engine.utils.scroll.observe)
+    * [.unobserve(id)](#module_x5engine.utils.scroll.unobserve)
     * [resizeCallback](#module_x5engine.utils.scroll.resizeCallback)
     * [updateCallback](#module_x5engine.utils.scroll.updateCallback)
 * [x5engine.utils.scrollHelper(element)](#module_x5engine.utils.scrollHelper)
     * [.always()](#module_x5engine.utils.scrollHelper.always)
-    * [.inViewport(overflowTop, overflowBottom)](#module_x5engine.utils.scrollHelper.inViewport)
+    * [.inViewport(*overflowTop*, *overflowBottom*)](#module_x5engine.utils.scrollHelper.inViewport)
     * [.focalPoint(callback)](#module_x5engine.utils.scrollHelper.focalPoint)
     * [.objectFocalPoint(callback)](#module_x5engine.utils.scrollHelper.objectFocalPoint)
     * [.percentiageScrolled(callback)](#module_x5engine.utils.scrollHelper.percentiageScrolled)
@@ -20,7 +21,7 @@ The X5 Engine API provides you a set of scroll-related utilities.
 Provides a set of static methods that may help in managing the scroll-related changes.
 
 <a name="module_x5engine.utils.scroll.observe"></a>
-### .observe(resizeCallback, updateCallback) ⇒ <code>void</code>
+### .observe(resizeCallback, updateCallback, *id*) ⇒ <code>void</code>
 
 Adds a new observer. The observer will be updated thru the <code>updateCallback</code>.
 The <code>resizeCallback</code> will be called immediately to get the observation rules.
@@ -32,10 +33,11 @@ The rules define how to filter updates and call <code>updateCallback</code> only
 | -------------- | --------------------- | ------------------------------------------------------------------------ |
 | resizeCallback | <code>function</code> | Called when the viewport is resized, it must return a bool or a function, il will be used to filter <code>[updateCallback](#module_x5engine.utils.scroll.updateCallback)</code> calls                                                                                                               |
 | updateCallback | <code>function</code> | Called to send the updated scroll position                               |
+| id             | <code>string</code>   | *Optional* identifier of the observer. **Since**: 2022.1.7.0             |
 
 **Since**: 2022.1.5.1
 
-**Example**  
+**Example**
 ```js
 function resizeCallback(width, height) {
     // updateCallback will be called starting from when
@@ -45,7 +47,27 @@ function resizeCallback(width, height) {
 function updateCallback(scrollPosition) {
     // Update the page elements by using the scroll position...
 }
-x5engine.utils.scroll.observe(resizeCallback, updateCallback);
+// Add the observer with the id 'example'
+x5engine.utils.scroll.observe(resizeCallback, updateCallback, 'example');
+```
+
+<a name="module_x5engine.utils.scroll.unobserve"></a>
+### .unobserve(id) ⇒ <code>void</code>
+
+Removes an observer. The observer with the specified <code>id</code> will be removed.
+
+**Kind**: static method of <code>[x5engine.utils.scroll](#module_x5engine.utils.scroll)</code>
+
+| Param | Type                | Description                |
+| ----- | ------------------- | -------------------------- |
+| id    | <code>string</code> | Identifier of the observer |
+
+**Since**: 2022.1.7.0
+
+**Example**
+```js
+// Remove the observer with the id 'example'
+x5engine.utils.scroll.unobserve('example');
 ```
 
 <a name="module_x5engine.utils.scroll.resizeCallback"></a>
@@ -117,7 +139,7 @@ This function can be called to obtain a <code>[resizeCallback](#module_x5engine.
 **Returns**: <code>function</code>
 
 <a name="module_x5engine.utils.scrollHelper.inViewport"></a>
-### .inViewport(overflowTop, overflowBottom) ⇒ <code>function</code>
+### .inViewport(*overflowTop*, *overflowBottom*) ⇒ <code>function</code>
 
 This function can be called to obtain a <code>[resizeCallback](#module_x5engine.utils.scroll.resizeCallback)</code> that filter the observing element when it is into the viewport.
 
