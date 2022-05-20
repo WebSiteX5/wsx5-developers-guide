@@ -210,10 +210,10 @@ var value = parameters['field-id'].value; // String
 ```xml
 <Field type="dropdown" id="" class="database">
   <Options>
-    <Options l10n-id="loc_id_1" value="value_1">default text 1</Options>
-    <Options l10n-id="loc_id_2" value="value_2">default text 2</Options>
-    <Options l10n-id="loc_id_3" value="value_3">default text 3</Options>
-    <Options l10n-id="loc_id_4" value="value_4">default text 4</Options>
+    <Option l10n-id="loc_id_1" value="value_1">default text 1</Option>
+    <Option l10n-id="loc_id_2" value="value_2">default text 2</Option>
+    <Option l10n-id="loc_id_3" value="value_3">default text 3</Option>
+    <Option l10n-id="loc_id_4" value="value_4">default text 4</Option>
   </Options>
   <Label l10n-id="label-id">Default Label</Label>
 </Field>
