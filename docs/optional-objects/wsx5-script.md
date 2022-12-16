@@ -190,6 +190,9 @@ var currentObject = {
 
 	// If true, the object will be large as the viewport. Available since v17
 	"fullWidth": true
+
+	// If true, the object will have to implement lazy loading on img tags. Available since v2022.3
+	"lazyLoad": true
 };
 ```
 

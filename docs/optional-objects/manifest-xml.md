@@ -15,6 +15,7 @@ Here's how a manifest.xml looks like:
     <InitialSize>350,250</InitialSize>
     <RecommendedMinSize>100,100</RecommendedMinSize>
     <Description l10n-id="description">Add a "Hello World!" to your page.</Description>
+    <LazyLoadCapable>false</LazyLoadCapable>
     <!-- Here we define some cosmetics -->
     <Overflow>false</Overflow>
     <ShowPreview>true</ShowPreview>
@@ -134,6 +135,12 @@ It contains the description of the application. It can be localized with the `l1
 ```xml
 <Description l10n-id="description">Description of the Application</Description>
 ```
+
+## LazyLoadCapable Tag
+
+**Mandatory**: no
+**Since**: 2022.3.0.0
+If set to `true`, the UI of WebSite X5 will enable Lazy Load option for the object instances.
 
 ## PageExtension Tag
 
