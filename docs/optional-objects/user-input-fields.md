@@ -283,6 +283,10 @@ Allows to choose a list of files.
   <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
   <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
   <Label l10n-id="loc_id">Default label text</Label>
+  <DescriptionEnabled>false</DescriptionEnabled>
+  <AltTitleEnabled>false</AltTitleEnabled> <!-- Since: 2023.1.4.0 -->
+  <LinkEnabled>false</LinkEnabled>
+  <ElementList>false</ElementList> <!-- Since: 2023.1.4.0 -->
 </Field>
 ```
 
