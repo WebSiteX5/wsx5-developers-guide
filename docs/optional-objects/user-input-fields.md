@@ -287,6 +287,7 @@ Allows to choose a list of files.
   <AltTitleEnabled>false</AltTitleEnabled> <!-- Since: 2023.1.4.0 -->
   <LinkEnabled>false</LinkEnabled>
   <ElementList>false</ElementList> <!-- Since: 2023.1.4.0 -->
+  <Height>255</Height> <!-- Since: 2023.1.5.0 -->
 </Field>
 ```
 
