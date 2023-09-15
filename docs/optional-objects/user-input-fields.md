@@ -187,14 +187,14 @@ To see how to use this field see the examples below.
   <Label l10n-id="loc_id">Default label text</Label>
   <!-- Use the Options OR the Hooks tag. Do not use them both -->
   <Options>
-    <Option l10n-id="localization_id" value="field_value">Default text</Option>
+    <Option l10n-id="localization_id" value="field_value" icon="icon_path">Default text</Option>
   </Options>
   <Hooks><![CDATA[
     function OnCreate() {
       // Must return the options array.
       // Each option element is defined via a JSON object
-      // containing a text and a value property.
-      return [{ text: "option text", value: "option value" }];
+      // containing a text, a value and an icon property.
+      return [{ text: "option text", value: "option value", icon: "icon_path" }];
     }
     ]]>
   </Hooks>
@@ -211,7 +211,7 @@ var value = parameters['field-id'].value; // String
 <Field type="dropdown" id="" class="database">
   <Options>
     <Option l10n-id="loc_id_1" value="value_1">default text 1</Option>
-    <Option l10n-id="loc_id_2" value="value_2">default text 2</Option>
+    <Option l10n-id="loc_id_2" value="value_2" icon="icon_2.jpg">default text 2</Option>
     <Option l10n-id="loc_id_3" value="value_3">default text 3</Option>
     <Option l10n-id="loc_id_4" value="value_4">default text 4</Option>
   </Options>
