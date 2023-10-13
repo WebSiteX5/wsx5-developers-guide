@@ -97,6 +97,7 @@ Allows to choose a color from a palette.
 ```xml
 <Field type="color" id="">
   <EnableTransparent>false</EnableTransparent>
+  <ShowOpacity>true</ShowOpacity>
   <DefaultValue>(#AARRGGBB|#RRGGBB)</DefaultValue>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
@@ -416,6 +417,44 @@ Allows to choose a number
 var fieldValue = parameters['field-id'].value; // Number
 ```
 
+## Position
+Allows to choose the position of a element. The following combinations of `PositionType` and `ShowMiddleCenter` are supported; for each combination,
+selected value is stored in a specific XML tag and in a specific JS property, as reported in the following table:
+
+| PositionType | ShowMiddleCenter | XML tag              | JS property          | Allowed XML tag values (JS property values are the same, but lowercase)                                    |
+|--------------|------------------|----------------------|----------------------|------------------------------------------------------------------------------------------------------------|
+| All          | true             | PositionHV           | positionHV           | TopLeft, TopCenter, TopRight, MiddleLeft, MiddleCenter, MiddleRight, BottomLeft, BottomCenter, BottomRight |
+| Horizontal   | true             | PositionHor          | positionHor          | Left, Center, Right                                                                                        |
+| Horizontal   | false            | PositionHor2         | positionHor2         | Left, Right                                                                                                |
+| Vertical     | false            | PositionVer2         | positionVer2         | Top, Bottom                                                                                                |
+| Corner       | true             | PositionCorner       | positionCorner       | TopLeft, TopRight, BottomLeft, BottomRight                                                                 |
+| Corner       | false            | PositionCornerCenter | positionCornerCenter | TopLeft, TopRight, MiddleCenter, BottomLeft, BottomRight                                                   |
+
+**Complete list of subtags**
+```xml
+<Field type="position" id="pos">
+  <PositionType>Horizontal</PositionType>
+  <ShowMiddleCenter>true</ShowMiddleCenter>
+  <PositionHV>BottomLeft</PositionHV>
+  <PositionHor>Center</PositionHor>
+  <PositionHor2>Right</PositionHor2>
+  <PositionVer2>Bottom</PositionVer2>
+  <PositionCorner>BottomLeft</PositionCorner>
+  <PositionCornerCenter>MiddleCenter</PositionCornerCenter>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var fieldValue = parameters['field-id'].positionHV; // string
+var fieldValue = parameters['field-id'].positionHor; // string
+var fieldValue = parameters['field-id'].positionHor2; // string
+var fieldValue = parameters['field-id'].positionVer2; // string
+var fieldValue = parameters['field-id'].positionCorner; // string
+var fieldValue = parameters['field-id'].positionCornerCenter; // string
+```
+
 ## RoundCorners
 Allows to choose the rounding of the corners.
 
@@ -462,6 +501,7 @@ Allows to choose the style of a shadow.
   <DefaultOffsetY>1</DefaultOffsetY>
   <DefaultDimension>10</DefaultDimension>
   <DefaultDiffusion>10</DefaultDiffusion>
+  <ShowSpread>true</ShowSpread>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -478,8 +518,8 @@ var value = parameters['field-id'].offsetX (integer);
 var value = parameters['field-id'].offsetY (integer);
 var value = parameters['field-id'].blur (integer); // Dimension value
 var value = parameters['field-id'].spread (integer); // Diffusion value
+var value = parameters['field-id'].showSpread (bool); // Diffusion enabled
 ```
-
 
 ## SiteNodes
 Available since v2019.1.0.0
@@ -678,4 +718,20 @@ var fieldValue = parameters['field-id'].AllowHTML; // Boolean
        ]]>
     </Hooks>
 </App>
+```
+
+## TextAlign
+Allows to choose text alignment.
+
+**Complete list of subtags**
+```xml
+<Field type="textalign" id="field-id">
+  <Align>left|center|right</Align>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var fieldValue = parameters['field-id'].textAlign; // CSS string to be used into text-align property
 ```
