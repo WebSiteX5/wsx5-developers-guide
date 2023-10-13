@@ -397,6 +397,31 @@ var value = parameters['field-id'].left; // integer
 var value = parameters['field-id'].right; // integer
 ```
 
+## MarginsHorVer
+Allows to choose 2 margins:
+- `ShowHor == true` and `ShowVer == true`: horizontal and vertical
+- `ShowHor == true` and `ShowVer == false`: left and right
+- `ShowHor == false` and `ShowVer == true`: top and bottom
+
+**Complete list of subtags**
+```xml
+<Field type="marginshorver" id="field-id">
+  <ShowHor>true</ShowHor>
+  <ShowVer>true</ShowVer>
+  <MinValue>-10</MinValue>
+  <MaxValue>10</MaxValue>
+  <DefaultHor>5</DefaultHor>
+  <DefaultVer>5</DefaultVer>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].hor; // integer (hor or left or top, depending on ShowHor and ShowVer configuration)
+var value = parameters['field-id'].ver; // integer (ver or right or bottom, depending on ShowHor and ShowVer configuration)
+```
+
 ## Number
 Allows to choose a number
 
