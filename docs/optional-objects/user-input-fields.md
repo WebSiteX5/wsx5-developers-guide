@@ -38,6 +38,7 @@ It is called when the user changes the value of this field in the UI of WebSite 
 
 **OnSelectionChanged(indexes, keys, values)**
 It is called when the user changes the selection of this stringlist field in the UI of WebSite X5. The output of this function will be used to [dynamically update fields values](dynamic-update-fields.md).
+
 | Argument name | Type             | Notes                    |
 |---------------|------------------|--------------------------|
 | indexes       | Array of Integer | List of selected indexes |
@@ -54,8 +55,88 @@ The **Label** subtag defines the label shown near the field. This tag can have:<
 Here you can find a list of the available field types.
 The values represented in the following XML code examples are not to consider as default values for the various fields.
 
+## Borders
+Allows to specify all the borders properties, that is color, width, round corners and shadow, with UI controls positioned in the same line and with a single label. It's possible to show only a subset of that properties.
+`Width`, `Color`, `RoundCorners` and `Shadow` are defined like the corresponding stand-alone fields, except for the absence of `Label` and other general subtags (`Enabled`, `Visible`, ...), that applies only to whole borders field.
+`Id` attribute must be specified for each of those elements, but can be left empty.
+
+**Complete list of subtags**
+```xml
+<Field type="borders" id="field-id">
+  <ShowWidth>true</ShowWidth>
+  <ShowColor>true</ShowColor>
+  <ShowRoundCorners>true</ShowRoundCorners>
+  <ShowShadow>true</ShowShadow>
+  <Width id="">
+    <DefaultValue>1,2,3,4</DefaultValue>
+    <MinValue>0</MinValue>
+    <MaxValue>20</MaxValue>
+    <Increment>3</Increment>
+  </Width>
+  <Color id="">
+    <EnableTransparent>true</EnableTransparent>
+    <DefaultValue>#FFFF00</DefaultValue>
+  </Color>
+  <RoundCorners id="">
+    <DefaultValue>1</DefaultValue>
+    <MinValue>0</MinValue>
+    <MaxValue>100</MaxValue>
+    <Increment>5</Increment>
+  </RoundCorners>
+  <Shadow id="">
+    <DefaultEnabled>true</DefaultEnabled>
+    <DefaultColor>#000000</DefaultColor>
+    <DefaultOffsetX>1</DefaultOffsetX>
+    <DefaultOffsetY>1</DefaultOffsetY>
+    <DefaultDimension>10</DefaultDimension>
+    <DefaultDiffusion>10</DefaultDiffusion>
+    <ShowSpread>true</ShowSpread>
+  </Shadow>
+  <Label l10n-id="loc_id">Bordi</Label>
+  <UpdatesPreview>true</UpdatesPreview>
+</Field>
+```
+**Complete example of WSX5 Script properties access**
+```js
+var value = parameters['field-id'].borderWidth; // CSS string like "1px 2px 3px 4px"
+var value = parameters['field-id'].borderColor; // CSS string like "rgba(255, 255, 0, 1) rgba(255, 255, 0, 1) rgba(255, 255, 0, 1) rgba(255, 255, 0, 1)"
+var value = parameters['field-id'].borderRadius; // CSS string like "1px 2px 3px 4px"
+var value = parameters['field-id'].boxShadow; // CSS string like "1px 1px 10px 10px rgba(0, 0, 0, 1)"
+
+var value = parameters['field-id'].width.left; // integer
+var value = parameters['field-id'].width.right; // integer
+var value = parameters['field-id'].width.top; // integer
+var value = parameters['field-id'].width.bottom; // integer
+
+var value = parameters['field-id'].color.top; // CSS string like "#45ff23"
+var value = parameters['field-id'].color.bottom; // CSS string like "#45ff23"
+var value = parameters['field-id'].color.left; // CSS string like "#45ff23"
+var value = parameters['field-id'].color.right; // CSS string like "#45ff23"
+
+var value = parameters['field-id'].roundCorners.topleft; // integer
+var value = parameters['field-id'].roundCorners.topright; // integer
+var value = parameters['field-id'].roundCorners.bottomleft; // integer
+var value = parameters['field-id'].roundCorners.bottomright; // integer
+
+var value = parameters['field-id'].shadow.active; // true if the 'enable' checkbox is checked
+var value = parameters['field-id'].shadow.color (hexadecimal string);
+var value = parameters['field-id'].shadow.colorR (integer 0-255);
+var value = parameters['field-id'].shadow.colorG (integer 0-255);
+var value = parameters['field-id'].shadow.colorB (integer 0-255);
+var value = parameters['field-id'].shadow.colorA (integer 0-255);
+var value = parameters['field-id'].shadow.offsetX (integer);
+var value = parameters['field-id'].shadow.offsetY (integer);
+var value = parameters['field-id'].shadow.blur (integer); // Dimension value
+var value = parameters['field-id'].shadow.spread (integer); // Diffusion value
+var value = parameters['field-id'].shadow.showSpread (bool); // Diffusion enabled
+```
+
 ## BorderWidth
-Allows to choose the width of 4 borders.
+Allows to choose the width of 4 borders. `DefaultValue` can contains up to 4 comma separated values, with the same meaning as CSS syntax:
+- 1 value: all four sides
+- 2 values: top and bottom | left and right
+- 3 values: top | left and right | bottom
+- 4 values: top | right | bottom | left
 
 **Complete list of subtags**
 ```xml
@@ -376,7 +457,11 @@ if (parameters['field-id'].getHTML("#link#") != "#link#") { // link was specifie
 ```
 
 ## Margins
-Allows to choose 4 margins.
+Allows to choose 4 margins. `DefaultValue` can contains up to 4 comma separated values, with the same meaning as CSS syntax:
+- 1 value: all four sides
+- 2 values: top and bottom | left and right
+- 3 values: top | left and right | bottom
+- 4 values: top | right | bottom | left
 
 **Complete list of subtags**
 ```xml
@@ -402,16 +487,18 @@ Allows to choose 2 margins:
 - `ShowHor == true` and `ShowVer == true`: horizontal and vertical
 - `ShowHor == true` and `ShowVer == false`: left and right
 - `ShowHor == false` and `ShowVer == true`: top and bottom
+`DefaultValue` can contains 1 or 2 comma separated values, with the following meaning:
+- 1 value: both sides
+- 2 values: horizontal/left/top | vertical/right/bottom
 
 **Complete list of subtags**
 ```xml
 <Field type="marginshorver" id="field-id">
   <ShowHor>true</ShowHor>
   <ShowVer>true</ShowVer>
+  <DefaultValue>5,3</DefaultHor>
   <MinValue>-10</MinValue>
   <MaxValue>10</MaxValue>
-  <DefaultHor>5</DefaultHor>
-  <DefaultVer>5</DefaultVer>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -443,8 +530,7 @@ var fieldValue = parameters['field-id'].value; // Number
 ```
 
 ## Position
-Allows to choose the position of a element. The following combinations of `PositionType` and `ShowMiddleCenter` are supported; for each combination,
-selected value is stored in a specific XML tag and in a specific JS property, as reported in the following table:
+Allows to choose the position of a element. The following combinations of `PositionType` and `ShowMiddleCenter` are supported; for each combination, selected value is stored in a specific XML tag and in a specific JS property, as reported in the following table:
 
 | PositionType | ShowMiddleCenter | XML tag              | JS property          | Allowed XML tag values (JS property values are the same, but lowercase)                                    |
 |--------------|------------------|----------------------|----------------------|------------------------------------------------------------------------------------------------------------|
