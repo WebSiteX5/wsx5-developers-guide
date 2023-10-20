@@ -530,40 +530,32 @@ var fieldValue = parameters['field-id'].value; // Number
 ```
 
 ## Position
-Allows to choose the position of a element. The following combinations of `PositionType` and `ShowMiddleCenter` are supported; for each combination, selected value is stored in a specific XML tag and in a specific JS property, as reported in the following table:
+Allows to choose the position of a element. The following combinations of `PositionType` and `ShowMiddleCenter` are supported; for each combination, `DefaultValue` XML tag in manifest and `position` JS property can assume different set of values, as reported in the following table:
 
-| PositionType | ShowMiddleCenter | XML tag              | JS property          | Allowed XML tag values (JS property values are the same, but lowercase)                                    |
-|--------------|------------------|----------------------|----------------------|------------------------------------------------------------------------------------------------------------|
-| All          | true             | PositionHV           | positionHV           | TopLeft, TopCenter, TopRight, MiddleLeft, MiddleCenter, MiddleRight, BottomLeft, BottomCenter, BottomRight |
-| Horizontal   | true             | PositionHor          | positionHor          | Left, Center, Right                                                                                        |
-| Horizontal   | false            | PositionHor2         | positionHor2         | Left, Right                                                                                                |
-| Vertical     | false            | PositionVer2         | positionVer2         | Top, Bottom                                                                                                |
-| Corner       | true             | PositionCorner       | positionCorner       | TopLeft, TopRight, BottomLeft, BottomRight                                                                 |
-| Corner       | false            | PositionCornerCenter | positionCornerCenter | TopLeft, TopRight, MiddleCenter, BottomLeft, BottomRight                                                   |
+| PositionType | ShowMiddleCenter | Allowed manifest XML tag values (JS property values are the same, but lowercase)                           |
+|--------------|------------------|------------------------------------------------------------------------------------------------------------|
+| All          | true             | TopLeft, TopCenter, TopRight, MiddleLeft, MiddleCenter, MiddleRight, BottomLeft, BottomCenter, BottomRight |
+| Horizontal   | true             | Left, Center, Right                                                                                        |
+| Horizontal   | false            | Left, Right                                                                                                |
+| Vertical     | false            | Top, Bottom                                                                                                |
+| Corner       | true             | TopLeft, TopRight, BottomLeft, BottomRight                                                                 |
+| Corner       | false            | TopLeft, TopRight, MiddleCenter, BottomLeft, BottomRight                                                   |
 
 **Complete list of subtags**
 ```xml
 <Field type="position" id="pos">
   <PositionType>Horizontal</PositionType>
   <ShowMiddleCenter>true</ShowMiddleCenter>
-  <PositionHV>BottomLeft</PositionHV>
-  <PositionHor>Center</PositionHor>
-  <PositionHor2>Right</PositionHor2>
-  <PositionVer2>Bottom</PositionVer2>
-  <PositionCorner>BottomLeft</PositionCorner>
-  <PositionCornerCenter>MiddleCenter</PositionCornerCenter>
+  <DefaultValue>Left</DefaultValue>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
 
 **Complete example of WSX5 Script properties access**
 ```js
-var fieldValue = parameters['field-id'].positionHV; // string
-var fieldValue = parameters['field-id'].positionHor; // string
-var fieldValue = parameters['field-id'].positionHor2; // string
-var fieldValue = parameters['field-id'].positionVer2; // string
-var fieldValue = parameters['field-id'].positionCorner; // string
-var fieldValue = parameters['field-id'].positionCornerCenter; // string
+var fieldValue = parameters['field-id'].positionType; // string (all, horizontal, vertical or corner)
+var fieldValue = parameters['field-id'].showMiddleCenter; // bool
+var fieldValue = parameters['field-id'].position; // string (see table above for possible values, depending on positionType and showMiddleCenter)
 ```
 
 ## RoundCorners
