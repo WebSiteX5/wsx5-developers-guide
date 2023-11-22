@@ -228,6 +228,21 @@ var bottomGreen = parameters['field-id'].bottomB; // integer 0-255
 var bottomAlpha = parameters['field-id'].bottomA; // integer 0-255
 ```
 
+## DateTime
+Allows to choose a date and a time.
+
+**Complete list of subtags**
+```xml
+<Field type="datetime" id="">
+  <DefaultValue>2023-11-22T15:30:00</DefaultValue>
+  <Label l10n-id="loc_id">Default label text</Label>
+</Field>
+```
+**Complete example of WSX5 Script properties access**
+```js
+var dateTimeValue = parameters['field-id'].value; // Date JS object
+```
+
 ## Dimensions
 Allows to choose width and height using a single UI control.
 

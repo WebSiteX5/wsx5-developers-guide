@@ -766,6 +766,9 @@ var wsx5 = {
                "left":4
             }
         },
+         "dateFormat": "dd/MM/yyyy",
+         "dateFormatExt": "ddd dd MMM yyyy",
+		 "formatDate": function(date, extended, format) { .. }, // return "date" formatted as string using standard/extended format (depending on "extented" value) or using "format" (if provided)
          "field":{
 			 // Color type
             "backColor":{ },
