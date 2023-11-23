@@ -766,9 +766,13 @@ var wsx5 = {
                "left":4
             }
         },
+		 // Standard date format in .NET notation. Available since v2024.1
          "dateFormat": "dd/MM/yyyy",
+		 // Extended date format in .NET notation. Available since v2024.1
          "dateFormatExt": "ddd dd MMM yyyy",
-		 "formatDate": function(date, extended, format) { .. }, // return "date" formatted as string using standard/extended format (depending on "extented" value) or using "format" (if provided)
+		 // Return "date" formatted as string using standard/extended format (depending on "extented" value) or using "format" (if provided)
+		 // Available since v2024.1
+		 "formatDate": function(date, extended, format) { .. },
          "field":{
 			 // Color type
             "backColor":{ },

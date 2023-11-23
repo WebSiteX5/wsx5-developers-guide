@@ -56,6 +56,7 @@ Here you can find a list of the available field types.
 The values represented in the following XML code examples are not to consider as default values for the various fields.
 
 ## Borders
+Available since v2024.1
 Allows to specify all the borders properties, that is color, width, round corners and shadow, with UI controls positioned in the same line and with a single label. It's possible to show only a subset of that properties.
 `Width`, `Color`, `RoundCorners` and `Shadow` are defined like the corresponding stand-alone fields, except for the absence of `Label` and other general subtags (`Enabled`, `Visible`, ...), that applies only to whole borders field.
 `Id` attribute must be specified for each of those elements, but can be left empty.
@@ -178,7 +179,7 @@ Allows to choose a color from a palette.
 ```xml
 <Field type="color" id="">
   <EnableTransparent>false</EnableTransparent>
-  <ShowOpacity>true</ShowOpacity>
+  <ShowOpacity>true</ShowOpacity> <!-- Available since v2024.1 -->
   <DefaultValue>(#AARRGGBB|#RRGGBB)</DefaultValue>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
@@ -229,6 +230,7 @@ var bottomAlpha = parameters['field-id'].bottomA; // integer 0-255
 ```
 
 ## DateTime
+Available since v2024.1
 Allows to choose a date and a time.
 
 **Complete list of subtags**
@@ -498,6 +500,7 @@ var value = parameters['field-id'].right; // integer
 ```
 
 ## MarginsHorVer
+Available since v2024.1
 Allows to choose 2 margins:
 - `ShowHor == true` and `ShowVer == true`: horizontal and vertical
 - `ShowHor == true` and `ShowVer == false`: left and right
@@ -545,6 +548,7 @@ var fieldValue = parameters['field-id'].value; // Number
 ```
 
 ## Position
+Available since v2024.1
 Allows to choose the position of a element. The following combinations of `PositionType` and `ShowMiddleCenter` are supported; for each combination, `DefaultValue` XML tag in manifest and `position` JS property can assume different set of values, as reported in the following table:
 
 | PositionType | ShowMiddleCenter | Allowed manifest XML tag values (JS property values are the same, but lowercase)                           |
@@ -619,7 +623,7 @@ Allows to choose the style of a shadow.
   <DefaultOffsetY>1</DefaultOffsetY>
   <DefaultDimension>10</DefaultDimension>
   <DefaultDiffusion>10</DefaultDiffusion>
-  <ShowSpread>true</ShowSpread>
+  <ShowSpread>true</ShowSpread> <!-- Available since v2024.1 -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -636,7 +640,7 @@ var value = parameters['field-id'].offsetX (integer);
 var value = parameters['field-id'].offsetY (integer);
 var value = parameters['field-id'].blur (integer); // Dimension value
 var value = parameters['field-id'].spread (integer); // Diffusion value
-var value = parameters['field-id'].showSpread (bool); // Diffusion enabled
+var value = parameters['field-id'].showSpread (bool); // Diffusion enabled (available since v2024.1)
 ```
 
 ## SiteNodes
@@ -839,6 +843,7 @@ var fieldValue = parameters['field-id'].AllowHTML; // Boolean
 ```
 
 ## TextAlign
+Available since v2024.1
 Allows to choose text alignment.
 
 **Complete list of subtags**
