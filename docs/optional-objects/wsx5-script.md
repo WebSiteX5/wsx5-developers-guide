@@ -199,33 +199,49 @@ var currentObject = {
 ## l10n
 **Type**: Object
 
-Allows you to get the localizations defined in the localizations.xml file or in the global localizations container of WSX5.
+Allows you to get the localizations defined in the localizations.xml file or in the website localizations or in the global localizations container of WSX5.
 
 It's defined as follows:
 ```javascript
 var l10n = {
 
-	// returns the localization in the website language.
+	// returns the localization from localizations.xml file in the website language.
 	"get": function(localizationId) { ... },
 
-	// returns the localization in the website language.
+	// returns the localization from localizations.xml file in the website language.
 	// If localizationId is not found, returns defaultValue.
 	"get": function(localizationId, defaultValue) { ... },
 
-	// returns the localization in the specified language,
+	// returns the localization from localizations.xml file in the specified language,
 	// returning defaultValue id localizationId is not found
 	"get": function(localizationId, defaultValue, languageId) { ... },
+
+	// returns the localization from the website localizations in the website language.
+	// Available since v2024.1
+	"get_website": function(localizationId) { ... },
+
+	// returns the localization from the website localizations in the website language.
+	// If localizationId is not found, returns defaultValue.
+	// Available since v2024.1
+	"get_website": function(localizationId, defaultValue) { ... },
+
+	// returns the localization from the website localizations in the specified language,
+	// returning defaultValue id localizationId is not found
+	// Available since v2024.1
+	"get_website": function(localizationId, defaultValue, languageId) { ... },
 
 	// returns the requested localization by taking it from
 	// the localization library of the UI of WebSite X5.
 	// It is always in the installation language of the software.
-	"get_global": function(localizationId) { ... },
+	// Prior to v2024.1 this function was named get_global
+	"get_ui": function(localizationId) { ... },
 
 	// returns the requested localization by taking it from the
 	// localization library of the UI of WebSite X5.
 	// It is always in the installation language of the software.
 	// In case the localization is not present it will be used the default value.	
-	"get_global": function(localizationId, DefaultValue) { ... }
+	// Prior to v2024.1 this function was named get_global
+	"get_ui": function(localizationId, DefaultValue) { ... }
 };
 ```
 
