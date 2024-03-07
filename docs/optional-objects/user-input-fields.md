@@ -387,6 +387,10 @@ Allows to choose a list of files.
   <LinkEnabled>false</LinkEnabled>
   <ElementList>false</ElementList> <!-- Since: 2023.1.4.0 -->
   <Height>255</Height> <!-- Since: 2023.1.5.0 -->
+  <!-- Small and medium thumb size toolbar buttons are always visible; large thumb size toolbar button is visible only if ShowLargeThumbs = true -->
+  <ShowLargeThumbs>true</ShowLargeThumbs> <!-- Since: 2024.1.2.0 -->
+  <!-- Default selected thumb size toolbar button; allowed values: Small, Medium and Large (only if ShowLargeThumbs = true) -->
+  <DefaultThumbSize>Small</DefaultThumbSize> <!-- Since: 2024.1.2.0 -->
 </Field>
 ```
 
