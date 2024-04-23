@@ -231,12 +231,13 @@ var bottomAlpha = parameters['field-id'].bottomA; // integer 0-255
 
 ## DateTime
 Available since v2024.1
-Allows to choose a date and a time.
+Allows to choose a date (and a time, if `<ShowTime>true</ShowTime>`; default is false).
 
 **Complete list of subtags**
 ```xml
 <Field type="datetime" id="">
   <DefaultValue>2023-11-22T15:30:00</DefaultValue>
+  <ShowTime>true</ShowTime>
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
