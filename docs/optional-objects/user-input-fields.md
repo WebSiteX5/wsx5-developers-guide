@@ -562,8 +562,8 @@ Allows to choose the position of a element. The following combinations of `Posit
 | Horizontal   | true             | Left, Center, Right                                                                                        |
 | Horizontal   | false            | Left, Right                                                                                                |
 | Vertical     | false            | Top, Bottom                                                                                                |
-| Corner       | true             | TopLeft, TopRight, BottomLeft, BottomRight                                                                 |
-| Corner       | false            | TopLeft, TopRight, MiddleCenter, BottomLeft, BottomRight                                                   |
+| Corner       | true             | TopLeft, TopRight, MiddleCenter, BottomLeft, BottomRight                                                   |
+| Corner       | false            | TopLeft, TopRight, BottomLeft, BottomRight                                                                 |
 
 **Complete list of subtags**
 ```xml
