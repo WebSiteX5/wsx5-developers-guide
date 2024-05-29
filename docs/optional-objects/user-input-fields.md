@@ -561,9 +561,12 @@ Allows to choose the position of a element. The following combinations of `Posit
 | All          | true             | TopLeft, TopCenter, TopRight, MiddleLeft, MiddleCenter, MiddleRight, BottomLeft, BottomCenter, BottomRight |
 | Horizontal   | true             | Left, Center, Right                                                                                        |
 | Horizontal   | false            | Left, Right                                                                                                |
+| Vertical     | true             | Top, Middle, Bottom                                                                                        |
 | Vertical     | false            | Top, Bottom                                                                                                |
 | Corner       | true             | TopLeft, TopRight, MiddleCenter, BottomLeft, BottomRight                                                   |
 | Corner       | false            | TopLeft, TopRight, BottomLeft, BottomRight                                                                 |
+| Side         | true             | Top, Bottom, Middle, Left, Right                                                                           |
+| Side         | false            | Top, Bottom, Left, Right                                                                                   |
 
 **Complete list of subtags**
 ```xml
