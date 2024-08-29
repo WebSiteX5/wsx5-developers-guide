@@ -16,6 +16,7 @@ Here's how a manifest.xml looks like:
     <RecommendedMinSize>100,100</RecommendedMinSize>
     <Description l10n-id="description">Add a "Hello World!" to your page.</Description>
     <LazyLoadCapable>false</LazyLoadCapable>
+    <StickyCapable>false</StickyCapable>
     <!-- Here we define some cosmetics -->
     <Overflow>false</Overflow>
     <ShowPreview>true</ShowPreview>
@@ -141,6 +142,12 @@ It contains the description of the application. It can be localized with the `l1
 **Mandatory**: no
 **Since**: 2022.3.0.0
 If set to `true`, the UI of WebSite X5 will enable Lazy Load option for the object instances.
+
+## StickyCapable Tag
+
+**Mandatory**: no
+**Since**: 2025.1.0.0
+If set to `false`, the UI of WebSite X5 will not enable sticky position option for the object instances; if omitted or set to `true`, sticky position option is enabled.
 
 ## PageExtension Tag
 
