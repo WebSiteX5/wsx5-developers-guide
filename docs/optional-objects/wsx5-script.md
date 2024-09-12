@@ -439,6 +439,7 @@ var wsx5 = {
 				"name": "",
 				"description": "",
 				"price": 0,
+				"lowestPrice": 0, // available since v2024.4; -1 if user doesn't want to show previous price
 				"vat": 0,
 				"weight": 0,
 				"coupon": "",
