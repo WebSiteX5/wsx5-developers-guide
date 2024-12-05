@@ -354,6 +354,8 @@ Allows to choose a file.
   <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- Deprecated: 2022.2.0.0 -->
   <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
   <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
+  <ShowAccessibility>true</ShowAccessibility> <!-- Since: 2025.1.0.0; if true, the UI shows the accessibility icon, that opens a popup to insert alternative text and title for each file or, alternatively, to mark the file as decorative -->
+  <IsDecorativeAsDefault>true</IsDecorativeAsDefault> <!-- Since: 2025.1.0.0; if true, as soon as a file is selected, it's marked as decorative; the user can always mark it as non-decorative and set alternative text and title -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -361,6 +363,8 @@ Allows to choose a file.
 **Complete example of WSX5 Script properties access**
 ```js
 var value = parameters['field-id'].path; // String
+var value = parameters['field-id'].alt; // String; don't access this field directly; use a11y.generateAccessibilityPropsHTML() or a11y.getAlt() instead
+var value = parameters['field-id'].title; // String; don't access this field directly; use a11y.generateAccessibilityPropsHTML() or a11y.getTitle() instead
 var value = parameters['field-id'].name; // String
 var value = parameters['field-id'].extension; // String
 var value = parameters['field-id'].isImage; // Boolean
@@ -382,9 +386,11 @@ Allows to choose a list of files.
   <!-- If set to true it allow using of PixaBay Images, false is the default: for fields that don't use images input don't use this tag -->
   <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
   <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
+  <ShowAccessibility>true</ShowAccessibility> <!-- Since: 2025.1.0.0; if true, the UI shows the accessibility icon, that opens a popup to insert alternative text and title for each file or, alternatively, to mark the file as decorative -->
+  <IsDecorativeAsDefault>true</IsDecorativeAsDefault> <!-- Since: 2025.1.0.0; if true, as soon as a file is selected, it's marked as decorative; the user can always mark it as non-decorative and set alternative text and title -->
   <Label l10n-id="loc_id">Default label text</Label>
   <DescriptionEnabled>false</DescriptionEnabled>
-  <AltTitleEnabled>false</AltTitleEnabled> <!-- Since: 2023.1.4.0 -->
+  <AltTitleEnabled>false</AltTitleEnabled> <!-- Since: 2023.1.4.0; deprecated in 2025.1.0.0, replaced by ShowAccessibility -->
   <LinkEnabled>false</LinkEnabled>
   <ElementList>false</ElementList> <!-- Since: 2023.1.4.0 -->
   <Height>255</Height> <!-- Since: 2023.1.5.0 -->
@@ -443,6 +449,8 @@ It is a field which allows to choose from a list of images shown in a dropdown
     <AcceptedExtensions>*.png</AcceptedExtensions> <!-- The allowed extensions of the sfile select dialog -->
     <DefaultIndex>0</DefaultIndex> <!-- The default selected image -->
     <Label l10n-id="loc_id">Default label text</Label>
+	<ShowAccessibility>true</ShowAccessibility> <!-- Since: 2025.1.0.0; if true, the UI shows the accessibility icon, that opens a popup to insert alternative text and title for each file or, alternatively, to mark the file as decorative -->
+	<IsDecorativeAsDefault>true</IsDecorativeAsDefault> <!-- Since: 2025.1.0.0; if true, as soon as a file is selected, it's marked as decorative; the user can always mark it as non-decorative and set alternative text and title -->
 </Field>
 ```
 

@@ -19,6 +19,7 @@ nav:
     - 'Manifest XML': 'optional-objects/manifest-xml.md'
     - 'User input fields': 'optional-objects/user-input-fields.md'
     - 'Localizations': 'optional-objects/localizations-xml.md'
+    - 'Accessibility': 'optional-objects/accessibility.md'
     - 'Hacking the default behavior': 'optional-objects/hooks.md'
     - 'WSX5 Script': 'optional-objects/wsx5-script.md'
     - 'Storage': 'optional-objects/storage.md'
