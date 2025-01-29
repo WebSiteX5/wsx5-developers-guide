@@ -888,3 +888,25 @@ var wsx5 = {
     }
 };
 ```
+
+## wsx5utils
+**Type**: Object
+
+Contains some helper functions.
+
+It is defined as follows:
+```javascript
+var wsx5utils = {
+	// Replace HTML entities (like &amp;, &apos;, ...) with the corresponding characters
+	"decodeHTMLEntities": function (htmlStr) { ... },
+	
+	// Escape a string for regular expression use
+	"escapeRegExp": function (string) { ... },
+	
+	// Replace all occurrences of the string "find" with the string "replace" inside the string "str"
+	"replaceAll": function (str, find, replace) { ... },
+	
+	// Escape a string to be used in JS code
+	"JSEscape": function (text) { ... }
+};
+```
