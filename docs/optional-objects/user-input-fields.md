@@ -484,6 +484,15 @@ var value = parameters['field-id'].getHTML("link text html"); // String
 if (parameters['field-id'].getHTML("#link#") != "#link#") { // link was specified
     document.write(parameters['field-id'].getHTML("link text html")); // <a href="[link value]">link text html</a>
 } else {...} // link wasn't specified
+
+// "getHTMLStartEnd" method return an array of 2 elements: the opening and closing tags of link, if is was specified, otherwise an array with 2 empty strings.
+var value = parameters['field-id'].getHTMLStartEnd(); // String
+
+// Example of use
+var linkObjectParameters = parameters['field-id'].getHTMLStartEnd();
+document.write(linkObjectParameters[0]);
+document.write("<img src='...' />");
+document.write(linkObjectParameters[1]);
 ```
 
 ## Margins
