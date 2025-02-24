@@ -103,21 +103,35 @@ var value = parameters['field-id'].borderWidth; // CSS string like "1px 2px 3px 
 var value = parameters['field-id'].borderColor; // CSS string like "rgba(255, 255, 0, 1) rgba(255, 255, 0, 1) rgba(255, 255, 0, 1) rgba(255, 255, 0, 1)"
 var value = parameters['field-id'].borderRadius; // CSS string like "1px 2px 3px 4px"
 var value = parameters['field-id'].boxShadow; // CSS string like "1px 1px 10px 10px rgba(0, 0, 0, 1)"
+var value = parameters['field-id'].borderWidthCSS; // CSS string like "border-block-width: 1px 2px; border-inline-width: 3px 4px; "
+var value = parameters['field-id'].borderColorCSS; // CSS string like "border-block-color: rgba(255, 255, 0, 1) rgba(255, 255, 0, 1); border-inline-color: rgba(255, 255, 0, 1) rgba(255, 255, 0, 1); "
+var value = parameters['field-id'].borderRadiusCSS; // CSS string like "border-start-start-radius: 1px; border-start-end-radius: 2px; border-end-start-radius: 3px; border-end-end-radius: 4px; "
 
 var value = parameters['field-id'].width.left; // integer
 var value = parameters['field-id'].width.right; // integer
 var value = parameters['field-id'].width.top; // integer
 var value = parameters['field-id'].width.bottom; // integer
+var value = parameters['field-id'].width.leftCSS; // CSS string like "border-inline-start-width: 1px; "
+var value = parameters['field-id'].width.rightCSS; // CSS string like "border-inline-end-width: 1px; "
+var value = parameters['field-id'].width.CSS; // CSS string like "border-block-width: 1px 2px; border-inline-width: 3px 4px; "
 
 var value = parameters['field-id'].color.top; // CSS string like "#45ff23"
 var value = parameters['field-id'].color.bottom; // CSS string like "#45ff23"
 var value = parameters['field-id'].color.left; // CSS string like "#45ff23"
 var value = parameters['field-id'].color.right; // CSS string like "#45ff23"
+var value = parameters['field-id'].color.leftCSS; // CSS string like "border-inline-start-color: #45ff23; "
+var value = parameters['field-id'].color.rightCSS; // CSS string like "border-inline-end-color: #45ff23; "
+var value = parameters['field-id'].color.CSS; // CSS string like "border-block-color: #45ff23 #45ff23; border-inline-color: #45ff23 #45ff23; "
 
 var value = parameters['field-id'].roundCorners.topleft; // integer
 var value = parameters['field-id'].roundCorners.topright; // integer
 var value = parameters['field-id'].roundCorners.bottomleft; // integer
 var value = parameters['field-id'].roundCorners.bottomright; // integer
+var value = parameters['field-id'].roundCorners.topleftCSS; // CSS string like "border-start-start-radius: 1px; "
+var value = parameters['field-id'].roundCorners.toprightCSS; // CSS string like "border-start-end-radius: 1px; "
+var value = parameters['field-id'].roundCorners.bottomleftCSS; // CSS string like "border-end-start-radius: 1px; "
+var value = parameters['field-id'].roundCorners.bottomrightCSS; // CSS string like "border-end-end-radius: 1px; "
+var value = parameters['field-id'].roundCorners.CSS; // CSS string like "border-start-start-radius: 1px; border-start-end-radius: 2px; border-end-start-radius: 3px; border-end-end-radius: 4px; "
 
 var value = parameters['field-id'].shadow.active; // true if the 'enable' checkbox is checked
 var value = parameters['field-id'].shadow.color (hexadecimal string);
@@ -155,6 +169,9 @@ var value = parameters['field-id'].left; // integer
 var value = parameters['field-id'].right; // integer
 var value = parameters['field-id'].top; // integer
 var value = parameters['field-id'].bottom; // integer
+var value = parameters['field-id'].leftCSS; // CSS string like "border-inline-start-width: 1px; "
+var value = parameters['field-id'].rightCSS; // CSS string like "border-inline-end-width: 1px; "
+var value = parameters['field-id'].CSS; // CSS string like "border-block-width: 1px 2px; border-inline-width: 3px 4px; "
 ```
 
 ## Checkbox
@@ -227,6 +244,9 @@ var bottomRed = parameters['field-id'].bottomR; // integer 0-255
 var bottomBlue = parameters['field-id'].bottomG; // integer 0-255
 var bottomGreen = parameters['field-id'].bottomB; // integer 0-255
 var bottomAlpha = parameters['field-id'].bottomA; // integer 0-255
+var leftCSS = parameters['field-id'].leftCSS; // CSS string like "border-inline-start-color: #45ff23; "
+var rightCSS = parameters['field-id'].rightCSS; // CSS string like "border-inline-end-color: #45ff23; "
+var CSS = parameters['field-id'].CSS; // CSS string like "border-block-color: #45ff23 #45ff23; border-inline-color: #45ff23 #45ff23; "
 ```
 
 ## DateTime
@@ -520,6 +540,12 @@ var value = parameters['field-id'].top; // integer
 var value = parameters['field-id'].bottom; // integer
 var value = parameters['field-id'].left; // integer
 var value = parameters['field-id'].right; // integer
+var leftMarginCSS = parameters['field-id'].leftMarginCSS; // CSS string like "margin-inline-start: 1px; "
+var rightMarginCSS = parameters['field-id'].rightMarginCSS; // CSS string like "margin-inline-end: 1px; "
+var leftPaddingCSS = parameters['field-id'].leftPaddingCSS; // CSS string like "padding-inline-start: 1px; "
+var rightPaddingCSS = parameters['field-id'].rightPaddingCSS; // CSS string like "padding-inline-end: 1px; "
+var marginCSS = parameters['field-id'].marginCSS; // CSS string like "margin-block: 1px 2px; margin-inline: 3px 4px; "
+var paddingCSS = parameters['field-id'].paddingCSS; // CSS string like "padding-block: 1px 2px; padding-inline: 3px 4px; "
 ```
 
 ## MarginsHorVer
@@ -623,6 +649,11 @@ var value = parameters['field-id'].topleft; // integer
 var value = parameters['field-id'].topright; // integer
 var value = parameters['field-id'].bottomleft; // integer
 var value = parameters['field-id'].bottomright; // integer
+var value = parameters['field-id'].topleftCSS; // CSS string like "border-start-start-radius: 1px; "
+var value = parameters['field-id'].toprightCSS; // CSS string like "border-start-end-radius: 1px; "
+var value = parameters['field-id'].bottomleftCSS; // CSS string like "border-end-start-radius: 1px; "
+var value = parameters['field-id'].bottomrightCSS; // CSS string like "border-end-end-radius: 1px; "
+var value = parameters['field-id'].CSS; // CSS string like "border-start-start-radius: 1px; border-start-end-radius: 2px; border-end-start-radius: 3px; border-end-end-radius: 4px; "
 ```
 
 ## Separator
@@ -883,4 +914,5 @@ Allows to choose text alignment.
 **Complete example of WSX5 Script properties access**
 ```js
 var fieldValue = parameters['field-id'].textAlign; // CSS string to be used into text-align property
+var fieldValue = parameters['field-id'].textAlignCSS; // CSS string like "text-align: start; "
 ```

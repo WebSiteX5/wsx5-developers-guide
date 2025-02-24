@@ -910,3 +910,45 @@ var wsx5utils = {
 	"JSEscape": function (text) { ... }
 };
 ```
+
+## cssUtils
+**Type**: Object
+
+Contains some helper functions to generate CSS code.
+
+It is defined as follows:
+```javascript
+var cssUtils = {
+	// Return CSS string like "text-align: start; " (ending with ";" and a space)
+	// position can be "left", "center" or "right"
+	"textAlign": function (position) { ... },
+	
+	// Return CSS string like "clear: left; clear: inline-start; " (ending with ";" and a space)
+	// "clear: left/right;" is added for compatibility with old browsers (inline-start/end are supported in Chrome only since the end of 2023)
+	// position can be "left" or "right"
+	"clear": function (position) { ... },
+	
+	// Return CSS string like "float: left; float: inline-start; " (ending with ";" and a space)
+	// "float: left/right;" is added for compatibility with old browsers (inline-start/end are supported in Chrome only since the end of 2023)
+	// position can be "left" or "right"
+	"float": function (position) { ... },
+	
+	// Return CSS string like "padding-inline-start: 1px; " (ending with ";" and a space)
+	// position can be "left", "right", "top" or "bottom"
+	// value can be an integer or a string (for example "auto")
+	// unitType can be any valid CSS unit type (px, %, em, ...); if omitted, "px" is used
+	"padding": function (position, value, unitType) { ... },
+	
+	// Return CSS string like "margin-inline-start: 1px; " (ending with ";" and a space)
+	// position can be "left", "right", "top" or "bottom"
+	// value can be an integer or a string (for example "auto")
+	// unitType can be any valid CSS unit type (px, %, em, ...); if omitted, "px" is used
+	"margin": function (position, value, unitType) { ... },
+	
+	// Return CSS string like "inset-inline-start: 1px; " (ending with ";" and a space)
+	// position can be "left", "right", "top" or "bottom"
+	// value can be an integer or a string (for example "auto")
+	// unitType can be any valid CSS unit type (px, %, em, ...); if omitted, "px" is used
+	"inset": function (position, value, unitType) { ... },
+};
+```
