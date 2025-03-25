@@ -267,6 +267,9 @@ var wsx5 = {
 	// Site's content language ID
 	"contentLanguageId": "it",
 
+	// True if RTL is enabled, false otherwise. Available since 2025.1.4.0
+	"contentLanguageRTL": false,
+
 	// WebSite X5 version. Available since 11.0.0.3
 	"version": "12.0.4.21",
 

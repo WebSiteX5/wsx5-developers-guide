@@ -385,6 +385,7 @@ Allows to choose a file.
 var value = parameters['field-id'].path; // String
 var value = parameters['field-id'].alt; // String; don't access this field directly; use a11y.generateAccessibilityPropsHTML() or a11y.getAlt() instead
 var value = parameters['field-id'].title; // String; don't access this field directly; use a11y.generateAccessibilityPropsHTML() or a11y.getTitle() instead
+var value = parameters['field-id'].isDecorative; // Boolean
 var value = parameters['field-id'].name; // String
 var value = parameters['field-id'].extension; // String
 var value = parameters['field-id'].isImage; // Boolean
@@ -506,11 +507,11 @@ if (parameters['field-id'].getHTML("#link#") != "#link#") { // link was specifie
 } else {...} // link wasn't specified
 
 // "getHTMLStartEnd" method return an array of 2 elements: the opening and closing tags of link, if is was specified,
-// otherwise an array with 2 empty strings.
-var value = parameters['field-id'].getHTMLStartEnd(); // Array of String
+// otherwise an array with 2 empty strings. It accepts the optional parameter "ariaLabel": if set, aria-label attribute is added to link
+var value = parameters['field-id'].getHTMLStartEnd(ariaLabel); // Array of String
 
 // Example of use
-var linkObjectHTML = parameters['field-id'].getHTMLStartEnd();
+var linkObjectHTML = parameters['field-id'].getHTMLStartEnd(ariaLabel);
 document.write(linkObjectHTML[0]);
 document.write("<img src='...' />");
 document.write(linkObjectHTML[1]);
@@ -915,4 +916,5 @@ Allows to choose text alignment.
 ```js
 var fieldValue = parameters['field-id'].textAlign; // CSS string to be used into text-align property
 var fieldValue = parameters['field-id'].textAlignCSS; // CSS string like "text-align: start; "
+var fieldValue = parameters['field-id'].textAlignValue; // CSS string to be used into text-align property, RTL safe (returns start, center or end)
 ```

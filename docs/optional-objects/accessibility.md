@@ -52,3 +52,10 @@ Example:
 ```js
 externalLibrary.generateElement({ path: parameters.img1.path, alt: a11y.getAlt(parameters.img1), title: a11y.getTitle(parameters.img1) });
 ```
+
+### `a11y.isDecorative(obj)`
+
+Returns `true` if `obj` is marked as decorative, `false` otherwise (even if `obj` is not marked as decorative but alternate text has not been specified).
+
+Parameters:
+- `obj`: the field that contains the accessibility properties (for example `parameters.field_name`)
