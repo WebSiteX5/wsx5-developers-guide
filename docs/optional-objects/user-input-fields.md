@@ -374,6 +374,7 @@ Allows to choose a file.
   <ShowOnlineLibrary>false</ShowOnlineLibrary> <!-- Deprecated: 2022.2.0.0 -->
   <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
   <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
+  <ImageTypes>any,photo,illustration,icon</ImageTypes> <!-- Since: 2025.3.8.0; comma separated list of image types to be shown in online image library tab; allowed values are any, photo, illustration, icon; if empty, any, photo and illustration are shown -->
   <ShowAccessibility>true</ShowAccessibility> <!-- Since: 2025.1.0.0; if true, the UI shows the accessibility icon, that opens a popup to insert alternative text and title for each file or, alternatively, to mark the file as decorative -->
   <IsDecorativeAsDefault>true</IsDecorativeAsDefault> <!-- Since: 2025.1.0.0; if true, as soon as a file is selected, it's marked as decorative; the user can always mark it as non-decorative and set alternative text and title -->
   <Label l10n-id="loc_id">Default label text</Label>
@@ -407,6 +408,7 @@ Allows to choose a list of files.
   <!-- If set to true it allow using of PixaBay Images, false is the default: for fields that don't use images input don't use this tag -->
   <ShowOnlineImageLibrary>false</ShowOnlineImageLibrary> <!-- Since: 2022.2.0.0 -->
   <ShowOnlineVideoLibrary>false</ShowOnlineVideoLibrary> <!-- Since: 2022.2.0.0 -->
+  <ImageTypes>any,photo,illustration,icon</ImageTypes> <!-- Since: 2025.3.8.0; comma separated list of image types to be shown in online image library tab; allowed values are any, photo, illustration, icon; if empty, any, photo and illustration are shown -->
   <ShowAccessibility>true</ShowAccessibility> <!-- Since: 2025.1.0.0; if true, the UI shows the accessibility icon, that opens a popup to insert alternative text and title for each file or, alternatively, to mark the file as decorative -->
   <IsDecorativeAsDefault>true</IsDecorativeAsDefault> <!-- Since: 2025.1.0.0; if true, as soon as a file is selected, it's marked as decorative; the user can always mark it as non-decorative and set alternative text and title -->
   <Label l10n-id="loc_id">Default label text</Label>
