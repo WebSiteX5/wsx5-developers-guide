@@ -775,6 +775,9 @@ Show a text input.
   <MultiLine>false</MultiLine>
   <LinesCount>1</LinesCount>
   <ShowScrollbar>false</ShowScrollbar>
+  <ShowMagicText>true</ShowMagicText> <!-- Available since v2026.1.0.0; if not specified, MagicText is not shown -->
+  <MagicTextCreationTypes>Ideas,Title,SEOTitle,ShortDescription,Paragraph,Tags</MagicTextCreationTypes> <!-- Available since v2026.1.0.0; comma separated list of creation type; if not specified, Title and Paragraph are shown -->
+  <MagicTextEditTypes>MoreEngaging,SEOOriented,Simpler,Longer,Shorter,KeyPoints,Translated</MagicTextEditTypes> <!-- Available since v2026.1.0.0; comma separated list of edit type; if not specified, MoreEngaging, Simpler, Longer, Shorter and Translated are shown -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -909,7 +912,8 @@ Allows to choose text alignment.
 **Complete list of subtags**
 ```xml
 <Field type="textalign" id="field-id">
-  <Align>left|center|right</Align>
+  <Align>left|center|right|justify</Align> <!-- "justify" available since v2025.3.7.0 -->
+  <ShowJustify>true</ShowJustify> <!-- Available since v2025.3.7.0; if not specified, justify is not shown -->
   <Label l10n-id="loc_id">Default label text</Label>
 </Field>
 ```
@@ -918,5 +922,5 @@ Allows to choose text alignment.
 ```js
 var fieldValue = parameters['field-id'].textAlign; // CSS string to be used into text-align property
 var fieldValue = parameters['field-id'].textAlignCSS; // CSS string like "text-align: start; "
-var fieldValue = parameters['field-id'].textAlignValue; // CSS string to be used into text-align property, RTL safe (returns start, center or end)
+var fieldValue = parameters['field-id'].textAlignValue; // CSS string to be used into text-align property, RTL safe (returns start, center, end or justify)
 ```
