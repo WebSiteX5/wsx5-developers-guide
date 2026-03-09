@@ -497,7 +497,7 @@ Allows to choose a link from the link selection window of WebSite X5.
 
 **Complete example of WSX5 Script properties access**
 ```js
-// "raw" property conteins raw link data. It is available if DisableFileLinks and DisableTooltip are set to true
+// "raw" property contains raw link data. It is available if DisableFileLinks and DisableTooltip are set to true
 var rawLink = parameters['field-id'].raw;
 
 // "getHTML" method return text given wrapped by tag "a", if link was specified, otherwise only text given.
@@ -508,12 +508,13 @@ if (parameters['field-id'].getHTML("#link#") != "#link#") { // link was specifie
     document.write(parameters['field-id'].getHTML("link text html")); // <a href="[link value]">link text html</a>
 } else {...} // link wasn't specified
 
-// "getHTMLStartEnd" method return an array of 2 elements: the opening and closing tags of link, if is was specified,
-// otherwise an array with 2 empty strings. It accepts the optional parameter "ariaLabel": if set, aria-label attribute is added to link
-var value = parameters['field-id'].getHTMLStartEnd(ariaLabel); // Array of String
+// "getHTMLStartEnd" method returns an array of 2 elements: the opening and closing tags of link, if is was specified,
+// otherwise an array with 2 empty strings. It accepts the optional parameters "ariaLabel" (if set, aria-label attribute is added to link)
+// and "cssClass" (if set, the given CSS class(es) are added to link)
+var value = parameters['field-id'].getHTMLStartEnd(ariaLabel, cssClass); // Array of String
 
 // Example of use
-var linkObjectHTML = parameters['field-id'].getHTMLStartEnd(ariaLabel);
+var linkObjectHTML = parameters['field-id'].getHTMLStartEnd(ariaLabel, "link-class-1 link-class-2");
 document.write(linkObjectHTML[0]);
 document.write("<img src='...' />");
 document.write(linkObjectHTML[1]);
