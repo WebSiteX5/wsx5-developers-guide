@@ -40,6 +40,22 @@ function OnValueChanged() {
 
 ## Field Values Structures Examples
 
+### Borders
+
+```js
+ {
+	"width": { "top": 5, "right": 10, "bottom": 15, "left": 20 },
+	"color": {
+		"topR": 255, "topG": 0, "topB": 0,
+		"rightR": 0, "rightG": 255, "rightB": 0,
+		"bottomR": 0, "bottomG": 0, "bottomB": 255,
+		"leftR": 255, "leftG": 255, "leftB": 0
+	},
+	"roundCorners": { "topleft": 5, "topright": 10, "bottomleft": 15, "bottomright": 20 },
+	"shadow": { "active": true, "blur": 5, "spread": 10, "offsetX": 15, "offsetY": 20, "colorR": 255, "colorG": 0, "colorB": 0 }
+}
+```
+
 ### BorderWidth
 
 ```js
