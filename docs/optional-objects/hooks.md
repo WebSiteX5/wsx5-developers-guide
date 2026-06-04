@@ -215,6 +215,15 @@ The **resource** parameter is defined as follows (the code is filled with exampl
 **Since**: 2019.1.0.0
 
 This function is called everytime the optional object version is updated. The output of this function will be used to [dynamically update fields values](dynamic-update-fields.md).
+Values in `fields` object returned by this function can be constant values or other parameters values. When `OnMigration` is used to init new parameters with values from old parameters,
+the old parameters must be kept in the manifest and can be referenced using their IDs (for example: `parameters.old_param_id.value`).
+Only the start tag of the old parameter is needed; the content can be left empty and the field can have `<Visible>false</Visible>`); for example:
+
+```xml
+	<Field type="color" id="old_param_id">
+		<Visible>false</Visible>
+	</Field>
+```
 
 |Parameter      | Type   | Description                                                                                                    |
 |---------------|--------|----------------------------------------------------------------------------------------------------------------|
