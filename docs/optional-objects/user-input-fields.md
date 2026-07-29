@@ -453,6 +453,8 @@ It is a field which allows to choose the font, it's size and style.
 var value = parameters['field-id'].defaultFamily; // Boolean
 var value = parameters['field-id'].family; // string
 var value = parameters['field-id'].size; // integer pt
+var value = parameters['field-id'].sizePtResponsive; // Since: 2026.2.0.0; string like "calc(...)" with the resposive size of the font, in pt
+var value = parameters['field-id'].sizePxResponsive; // Since: 2026.2.0.0; string like "calc(...)" with the resposive size of the font, in px
 var value = parameters['field-id'].bold; // Boolean
 var value = parameters['field-id'].italic; // Boolean
 ```
@@ -550,6 +552,8 @@ var leftPaddingCSS = parameters['field-id'].leftPaddingCSS; // CSS string like "
 var rightPaddingCSS = parameters['field-id'].rightPaddingCSS; // CSS string like "padding-inline-end: 1px; "
 var marginCSS = parameters['field-id'].marginCSS; // CSS string like "margin-block: 1px 2px; margin-inline: 3px 4px; "
 var paddingCSS = parameters['field-id'].paddingCSS; // CSS string like "padding-block: 1px 2px; padding-inline: 3px 4px; "
+var marginCSSResponsive = parameters['field-id'].marginCSSResponsive; // (since v2026.2) CSS string like "margin-block: calc(...) calc(...); margin-inline: calc(...) calc(...); " with integrated responsive logic
+var paddingCSSResponsive = parameters['field-id'].paddingCSSResponsive; // (since v2026.2) CSS string like "padding-block: calc(...) calc(...); padding-inline: calc(...) calc(...); " with integrated responsive logic
 ```
 
 ## MarginsHorVer

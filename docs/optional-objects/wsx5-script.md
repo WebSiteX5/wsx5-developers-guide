@@ -296,6 +296,12 @@ var wsx5 = {
 	// True if the website is responsive, false if only desktop. Available since v.17
 	"responsiveEnabled": true,
 
+	// True if responsive text and margin is enabled, false otherwise. Available since v.2026.2
+	// IMPORTANT: every field property and every util function related to responsive (for example marginCSSResponsive and paddingCSSResponsive properties of margin field,
+	// or sizePtResponsive and sizePxResponsive in font field) already checks if responsive is enabled; use this property ONLY to implement custom logic depending on
+	// whether responsiveTextMargin is enabled or not
+	"responsiveTextMargin": true,
+
 	// The available breakpoints array.
 	// Its minimum size is 1, the maximum is up to the user.
 	"breakpoints":
@@ -953,5 +959,19 @@ var cssUtils = {
 	// value can be an integer or a string (for example "auto")
 	// unitType can be any valid CSS unit type (px, %, em, ...); if omitted, "px" is used
 	"inset": function (position, value, unitType) { ... },
+	
+	// Return CSS string like "calc(...)" with the value to be used as responsive font-size.
+	// Returned value contains the logic to scale down depending on the breakpoint; it doesn't need to be inserted inside a media query
+	// size can be an integer or floating value, or a string with an expression (for example "calc(12pt + 5px)")
+	// unitType can be "pt" or "px"
+	// Available since v2026.2
+	"fontSizeResponsive": function (size, unitType) { ... },
+	
+	// Return CSS string like "calc(...)" with the value to be used as responsive margin or padding; the function checks if responsive text and margin is enabled: if not, returns the plain value and unitType
+	// Returned value contains the logic to scale down depending on the breakpoint; it doesn't need to be inserted inside a media query
+	// value can be an integer or floating value, or a string with an expression (for example "calc(100% - 20px)"): in this case, the expression MUST contain the unit type and the unitType parameter MUST be ""
+	// unitType can be any valid CSS unit ("pt", "px", ...)
+	// Available since v2026.2
+	"responsiveValue": function (value, unitType) { ... }
 };
 ```

@@ -156,6 +156,14 @@ If set to `true`, the object will be rendered as RTL if the page is in a RTL lan
 **Since**: 2025.1.0.0
 If set to `false`, the UI of WebSite X5 will not enable sticky position option for the object instances; if omitted or set to `true`, sticky position option is enabled.
 
+## UseTableLayout Tag
+
+**Mandatory**: no
+**Since**: 2026.3.0.0
+If set to `true`, the UI of WebSite X5 will position the fields sequentially using a TableLayoutPanel to automatically hide empty spaces due to hidden fields; `Position` tag is no longer required (if it's present, it's ignored).
+
+If omitted or set to `false`, old layout method is used, so `Position` tag is still required.
+
 ## PageExtension Tag
 
 **Mandatory**: no
