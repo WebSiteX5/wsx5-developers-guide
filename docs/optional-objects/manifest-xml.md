@@ -17,7 +17,8 @@ Here's how a manifest.xml looks like:
     <Description l10n-id="description">Add a "Hello World!" to your page.</Description>
     <LazyLoadCapable>false</LazyLoadCapable>
     <RTLCapable>false</RTLCapable>
-    <StickyCapable>false</StickyCapable>
+    <StickyCapable>true</StickyCapable>
+    <UseTableLayout>false</UseTableLayout>
     <!-- Here we define some cosmetics -->
     <Overflow>false</Overflow>
     <ShowPreview>true</ShowPreview>
@@ -34,7 +35,7 @@ Here's how a manifest.xml looks like:
         </Tab>
     </Parameters>
     <!-- Here we define the output -->
-    <Output><[CDATA["Hello World!" by <?wsx5 document.write(parameters['name'].value); ?>]]></Output>
+    <Output><![CDATA["Hello World!" by <?wsx5 document.write(parameters['name'].value); ?>]]></Output>
     <PreviewOutput src="output/preview.html"></PreviewOutput>
 </App>
 ```
@@ -109,14 +110,14 @@ It contains the sizes ([width],[height]) that the object will assume when it wil
 <InitialSize>200,150</InitialSize>
 ```
 
-## MinRecommendedSize Tag
+## RecommendedMinSize Tag
 
 **Mandatory**: no
 **Since**: 13.0.1
 It contains the sizes ([width],[height]) under which the object is not displayed properly.
 
 ```xml
-<MinRecommendedSize>100,50</MinRecommendedSize>
+<RecommendedMinSize>100,50</RecommendedMinSize>
 ```
 
 ## MinimumSize Tag
@@ -150,11 +151,15 @@ If set to `true`, the UI of WebSite X5 will enable Lazy Load option for the obje
 **Since**: 2025.2.0.0
 If set to `true`, the object will be rendered as RTL if the page is in a RTL language; if set to `false` (or omitted), the object will be forced to be rendered in LTR mode, even if the page is in a RTL language
 
+**Default**: `false`
+
 ## StickyCapable Tag
 
 **Mandatory**: no
 **Since**: 2025.1.0.0
 If set to `false`, the UI of WebSite X5 will not enable sticky position option for the object instances; if omitted or set to `true`, sticky position option is enabled.
+
+**Default**: `true`
 
 ## UseTableLayout Tag
 
@@ -163,6 +168,8 @@ If set to `false`, the UI of WebSite X5 will not enable sticky position option f
 If set to `true`, the UI of WebSite X5 will position the fields sequentially using a TableLayoutPanel to automatically hide empty spaces due to hidden fields; `Position` tag is no longer required (if it's present, it's ignored).
 
 If omitted or set to `false`, old layout method is used, so `Position` tag is still required.
+
+**Default**: `false`
 
 ## PageExtension Tag
 
@@ -193,7 +200,7 @@ Each `Tab` tag may have an id attribute and may contain the following subtags.
 | Subtag Name | Default value | Description |
 |-------------|---------------|-------------|
 | Label | (empty) | Set the tab’s label shown in the UI. It may have the `l10n-id` or `global-l10n-id` attributes for localization purposes. |
-| ShowPreview | `false` | If set to `true` shows the preview in the selected tab. |
+| ShowPreview | `true` | Controls whether the object preview is present in this tab. This is separate from the app-level `ShowPreview` tag. |
 | Fields | (empty) | See the [User input fields](user-input-fields.md) section.|
 
 ```xml
@@ -225,7 +232,7 @@ Each `Resource` tag can have the following properties:
 |-------------|---------|-------------|-----------|
 |id | no | (empty) | A unique ID assigned to the resource useful to access to the resource data via the [WSX5 Script](wsx5-script.md) code.|
 |src |yes| |The source path of the file relative to the "Resources" folder of the application. You cannot provide a path outside that folder, that is, provide a path that contains the "../" string.|
-|action|no|copy| May contain "copy" or "process". If "copy", the file will be copied as is by WebSite X5. If "process", the content of the file will be elaborated according the same rules used for the content of the [Output tag](manifest-xml.md#output-tag)|
+|action|no|copy| Recognizes `copy` and `process`. `process` elaborates the content according to the same rules as the [Output tag](manifest-xml.md#output-tag); any other value currently falls back to `copy`.|
 |autolink|no|`false`| If the linked file is a js or css file and this field is set to "true", the file will be automatically linked in the header of the website page.|
 |shared|no|`false`|If set to "true" the resource will be copied only once in a shared folder for all objects of this type. This will allow to avoid duplicated copies of a static file. If `action="process"`, this flag will be ignored. |
 |offlineonly|no|`false`|If `true`, the resource will be copied or processed only while in offline mode (UI preview and site preview).|
@@ -384,6 +391,8 @@ In the following example, the Optional Object is rebuilt when the user changes s
 **Mandatory**: no
 If set to `true`, the UI of WebSite X5 will show a preview of the object directly in the window where the input fields are available.
 
+This app-level switch enables the object preview. The `ShowPreview` subtag of each `Tab` controls whether that preview is present in the individual tab.
+
 ## WidthPreview Tag
 
 **Mandatory**: no
@@ -420,13 +429,13 @@ This tag supports the loading of contents from external files. See [this paragra
 ## PreviewOutput Tag
 
 **Mandatory**: no
-If available, it contains the output HTML code to show in the small preview present in the editor of the page or in the editor of the template when the object is selected. Works like the Output tag.
+If available, it contains the output HTML code shown in the page editor or template editor when the object is selected. Works like the Output tag.
 
 This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)
 
 ## UIPreviewOutput Tag
 
 **Mandatory**: no
-If available, it contains the output HTML code to show in the preview present during the editing of the object. Works like the Output tag.
+If available, it contains the output HTML code shown while the object's parameters are being edited. Works like the Output tag.
 
 This tag supports the loading of contents from external files. See [this paragraph to get more information](#loading-of-external-content-in-the-manifest)

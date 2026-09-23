@@ -4,7 +4,7 @@ The X5 Engine API provides you a set of responsive-related events.
 **All the events listed below are triggered on the ```#imContent``` DOM element**.
 
 ### beforeBreakpointChanged
-This event is triggered every time a window resize is going to trigger a breakpoint change in the responsive template. The event is triggered before ```breakpointChanged```.
+This event is emitted immediately before `breakpointChanged` when a window resize changes the responsive breakpoint. It is a notification event, not a cancellable event.
 
 **Kind**: Event
 **Since**: 12.0.0
@@ -12,7 +12,7 @@ This event is triggered every time a window resize is going to trigger a breakpo
 ```js
 $("#imContent").on("beforeBreakpointChanged", function (e, breakpoint) {
 	// The breakpoint is passed as argument to the event handler and has 
-	// the same structure returned by x5engine.responsive.getCurrentBreakpoint();
+	// the same structure returned by x5engine.responsive.getCurrentBreakPoint();
 	alert('The current viewport is going to change to ' + breakpoint.name);
 });
 ```
@@ -27,7 +27,7 @@ This event is triggered every time a window resize triggers a breakpoint change 
 ```js
 $("#imContent").on("breakpointChanged", function (e, breakpoint) {
 	// The breakpoint is passed as argument to the event handler and has 
-	// the same structure returned by x5engine.responsive.getCurrentBreakpoint();
+	// the same structure returned by x5engine.responsive.getCurrentBreakPoint();
 	alert('The current viewport is changed to ' + breakpoint.name);
 });
 ```
@@ -42,7 +42,7 @@ This event is triggered every time a window resize triggers a breakpoint change 
 ```js
 $("#imContent").on("breakpointChangedOrFluid", function (e, breakpoint) {
 	// The breakpoint is passed as argument to the event handler and has 
-	// the same structure returned by x5engine.responsive.getCurrentBreakpoint();
+	// the same structure returned by x5engine.responsive.getCurrentBreakPoint();
 	if (!breakpoint.fluid) {
 		alert('The current viewport is changed to ' + breakpoint.name);
 	} else {

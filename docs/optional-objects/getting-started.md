@@ -4,13 +4,14 @@
 You can get your own Optional Object's id from your [developer page](http://answers.websitex5.com/profile/developer). There, follow the onscreen instructions to create a new Optional Object.
 After creating the new Optional Object, you will be able to see its UUID and to install it in your copy of WebSite X5.
 
-Once your object is installed, you can find its sources in the following path:
-**C:\Users\\[User]\AppData\Local\Incomedia\WebSiteX5 v11 - [Edition]\PluginApps\\[UUID]**
+Once your object is installed, its sources are stored in the installed WebSite X5 version's application-data directory, under `PluginApps\<UUID>`.
+
+For example, a Windows installation may use `C:\Users\<User>\AppData\Local\Incomedia\WebSiteX5 <Version> - <Edition>\PluginApps\<UUID>`. The version- and edition-specific directory name is only an example and must not be treated as a fixed path.
 
 Inside the Optional Object's folder you may find the following items:
 
 * **manifest.xml**: mandatory, is the file containing all the code necessary to make your app work. All the informations you need to fill it are here, in the developer's guide.
-* **localization.xml**: mandatory, it needs to contain at least the english localizationsfor the app, but it allows you to add more languages. It uses the same structure of the languages file of WebSite X5.
+* **localizations.xml**: mandatory, it contains at least the English localizations for the object and may contain additional languages. It uses the structure described in [Localizations](localizations-xml.md).
 * **icon.png**: mandatory, is what will make your app recognized by the users and needs to be 32px*32px.
 * **Resources folder**: optional, is necessary in case your app needs to use external files to work.
 

@@ -5,7 +5,7 @@ The file format is the same used for the languages of WebSite X5.
 It is mandatory to fill in at least the English localization in the file. 
 
 To access the localizations from the manifest.xml file, add the `l10n-id` attribute to the xml element you want to localize.
-The `l10n-id` attribute must contain a localization id that was previously specified in the localization.xml file using the `<Key>` tag as reported in the following example.
+The `l10n-id` attribute must contain a localization id that was previously specified in the `localizations.xml` file using the `<Key>` tag as reported in the following example.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

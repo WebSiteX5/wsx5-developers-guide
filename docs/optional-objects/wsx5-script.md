@@ -1,13 +1,14 @@
 # WSX5Script
-The WSX5Script code is an ECMAScript code which is run by WebSite X5 when the HTML/CSS code is built.
 
-The script output will be inserted where the script is.
+WSX5Script uses ECMAScript syntax and is executed by the JavaScript engine embedded in WebSite X5 during site generation. It is not ordinary browser-side JavaScript: it does not automatically have a browser DOM, and its `document` and `window` values are not the standard browser objects. JavaScript intended to run in the browser must be written into the generated output, for example through `document.write()`.
 
-The syntax to use is the same as JavaScript.
+The script output is inserted at the position of the script.
 
 The script needs to be executed inside the `<?wsx5` and `?>` tags (except in the `Hooks` tag).
 
 The following variables are defined in the code.
+
+Parsing and runtime errors are sent to the development console and may cause the current elaboration to produce empty output.
 
 ## parameters
 **Type**: Object
@@ -199,7 +200,7 @@ var currentObject = {
 ## l10n
 **Type**: Object
 
-Allows you to get the localizations defined in the localizations.xml file or in the website localizations or in the global localizations container of WSX5.
+Provides three distinct localization sources: `get` reads the Optional Object's `localizations.xml`, `get_website` reads the website localization library, and `get_ui` reads the WebSite X5 user-interface library in the application's language.
 
 It's defined as follows:
 ```javascript
@@ -233,14 +234,12 @@ var l10n = {
 	// returns the requested localization by taking it from
 	// the localization library of the UI of WebSite X5.
 	// It is always in the installation language of the software.
-	// Prior to v2024.1 this function was named get_global
 	"get_ui": function(localizationId) { ... },
 
 	// returns the requested localization by taking it from the
 	// localization library of the UI of WebSite X5.
 	// It is always in the installation language of the software.
 	// In case the localization is not present it will be used the default value.	
-	// Prior to v2024.1 this function was named get_global
 	"get_ui": function(localizationId, DefaultValue) { ... }
 };
 ```
@@ -249,8 +248,10 @@ var l10n = {
 
 ```javascript
 var localizedText = l10n.get("localization-id-1");
-var localizedGermanText = l10n.get("localization-id-1", "DE");
+var localizedGermanText = l10n.get("localization-id-1", "", "DE");
 ```
+
+The former `l10n.get_global()` name is obsolete and is not part of the current public API. Use `l10n.get_ui()` instead.
 
 ## wsx5
 **Type**: Object
@@ -898,7 +899,13 @@ var wsx5 = {
 };
 ```
 
-## wsx5utils
+## Internal APIs
+
+The runtime also exposes implementation helpers such as `state`, `wsx5utils`, `cssUtils`, and `a11y`. They are reserved for Incomedia objects and are not a supported public contract. External Optional Objects should not depend on them. In particular, do not confuse internal state helpers with the public `storage.getString(key)` and `storage.getField(key)` methods documented above.
+
+The following descriptions are retained only to explain existing Incomedia object code.
+
+### wsx5utils
 **Type**: Object
 
 Contains some helper functions.
@@ -920,7 +927,7 @@ var wsx5utils = {
 };
 ```
 
-## cssUtils
+### cssUtils
 **Type**: Object
 
 Contains some helper functions to generate CSS code.

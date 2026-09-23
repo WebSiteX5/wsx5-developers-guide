@@ -4,11 +4,9 @@
 
 An Optional Object is made of some different files. All of them are stored in a folder which has as name the ID of the Optional Object.
 
-This folder needs to be created in the following path:
+This folder is stored in the installed WebSite X5 version's application-data directory, under `PluginApps\<UUID>`. On Windows, `C:\Users\<User>\AppData\Local\Incomedia\WebSiteX5 <Version> - <Edition>\PluginApps\<UUID>` is one possible version- and edition-dependent example.
 
-**C:\Users\\[User Name]\AppData\Local\Incomedia\WebSiteX5 v[Version] - [Edition]\PluginApps**
-
-An Optional Object folder may contain the following files:
+An Optional Object folder may contain the following files. `manifest.xml`, `localizations.xml`, and `icon.png` form the standard package metadata; previews, the signature file, and resources are present only when needed.
 
 * [manifest.xml](manifest-xml.md)
 * [localizations.xml](localizations-xml.md)
