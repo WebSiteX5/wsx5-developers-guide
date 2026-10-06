@@ -11,7 +11,7 @@ For example, a Windows installation may use `C:\Users\<User>\AppData\Local\Incom
 Inside the Optional Object's folder you may find the following items:
 
 * **manifest.xml**: mandatory, is the file containing all the code necessary to make your app work. All the informations you need to fill it are here, in the developer's guide.
-* **localizations.xml**: mandatory, it contains at least the English localizations for the object and may contain additional languages. It uses the structure described in [Localizations](localizations-xml.md).
+* **localization.xml**: mandatory, it contains at least the English localizations for the object and may contain additional languages. It uses the structure described in [Localizations](localizations-xml.md).
 * **icon.png**: mandatory, is what will make your app recognized by the users and needs to be 32px*32px.
 * **Resources folder**: optional, is necessary in case your app needs to use external files to work.
 

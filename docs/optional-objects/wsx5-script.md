@@ -200,20 +200,20 @@ var currentObject = {
 ## l10n
 **Type**: Object
 
-Provides three distinct localization sources: `get` reads the Optional Object's `localizations.xml`, `get_website` reads the website localization library, and `get_ui` reads the WebSite X5 user-interface library in the application's language.
+Provides three distinct localization sources: `get` reads the Optional Object's `localization.xml`, `get_website` reads the website localization library, and `get_ui` reads the WebSite X5 user-interface library in the application's language.
 
 It's defined as follows:
 ```javascript
 var l10n = {
 
-	// returns the localization from localizations.xml file in the website language.
+	// returns the localization from localization.xml file in the website language.
 	"get": function(localizationId) { ... },
 
-	// returns the localization from localizations.xml file in the website language.
+	// returns the localization from localization.xml file in the website language.
 	// If localizationId is not found, returns defaultValue.
 	"get": function(localizationId, defaultValue) { ... },
 
-	// returns the localization from localizations.xml file in the specified language,
+	// returns the localization from localization.xml file in the specified language,
 	// returning defaultValue id localizationId is not found
 	"get": function(localizationId, defaultValue, languageId) { ... },
 
@@ -244,7 +244,7 @@ var l10n = {
 };
 ```
 
-### Example: get the value of a localization defined in the localizations.xml file.
+### Example: get the value of a localization defined in the localization.xml file.
 
 ```javascript
 var localizedText = l10n.get("localization-id-1");
